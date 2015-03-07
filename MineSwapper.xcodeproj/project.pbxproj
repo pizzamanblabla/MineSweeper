@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4418ABA21AAB896500971997 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABA11AAB896500971997 /* main.m */; };
+		4418ABA51AAB896500971997 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABA41AAB896500971997 /* AppDelegate.m */; };
+		4418ABA81AAB896500971997 /* MineSwapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABA61AAB896500971997 /* MineSwapper.xcdatamodeld */; };
+		4418ABAB1AAB896500971997 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABAA1AAB896500971997 /* ViewController.m */; };
+		4418ABAE1AAB896500971997 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4418ABAC1AAB896500971997 /* Main.storyboard */; };
+		4418ABB01AAB896500971997 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4418ABAF1AAB896500971997 /* Images.xcassets */; };
+		4418ABB31AAB896500971997 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4418ABB11AAB896500971997 /* LaunchScreen.xib */; };
+		4418ABBF1AAB896500971997 /* MineSwapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABBE1AAB896500971997 /* MineSwapperTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4418ABB91AAB896500971997 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4418AB941AAB896500971997 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4418AB9B1AAB896500971997;
+			remoteInfo = MineSwapper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4418AB9C1AAB896500971997 /* MineSwapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineSwapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4418ABA01AAB896500971997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4418ABA11AAB896500971997 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4418ABA31AAB896500971997 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4418ABA41AAB896500971997 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4418ABA71AAB896500971997 /* MineSwapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MineSwapper.xcdatamodel; sourceTree = "<group>"; };
+		4418ABA91AAB896500971997 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4418ABAA1AAB896500971997 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4418ABAD1AAB896500971997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4418ABAF1AAB896500971997 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4418ABB21AAB896500971997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4418ABB81AAB896500971997 /* MineSwapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineSwapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4418ABBD1AAB896500971997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4418ABBE1AAB896500971997 /* MineSwapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSwapperTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4418AB991AAB896500971997 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4418ABB51AAB896500971997 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4418AB931AAB896500971997 = {
+			isa = PBXGroup;
+			children = (
+				4418AB9E1AAB896500971997 /* MineSwapper */,
+				4418ABBB1AAB896500971997 /* MineSwapperTests */,
+				4418AB9D1AAB896500971997 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4418AB9D1AAB896500971997 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4418AB9C1AAB896500971997 /* MineSwapper.app */,
+				4418ABB81AAB896500971997 /* MineSwapperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4418AB9E1AAB896500971997 /* MineSwapper */ = {
+			isa = PBXGroup;
+			children = (
+				4418ABA31AAB896500971997 /* AppDelegate.h */,
+				4418ABA41AAB896500971997 /* AppDelegate.m */,
+				4418ABA91AAB896500971997 /* ViewController.h */,
+				4418ABAA1AAB896500971997 /* ViewController.m */,
+				4418ABAC1AAB896500971997 /* Main.storyboard */,
+				4418ABAF1AAB896500971997 /* Images.xcassets */,
+				4418ABB11AAB896500971997 /* LaunchScreen.xib */,
+				4418ABA61AAB896500971997 /* MineSwapper.xcdatamodeld */,
+				4418AB9F1AAB896500971997 /* Supporting Files */,
+			);
+			path = MineSwapper;
+			sourceTree = "<group>";
+		};
+		4418AB9F1AAB896500971997 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4418ABA01AAB896500971997 /* Info.plist */,
+				4418ABA11AAB896500971997 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4418ABBB1AAB896500971997 /* MineSwapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				4418ABBE1AAB896500971997 /* MineSwapperTests.m */,
+				4418ABBC1AAB896500971997 /* Supporting Files */,
+			);
+			path = MineSwapperTests;
+			sourceTree = "<group>";
+		};
+		4418ABBC1AAB896500971997 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4418ABBD1AAB896500971997 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4418AB9B1AAB896500971997 /* MineSwapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4418ABC21AAB896500971997 /* Build configuration list for PBXNativeTarget "MineSwapper" */;
+			buildPhases = (
+				4418AB981AAB896500971997 /* Sources */,
+				4418AB991AAB896500971997 /* Frameworks */,
+				4418AB9A1AAB896500971997 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MineSwapper;
+			productName = MineSwapper;
+			productReference = 4418AB9C1AAB896500971997 /* MineSwapper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4418ABB71AAB896500971997 /* MineSwapperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4418ABC51AAB896500971997 /* Build configuration list for PBXNativeTarget "MineSwapperTests" */;
+			buildPhases = (
+				4418ABB41AAB896500971997 /* Sources */,
+				4418ABB51AAB896500971997 /* Frameworks */,
+				4418ABB61AAB896500971997 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4418ABBA1AAB896500971997 /* PBXTargetDependency */,
+			);
+			name = MineSwapperTests;
+			productName = MineSwapperTests;
+			productReference = 4418ABB81AAB896500971997 /* MineSwapperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4418AB941AAB896500971997 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Eugene;
+				TargetAttributes = {
+					4418AB9B1AAB896500971997 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					4418ABB71AAB896500971997 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 4418AB9B1AAB896500971997;
+					};
+				};
+			};
+			buildConfigurationList = 4418AB971AAB896500971997 /* Build configuration list for PBXProject "MineSwapper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4418AB931AAB896500971997;
+			productRefGroup = 4418AB9D1AAB896500971997 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4418AB9B1AAB896500971997 /* MineSwapper */,
+				4418ABB71AAB896500971997 /* MineSwapperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4418AB9A1AAB896500971997 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4418ABAE1AAB896500971997 /* Main.storyboard in Resources */,
+				4418ABB31AAB896500971997 /* LaunchScreen.xib in Resources */,
+				4418ABB01AAB896500971997 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4418ABB61AAB896500971997 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4418AB981AAB896500971997 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4418ABA81AAB896500971997 /* MineSwapper.xcdatamodeld in Sources */,
+				4418ABA51AAB896500971997 /* AppDelegate.m in Sources */,
+				4418ABAB1AAB896500971997 /* ViewController.m in Sources */,
+				4418ABA21AAB896500971997 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4418ABB41AAB896500971997 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4418ABBF1AAB896500971997 /* MineSwapperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4418ABBA1AAB896500971997 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4418AB9B1AAB896500971997 /* MineSwapper */;
+			targetProxy = 4418ABB91AAB896500971997 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4418ABAC1AAB896500971997 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4418ABAD1AAB896500971997 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4418ABB11AAB896500971997 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4418ABB21AAB896500971997 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4418ABC01AAB896500971997 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4418ABC11AAB896500971997 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4418ABC31AAB896500971997 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MineSwapper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4418ABC41AAB896500971997 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MineSwapper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4418ABC61AAB896500971997 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MineSwapperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineSwapper.app/MineSwapper";
+			};
+			name = Debug;
+		};
+		4418ABC71AAB896500971997 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MineSwapperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineSwapper.app/MineSwapper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4418AB971AAB896500971997 /* Build configuration list for PBXProject "MineSwapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4418ABC01AAB896500971997 /* Debug */,
+				4418ABC11AAB896500971997 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4418ABC21AAB896500971997 /* Build configuration list for PBXNativeTarget "MineSwapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4418ABC31AAB896500971997 /* Debug */,
+				4418ABC41AAB896500971997 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4418ABC51AAB896500971997 /* Build configuration list for PBXNativeTarget "MineSwapperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4418ABC61AAB896500971997 /* Debug */,
+				4418ABC71AAB896500971997 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4418ABA61AAB896500971997 /* MineSwapper.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4418ABA71AAB896500971997 /* MineSwapper.xcdatamodel */,
+			);
+			currentVersion = 4418ABA71AAB896500971997 /* MineSwapper.xcdatamodel */;
+			path = MineSwapper.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4418AB941AAB896500971997 /* Project object */;
+}
