@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UICellDeckView.h"
 @interface ViewController : UIViewController
-
-
+@property (weak, nonatomic) IBOutlet UICellDeckView *cells;
+-(void) setStartGameOptions;
+-(void) touchedCell:(Point) position;
+-(void) flagedCell:(Point) position;
+-(void) updateViewWithRows:(int) rows andColumns:(int) columns Bombs:(int)bombs updateModel:(BOOL) update;
 @end
 

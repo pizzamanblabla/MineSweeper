@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,62 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKy-IF-23N" customClass="UICellDeckView">
+                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="3rg-DC-Kej"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="48" id="4vq-fm-4F0"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="4zn-Ua-nDP"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="BiA-SG-4S7"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="Br6-Tu-1AE"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="IiS-X3-SoH"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="Jz9-nW-mrb"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="LkT-OP-QxT"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="66" id="QQn-iN-aXy"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="QWp-3K-igG"/>
+                            <constraint firstAttribute="trailing" secondItem="UKy-IF-23N" secondAttribute="trailing" id="T0m-by-lJg"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="22" id="W29-D9-SWX"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Ytp-aq-Kfz"/>
+                            <constraint firstAttribute="bottom" secondItem="UKy-IF-23N" secondAttribute="bottom" constant="20" symbolic="YES" id="ZIP-nT-mD4"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="dOw-OH-0lJ"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="hXv-Af-YB8"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="inP-Io-Pq6"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="nZd-CP-pBy"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="yyk-5u-gz6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3rg-DC-Kej"/>
+                                <exclude reference="4vq-fm-4F0"/>
+                                <exclude reference="4zn-Ua-nDP"/>
+                                <exclude reference="BiA-SG-4S7"/>
+                                <exclude reference="Br6-Tu-1AE"/>
+                                <exclude reference="IiS-X3-SoH"/>
+                                <exclude reference="LkT-OP-QxT"/>
+                                <exclude reference="QQn-iN-aXy"/>
+                                <exclude reference="QWp-3K-igG"/>
+                                <exclude reference="W29-D9-SWX"/>
+                                <exclude reference="Ytp-aq-Kfz"/>
+                                <exclude reference="ZIP-nT-mD4"/>
+                                <exclude reference="hXv-Af-YB8"/>
+                                <exclude reference="nZd-CP-pBy"/>
+                                <exclude reference="yyk-5u-gz6"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="cells" destination="UKy-IF-23N" id="DHb-Bp-ryX"/>
+                        <outlet property="topConstrait" destination="Jz9-nW-mrb" id="SaF-Hc-I2W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="143" y="292"/>
         </scene>
     </scenes>
 </document>
