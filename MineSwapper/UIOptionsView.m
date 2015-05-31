@@ -158,7 +158,6 @@
             self.bombSetter.maximumValue=([[arraySizes objectAtIndex:0] intValue]*[[arraySizes objectAtIndex:1] intValue])*0.2;
             self.bombSetter.value=([[arraySizes objectAtIndex:0] intValue]*[[arraySizes objectAtIndex:1] intValue])*0.15;
             self.bombSetterLabel.text=[NSString stringWithFormat:@"%d bombs",bombs];
-        
         }
     }
 }
