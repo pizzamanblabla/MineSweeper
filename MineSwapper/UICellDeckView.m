@@ -15,6 +15,9 @@
 @end
 @implementation UICellDeckView
 -(instancetype)initWithQuantityOfCellsHorizotal:(int) rows QuantityOfCellsVertical:(int) columns{
+    if(self){
+        
+    }
     self=[super init];
     
     
@@ -52,8 +55,6 @@
     if(!_sizeOfCell.x || !_sizeOfCell.y){
         _sizeOfCell.x=self.bounds.size.width/self.columns;
         _sizeOfCell.y=self.bounds.size.height/self.rows;
-        // NSLog(@"%Lf %f",x,_sizeOfCell.x);
-    
     }
     
     
@@ -66,7 +67,6 @@
     
 }
 -(void) drawDeckOfCells{
-   // NSLog(@"%f %f",self.sizeOfCell.y*self.columns,self.bounds.size.width);
     double x=self.sizeOfCell.x;
     double y=self.sizeOfCell.y;
     for(int i=1;i<=self.columns;i++){
@@ -77,7 +77,7 @@
             frame.origin.x=x*(i-1);
             frame.origin.y=y*(n-1);
             Point position={i,n};
-            UICellView *cellView=[[UICellView alloc] initWithFrame:frame andPosition:position];
+            UICellView *cellView=[[UICellView alloc] initWithFrame:CGRectIntegral(frame) andPosition:position];
             cellView.backgroundColor=[UIColor whiteColor];
            [self addSubview:cellView];
             [self.arrayOfCells addObject:cellView];

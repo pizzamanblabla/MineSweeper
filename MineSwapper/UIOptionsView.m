@@ -8,7 +8,6 @@
 #import "UIMineSweeperSlider.h"
 #import "UIOptionsView.h"
 @interface UIOptionsView()
-//@property (strong,nonatomic) UIView *options;
 @property (strong,nonatomic) UISlider *bombSetter;
 @property (strong,nonatomic) UISlider *quantityOfCells;
 @property (strong,nonatomic) UISlider *quantityOfRowsSetter;
@@ -39,8 +38,6 @@
 -(void) initilizeViewUI{
     
     [self.options addSubview:self.bombSetter];
-    
-    //[self.options addSubview:self.quantityOfRowsSetter];
     [self.options addSubview:self.submitButton];
 
     
@@ -70,11 +67,8 @@
         [self.options addSubview:_bombSetterLabel];
         
     }
-    
     return _bombSetterLabel;
-    
 }
-
 
 
 -(void) setControllerDelegate:(ViewController *)controllerDelegate{
@@ -145,7 +139,7 @@
         [ _quantityOfCells setBackgroundColor:[UIColor clearColor]];
         _quantityOfCells.minimumValue = 0.0;
         if(self.controllerDelegate){
-        _quantityOfCells.maximumValue =[self.controllerDelegate.cells.arrayOfSuggestionsSizesOfCells count];
+        _quantityOfCells.maximumValue =[self.controllerDelegate.cells.arrayOfSuggestionsSizesOfCells count]-1;
         }
         _quantityOfCells.continuous = YES;
     }
@@ -166,9 +160,7 @@
             self.bombSetterLabel.text=[NSString stringWithFormat:@"%d bombs",bombs];
         
         }
-
     }
-    
 }
 
 -(UIButton*)submitButton{

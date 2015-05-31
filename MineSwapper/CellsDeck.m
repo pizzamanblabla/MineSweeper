@@ -10,7 +10,7 @@
 @interface CellsDeck()
 @property (nonatomic) NSUInteger rows;
 @property (nonatomic) NSUInteger columns;
-@property (nonatomic) NSUInteger bombs;
+
 @end
 @implementation CellsDeck
 

@@ -21,6 +21,11 @@
     MineSwapperCell *cell=[self.cellsDeck getCellByPosition:position];
     if(!cell.isShown){
         cell.isFlag=!cell.isFlag;
+        if(cell.isFlag){
+            self.cellsDeck.bombs--;
+        }else{
+            self.cellsDeck.bombs++;
+        }
     }
 }
 

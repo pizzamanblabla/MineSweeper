@@ -12,6 +12,7 @@
 
 @interface CellsDeck : NSObject
 @property (strong,nonatomic) NSMutableArray *arrayOfCells;
+@property (nonatomic) signed int bombs;
 -(MineSwapperCell*)getCellByPosition:(Point) position;
 -(instancetype)initWithQuantityOfCellsHorizotal:(NSUInteger) quantityOfCellsHorizontal QuantityOfCellsVertical:(NSUInteger) quantityOfCellsVertical quantityOfMines:(NSUInteger) quantityOfMines;
 @end

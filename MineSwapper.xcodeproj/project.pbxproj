@@ -20,13 +20,14 @@
 		441F520F1ABA289800756115 /* UICellDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 441F520E1ABA289800756115 /* UICellDeckView.m */; };
 		44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 44217E571AC201EE00BE4457 /* MineSweeperGame.m */; };
 		443684AF1AB6138C00FC910F /* UICellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443684AE1AB6138C00FC910F /* UICellView.m */; };
+		44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */; };
+		44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */; };
 		44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7101A1AD5C21A0095D186 /* UIOptionsView.m */; };
 		44C86ABE1B013BF600DA328F /* LeadersBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C86ABD1B013BF600DA328F /* LeadersBoardViewController.m */; };
 		44C86AC11B0141C200DA328F /* Leaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C86AC01B0141C200DA328F /* Leaders.m */; };
 		44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */; };
 		44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC91511B10B90F00F18A6E /* UIGameResultsView.m */; };
 		44EEB2321ADDBB440009FD31 /* UIMineSweeperSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */; };
-		44EEB2351AE055590009FD31 /* UITimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EEB2341AE055590009FD31 /* UITimerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,10 @@
 		44217E571AC201EE00BE4457 /* MineSweeperGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperGame.m; sourceTree = "<group>"; };
 		443684AD1AB6138C00FC910F /* UICellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICellView.h; sourceTree = "<group>"; };
 		443684AE1AB6138C00FC910F /* UICellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICellView.m; sourceTree = "<group>"; };
+		44B0CEB41B1B4A35009F00B1 /* UICounterImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICounterImageView.h; sourceTree = "<group>"; };
+		44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICounterImageView.m; sourceTree = "<group>"; };
+		44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILabelWithOffset.h; path = ../UILabelWithOffset.h; sourceTree = "<group>"; };
+		44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILabelWithOffset.m; path = ../UILabelWithOffset.m; sourceTree = "<group>"; };
 		44C710191AD5C21A0095D186 /* UIOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOptionsView.h; sourceTree = "<group>"; };
 		44C7101A1AD5C21A0095D186 /* UIOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOptionsView.m; sourceTree = "<group>"; };
 		44C86ABC1B013BF600DA328F /* LeadersBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersBoardViewController.h; sourceTree = "<group>"; };
@@ -76,8 +81,6 @@
 		44EC91511B10B90F00F18A6E /* UIGameResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIGameResultsView.m; path = ../UIGameResultsView.m; sourceTree = "<group>"; usesTabs = 0; };
 		44EEB2301ADDBB440009FD31 /* UIMineSweeperSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIMineSweeperSlider.h; path = ../UIMineSweeperSlider.h; sourceTree = "<group>"; };
 		44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIMineSweeperSlider.m; path = ../UIMineSweeperSlider.m; sourceTree = "<group>"; };
-		44EEB2331AE055590009FD31 /* UITimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimerView.h; sourceTree = "<group>"; };
-		44EEB2341AE055590009FD31 /* UITimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITimerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,18 +127,20 @@
 				44C86B0C1B08029E00DA328F /* Model */,
 				44C86ABF1B0141C200DA328F /* Leaders.h */,
 				44C86AC01B0141C200DA328F /* Leaders.m */,
+				44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */,
+				44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */,
 				44EC91501B10B90F00F18A6E /* UIGameResultsView.h */,
 				44EC91511B10B90F00F18A6E /* UIGameResultsView.m */,
 				44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */,
 				44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */,
 				44C710191AD5C21A0095D186 /* UIOptionsView.h */,
 				44C7101A1AD5C21A0095D186 /* UIOptionsView.m */,
+				44B0CEB41B1B4A35009F00B1 /* UICounterImageView.h */,
+				44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */,
 				4418ABA31AAB896500971997 /* AppDelegate.h */,
 				4418ABA41AAB896500971997 /* AppDelegate.m */,
 				44EEB2301ADDBB440009FD31 /* UIMineSweeperSlider.h */,
 				44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */,
-				44EEB2331AE055590009FD31 /* UITimerView.h */,
-				44EEB2341AE055590009FD31 /* UITimerView.m */,
 				44C86ABC1B013BF600DA328F /* LeadersBoardViewController.h */,
 				44C86ABD1B013BF600DA328F /* LeadersBoardViewController.m */,
 				4418ABAF1AAB896500971997 /* Images.xcassets */,
@@ -308,15 +313,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C86AC11B0141C200DA328F /* Leaders.m in Sources */,
+				44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */,
 				4418ABCA1AAB8A0100971997 /* MineSwapperCell.m in Sources */,
 				44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */,
 				44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */,
 				4418ABA81AAB896500971997 /* MineSwapper.xcdatamodeld in Sources */,
 				4418ABA51AAB896500971997 /* AppDelegate.m in Sources */,
+				44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */,
 				441F520F1ABA289800756115 /* UICellDeckView.m in Sources */,
 				44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */,
 				44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */,
-				44EEB2351AE055590009FD31 /* UITimerView.m in Sources */,
 				4418ABAB1AAB896500971997 /* ViewController.m in Sources */,
 				44EEB2321ADDBB440009FD31 /* UIMineSweeperSlider.m in Sources */,
 				443684AF1AB6138C00FC910F /* UICellView.m in Sources */,

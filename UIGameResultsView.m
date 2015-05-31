@@ -23,23 +23,21 @@
 }
 -(void) initilizeViewUI{
     
-  
     [self.options addSubview:self.submitButton];
     [self.options addSubview:self.resultLabel];
     [self.options addSubview:self.scoreLabel];
     [self.options addSubview:self.resultBestScoreLabel];
     [self.options addSubview:self.resultScoreLabel];
-    
-   
    
 }
 -(void) setScore:(NSUInteger)score{
     
     _score=score;
     
-    self.resultScoreLabel.text=[NSString stringWithFormat:@"%lu",score];
+    self.resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)score];
     [self checkResultsWithScore:score];
-    }
+    [self writeRusult:score];
+}
 
 -(NSArray*) arrayOfResults{
     
@@ -69,6 +67,7 @@
     return _submitButton;
     
 }
+
 -(UILabel*) resultLabel{
     if(!_resultLabel){
         CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.05, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
@@ -84,15 +83,11 @@
 -(UILabel*) resultScoreLabel{
     if(!_resultScoreLabel){
         CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.25, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
-        
         _resultScoreLabel=[[UILabel alloc] initWithFrame:frame];
-         _resultScoreLabel.text=[NSString stringWithFormat:@"%lu",self.score];
+         _resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)self.score];
         _resultScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.8];
         _resultScoreLabel.textAlignment=NSTextAlignmentCenter;
-       
-       //  NSLog(@"%@",_resultScoreLabel.text);
     }
-    //NSLog(@"%lu",self.score);
     return  _resultScoreLabel;
 }
 
@@ -112,13 +107,14 @@
     if(!_resultBestScoreLabel){
         CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.4, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
         _resultBestScoreLabel=[[UILabel alloc] initWithFrame:frame];
-        _resultBestScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.4];
+        _resultBestScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.35];
         _resultBestScoreLabel.textAlignment=NSTextAlignmentCenter;
         _resultBestScoreLabel.text=@"New Best!";
     }
     
     return  _resultBestScoreLabel;
 }
+
 -(void) checkResultsWithScore:(NSUInteger) score{
     if(score>100000){
         self.resultLabel.text=[self.arrayOfResults objectAtIndex:0];
@@ -133,6 +129,21 @@
     }
 
     
+}
+
+-(void) writeRusult:(NSUInteger) score{
+    
+     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    if(!standardUserDefaults){
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%lu",(unsigned long)score] forKey:@"highScore"];
+    }else{
+        NSString *highScore=[standardUserDefaults objectForKey:@"highScore"];
+        if(score>[highScore intValue]){
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%lu",(unsigned long)score] forKey:@"highScore"];
+        }else{
+            self.resultBestScoreLabel.text=[NSString stringWithFormat:@"Your best %@",highScore];
+        }
+    }
 }
 
 -(void) submitOptions{
