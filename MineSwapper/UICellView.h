@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+
+#import "MineSweeperDelegate.h"
 @interface UICellView : UIView
 @property (nonatomic,readonly) Point position;
 @property (nonatomic) NSUInteger valueOfCell;
 @property (nonatomic) BOOL isBomb;
 @property (nonatomic) BOOL isHidden;
 @property (nonatomic) BOOL isFlag;
-@property (weak,nonatomic) ViewController *controllerDelegate;
+@property (weak,nonatomic) id<MineSweeperDelegate> controllerDelegate;
 -(instancetype)initWithFrame:(CGRect)frame andPosition:(Point)position;
 -(void) drawValueOfCell;
 -(void)updateUI;

@@ -22,8 +22,9 @@
     if(self){
         
         self.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        [self initilizeViewUI];
        [self addSubview:self.options];
-       [self initilizeViewUI];
+       
     }
     return self;
 }

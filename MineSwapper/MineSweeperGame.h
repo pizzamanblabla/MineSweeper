@@ -11,7 +11,7 @@
 @interface MineSweeperGame : NSObject
 @property (readonly,nonatomic) NSUInteger score;
 @property (strong,nonatomic) CellsDeck *cellsDeck;
-
+-(BOOL) checkIsLose;
 -(void) openCellsAroundWithPosition:(Point)position;
 -(void) flagCellWithPosition:(Point)position;
 -(BOOL) ckeckIsGameOver;

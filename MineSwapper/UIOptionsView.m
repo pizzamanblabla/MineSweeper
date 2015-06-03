@@ -18,22 +18,6 @@
 @end
 @implementation UIOptionsView
 
-/*-(instancetype) initWithFrame:(CGRect)frame{
-    
-    self=[super initWithFrame:frame];
-    
-    if(self){
-        
-        self.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-        [self addSubview:self.options];
-        [self.options addSubview:self.bombSetter];
-       
-        //[self.options addSubview:self.quantityOfRowsSetter];
-        [self.options addSubview:self.submitButton];
-    }
-    return self;
-}*/
-
 
 -(void) initilizeViewUI{
     
@@ -76,7 +60,7 @@
     if(!_controllerDelegate){
         _controllerDelegate=controllerDelegate;
          [self.options addSubview:self.quantityOfCells];
-        [self updateViewWithModel:NO];
+       // [self updateViewWithModel:NO];
     }else{
         _controllerDelegate=controllerDelegate;
        
@@ -84,26 +68,6 @@
     
 }
 
-/*-(UIView*)options{
-    
-    if(!_options){
-        
-        float height=(self.frame.origin.y+self.frame.size.height)*0.4;
-        float width=(self.frame.origin.x + self.frame.size.width)*0.6;
-        float x=(self.frame.size.width-width)/2;
-        float y=(self.frame.size.height-height)/2;
-        CGPoint point={x,y};
-        CGSize size={width,height};
-        CGRect options={point,size};
-        
-        _options=[[UIView alloc] initWithFrame:options];
-        _options.backgroundColor=[UIColor whiteColor];
-        _options.layer.cornerRadius=10;
-    }
-    
-    return _options;
-    
-}*/
 
 
 -(UISlider*)bombSetter{

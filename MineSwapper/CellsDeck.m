@@ -21,7 +21,7 @@
         [self placeQuantityOfMines:quantityOfMines];
         self.rows=quantityOfCellsVertical;
         self.columns=quantityOfCellsHorizontal;
-        self.bombs=quantityOfMines;
+        self.bombs=(int)quantityOfMines;
     }
     return self;
 }

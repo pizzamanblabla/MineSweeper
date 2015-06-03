@@ -36,9 +36,10 @@
         _label.text=@"0";
         _label.font=[UIFont fontWithName:@"Futura" size:self.frame.size.height*0.8];
         _label.textAlignment=NSTextAlignmentRight;
-        
+        _label.adjustsFontSizeToFitWidth = YES;
         
     }
+   // [_label sizeToFit];
     return _label;
 }
 

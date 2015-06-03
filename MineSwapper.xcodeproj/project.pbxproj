@@ -23,8 +23,6 @@
 		44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */; };
 		44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */; };
 		44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7101A1AD5C21A0095D186 /* UIOptionsView.m */; };
-		44C86ABE1B013BF600DA328F /* LeadersBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C86ABD1B013BF600DA328F /* LeadersBoardViewController.m */; };
-		44C86AC11B0141C200DA328F /* Leaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C86AC01B0141C200DA328F /* Leaders.m */; };
 		44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */; };
 		44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC91511B10B90F00F18A6E /* UIGameResultsView.m */; };
 		44EEB2321ADDBB440009FD31 /* UIMineSweeperSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */; };
@@ -69,12 +67,9 @@
 		44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICounterImageView.m; sourceTree = "<group>"; };
 		44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILabelWithOffset.h; path = ../UILabelWithOffset.h; sourceTree = "<group>"; };
 		44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILabelWithOffset.m; path = ../UILabelWithOffset.m; sourceTree = "<group>"; };
+		44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperDelegate.h; sourceTree = "<group>"; };
 		44C710191AD5C21A0095D186 /* UIOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOptionsView.h; sourceTree = "<group>"; };
 		44C7101A1AD5C21A0095D186 /* UIOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOptionsView.m; sourceTree = "<group>"; };
-		44C86ABC1B013BF600DA328F /* LeadersBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadersBoardViewController.h; sourceTree = "<group>"; };
-		44C86ABD1B013BF600DA328F /* LeadersBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadersBoardViewController.m; sourceTree = "<group>"; };
-		44C86ABF1B0141C200DA328F /* Leaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Leaders.h; path = ../Leaders.h; sourceTree = "<group>"; };
-		44C86AC01B0141C200DA328F /* Leaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leaders.m; path = ../Leaders.m; sourceTree = "<group>"; };
 		44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAdditionalInformationView.h; path = ../UIAdditionalInformationView.h; sourceTree = "<group>"; };
 		44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIAdditionalInformationView.m; path = ../UIAdditionalInformationView.m; sourceTree = "<group>"; };
 		44EC91501B10B90F00F18A6E /* UIGameResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIGameResultsView.h; path = ../UIGameResultsView.h; sourceTree = "<group>"; };
@@ -104,6 +99,7 @@
 		4418AB931AAB896500971997 = {
 			isa = PBXGroup;
 			children = (
+				44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */,
 				4418AB9E1AAB896500971997 /* MineSwapper */,
 				4418ABBB1AAB896500971997 /* MineSwapperTests */,
 				4418AB9D1AAB896500971997 /* Products */,
@@ -125,8 +121,6 @@
 				44C86B0E1B08F77D00DA328F /* Controller */,
 				44C86B0D1B08035500DA328F /* View */,
 				44C86B0C1B08029E00DA328F /* Model */,
-				44C86ABF1B0141C200DA328F /* Leaders.h */,
-				44C86AC01B0141C200DA328F /* Leaders.m */,
 				44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */,
 				44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */,
 				44EC91501B10B90F00F18A6E /* UIGameResultsView.h */,
@@ -141,8 +135,6 @@
 				4418ABA41AAB896500971997 /* AppDelegate.m */,
 				44EEB2301ADDBB440009FD31 /* UIMineSweeperSlider.h */,
 				44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */,
-				44C86ABC1B013BF600DA328F /* LeadersBoardViewController.h */,
-				44C86ABD1B013BF600DA328F /* LeadersBoardViewController.m */,
 				4418ABAF1AAB896500971997 /* Images.xcassets */,
 				4418ABAC1AAB896500971997 /* Main.storyboard */,
 				4418ABB11AAB896500971997 /* LaunchScreen.xib */,
@@ -312,7 +304,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44C86AC11B0141C200DA328F /* Leaders.m in Sources */,
 				44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */,
 				4418ABCA1AAB8A0100971997 /* MineSwapperCell.m in Sources */,
 				44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */,
@@ -328,7 +319,6 @@
 				443684AF1AB6138C00FC910F /* UICellView.m in Sources */,
 				4418ABCD1AAB8BA000971997 /* CellsDeck.m in Sources */,
 				4418ABA21AAB896500971997 /* main.m in Sources */,
-				44C86ABE1B013BF600DA328F /* LeadersBoardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +443,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSwapper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -467,6 +458,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSwapper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

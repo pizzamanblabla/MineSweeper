@@ -29,19 +29,19 @@
                             <constraint firstItem="UKy-IF-23N" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="4zn-Ua-nDP"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="BiA-SG-4S7"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="Br6-Tu-1AE"/>
+                            <constraint firstAttribute="trailing" secondItem="UKy-IF-23N" secondAttribute="trailing" id="CdG-zj-u8k"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="FQ9-Sg-7V8"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="IiS-X3-SoH"/>
-                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="Jz9-nW-mrb"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="LkT-OP-QxT"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="PTn-UX-JoT"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="66" id="QQn-iN-aXy"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="QWp-3K-igG"/>
-                            <constraint firstAttribute="trailing" secondItem="UKy-IF-23N" secondAttribute="trailing" id="T0m-by-lJg"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="22" id="W29-D9-SWX"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Ytp-aq-Kfz"/>
                             <constraint firstAttribute="bottom" secondItem="UKy-IF-23N" secondAttribute="bottom" constant="20" symbolic="YES" id="ZIP-nT-mD4"/>
-                            <constraint firstItem="UKy-IF-23N" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="dOw-OH-0lJ"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="hXv-Af-YB8"/>
-                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="inP-Io-Pq6"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="nZd-CP-pBy"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="wU2-4g-UWd"/>
                             <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="yyk-5u-gz6"/>
                         </constraints>
                         <variation key="default">
@@ -66,7 +66,6 @@
                     </view>
                     <connections>
                         <outlet property="cells" destination="UKy-IF-23N" id="DHb-Bp-ryX"/>
-                        <outlet property="topConstrait" destination="Jz9-nW-mrb" id="SaF-Hc-I2W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

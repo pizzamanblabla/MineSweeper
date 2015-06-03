@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Leaders" representedClassName="Leaders" syncable="YES">
-        <attribute name="playerName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-    </entity>
+    <entity name="Leaders" representedClassName="Leaders" syncable="YES"/>
     <elements>
-        <element name="Leaders" positionX="-531" positionY="-9" width="128" height="75"/>
+        <element name="Leaders" positionX="-531" positionY="-9" width="128" height="43"/>
     </elements>
 </model>

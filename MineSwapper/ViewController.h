@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UICellDeckView.h"
-@interface ViewController : UIViewController
+#import "MineSweeperDelegate.h"
+@interface ViewController : UIViewController <MineSweeperDelegate>
 @property (weak, nonatomic) IBOutlet UICellDeckView *cells;
 -(void) setStartGameOptions;
 -(void) touchedCell:(Point) position;

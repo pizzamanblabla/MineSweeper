@@ -28,15 +28,28 @@
         }
     }
 }
+-(BOOL) checkIsLose{
+    for( MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
+        if(cell.isBomb && !cell.isFlag && cell.isShown){
+            return YES;
+        }
+    
+    }
+    return NO;
+}
 
 -(BOOL) ckeckIsGameOver{
     
     for( MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
-        if(!cell.isShown && !cell.isFlag){
+        if(!cell.isShown && !cell.isFlag ){
             return NO;
         }
     }
-    return YES;
+    if(!self.cellsDeck.bombs){
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 -(NSUInteger) calculateScore:(int) time{

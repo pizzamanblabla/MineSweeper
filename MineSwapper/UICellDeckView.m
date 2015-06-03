@@ -20,7 +20,6 @@
     }
     self=[super init];
     
-    
     if(self){
         self.rows=rows;
         self.columns=columns;
@@ -67,6 +66,7 @@
     
 }
 -(void) drawDeckOfCells{
+    NSLog(@"%f",self.frame.size.height);
     double x=self.sizeOfCell.x;
     double y=self.sizeOfCell.y;
     for(int i=1;i<=self.columns;i++){
