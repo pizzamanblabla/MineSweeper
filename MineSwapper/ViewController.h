@@ -10,7 +10,7 @@
 #import "UICellDeckView.h"
 #import "MineSweeperDelegate.h"
 @interface ViewController : UIViewController <MineSweeperDelegate>
-@property (weak, nonatomic) IBOutlet UICellDeckView *cells;
+@property (strong, nonatomic) UICellDeckView *cells;
 -(void) setStartGameOptions;
 -(void) touchedCell:(Point) position;
 -(void) flagedCell:(Point) position;

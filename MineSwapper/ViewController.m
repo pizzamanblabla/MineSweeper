@@ -23,7 +23,6 @@
 @property (nonatomic) float heigth;
 @property (nonatomic) Point tochedPoint;
 @property (nonatomic) BOOL isGameOver;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstrait;
 @property (strong,nonatomic) UIOptionsView *options;
 @property (strong,nonatomic) UIGameResultsView *results;
 @property (strong,nonatomic) UICounterImageView *bombCounter;
@@ -39,14 +38,24 @@ const float STANDART_OFFSET=0.05;
 -(float) offset{
     
     if(!_offset){
+        
         _offset=[[UIScreen mainScreen] bounds].size.height/[[UIScreen mainScreen] bounds].size.width*0.02;
-        
-        
         
     }
 
     return _offset;
 }
+
+-(UICellDeckView*) cells{
+    
+    if(!_cells){
+        CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height*0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height*0.85);
+        _cells=[[UICellDeckView alloc] initWithFrame:frame];
+    }
+    
+    return _cells;
+}
+
 -(UIButton*) refreshButton{
     if(!_refreshButton){
         float heigth=self.headerView.frame.size.height*0.8;
@@ -110,7 +119,7 @@ const float STANDART_OFFSET=0.05;
         float width=(self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
         float y=(self.headerView.frame.size.height-heigth)/2;
         CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5, y, width, heigth);
-        _bombCounter=[[UICounterImageView alloc] initWithFrame:frame andImage:[UIImage imageNamed:@""]];
+        _bombCounter=[[UICounterImageView alloc] initWithFrame:frame andImage:nil];
         _bombCounter.label.textAlignment=NSTextAlignmentLeft;
        
 
@@ -250,8 +259,8 @@ const float STANDART_OFFSET=0.05;
 
 
 -(void) initializeUI{
-   
-    self.topConstrait.constant=[[UIScreen mainScreen] bounds].size.height*0.1;
+    [self.view addSubview:self.cells];
+   // self.topConstrait.constant=[[UIScreen mainScreen] bounds].size.height*0.1;
     [self.cells calculateProbableSizesOfCell];
     self.results=[[UIGameResultsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.results.hidden=YES;

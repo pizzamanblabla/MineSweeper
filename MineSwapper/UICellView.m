@@ -10,7 +10,6 @@
 
 @interface UICellView()
 @property (nonatomic,readwrite) Point position;
-@property (strong,nonatomic) UIImageView *ImageValue;
 @property (strong,nonatomic) UIImageView *Image;
 
 
@@ -58,12 +57,12 @@
     }
 }
 
--(UIImageView*) ImageValue{
+/*-(UIImageView*) ImageValue{
     if(!_ImageValue){
          _ImageValue=[[UIImageView alloc] initWithFrame:self.bounds];
     }
     return _ImageValue;
-}
+}*/
 
 
 
@@ -85,12 +84,16 @@
         self.layer.borderColor=[UIColor blackColor].CGColor;
     }else{
         if(self.isHidden){
-             _Image.image=[UIImage imageNamed:@"background"];
+            if(self.isBomb){
+                _Image.image=[UIImage imageNamed:@"bomb"];
+            }else{
+                _Image.image=[UIImage imageNamed:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
+            }
              self.layer.borderColor=[UIColor blackColor].CGColor;
-           // [self startCellDisappearAnimation];
+            //[self startCellDisappearAnimation];
             
             
-                   }else{
+        }else{
             self.layer.borderColor=[UIColor whiteColor].CGColor;
             _Image.image=[UIImage imageNamed:@"front"];
                       
@@ -101,27 +104,27 @@
 -(void) startCellDisappearAnimation{
     //Начальное и конечное значения радиуса маски
     CGFloat initialRadius = 1.0f;
-    CGFloat finalRadius = self.ImageValue.bounds.size.width;
+    CGFloat finalRadius = self.Image.bounds.size.width;
     
     //Создаём слой, который будет содержать маску
     CAShapeLayer *revealShape = [CAShapeLayer layer];
-    revealShape.bounds = self.ImageValue.bounds;
+    revealShape.bounds = self.Image.bounds;
     //Закрашиваем черным — подойдет любой цвет, кроме прозрачного
     revealShape.fillColor = [UIColor blackColor].CGColor;
     CGColorRef pixelColor = [[UIColor blackColor] CGColor];
    // revealShape.backgroundColor=(__bridge CGColorRef)((__bridge id)pixelColor);
        //Собственно фигура, которая будем служить маской: начальная и конечная
-    UIBezierPath *startPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(CGRectGetMidX(self.ImageValue.bounds) - initialRadius,
-                                                                                 CGRectGetMidY(self.ImageValue.bounds) - initialRadius, initialRadius * 2, initialRadius * 2)
+    UIBezierPath *startPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(CGRectGetMidX(self.Image.bounds) - initialRadius,
+                                                                                 CGRectGetMidY(self.Image.bounds) - initialRadius, initialRadius * 2, initialRadius * 2)
                                                          cornerRadius:initialRadius];
-    UIBezierPath *endPath = [UIBezierPath bezierPathWithRoundedRect:self.ImageValue.bounds
+    UIBezierPath *endPath = [UIBezierPath bezierPathWithRoundedRect:self.Image.bounds
                                                        cornerRadius:finalRadius];
    // revealShape.path = startPath.CGPath;
-    revealShape.position = CGPointMake(CGRectGetMidX(self.ImageValue.bounds) - initialRadius,
-                                       CGRectGetMidY(self.ImageValue.bounds) - initialRadius);
-     //revealShape.backgroundColor=(__bridge CGColorRef)([UIColor blackColor]);
+    revealShape.position = CGPointMake(CGRectGetMidX(self.Image.bounds) - initialRadius,
+                                       CGRectGetMidY(self.Image.bounds) - initialRadius);
+     revealShape.backgroundColor=(__bridge CGColorRef)([UIColor blackColor]);
     //Итак, теперь на изображение наложена маска, и видна будет лишь та его часть, которая совпадает с маской
-    self.ImageValue.layer.mask = revealShape;
+    self.Image.layer.mask = revealShape;
     //self.ImageValue.layer.mask.opacity=0;
     
     //Теперь анимация. Мы анимируем свойство path — это граф, описывающий фигуру, в нашем случае окружность. Анимация осуществит плавный переход от маленькой окружности до большой
@@ -137,7 +140,7 @@
     dispatch_time_t timeToShow = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC));
     dispatch_after(timeToShow, dispatch_get_main_queue(), ^{
        // self.ImageValue.hidden = NO;
-        self.ImageValue.layer.mask.backgroundColor= pixelColor;
+        self.Image.layer.mask.backgroundColor= pixelColor;
     });
     
     revealShape.path = endPath.CGPath;
@@ -159,27 +162,11 @@
 
 
 -(void)updateUI{
-    if(self.isHidden){
-        [self updateImage];
-    }else{
-        [self drawValueOfCell];
-    }
+   
+    [self updateImage];
+   
 }
 
--(void) drawValueOfCell{
-    
-    if(self.isBomb){
-        self.ImageValue.image=[UIImage imageNamed:@"bomb"];
-        [self addSubview:self.ImageValue];
-    }
-    else{
-        if(self.valueOfCell){
-            self.ImageValue.image=[UIImage imageNamed:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
-            [self addSubview:self.ImageValue];
-        }
-    }
-    [self sendSubviewToBack:self.ImageValue];
-}
 
 
 

@@ -23,8 +23,9 @@
     if(self){
         self.rows=rows;
         self.columns=columns;
-        [self drawDeckOfCells];
         
+        [self drawDeckOfCells];
+       
     }
     
     return self;
@@ -66,9 +67,9 @@
     
 }
 -(void) drawDeckOfCells{
-    NSLog(@"%f",self.frame.size.height);
-    double x=self.sizeOfCell.x;
-    double y=self.sizeOfCell.y;
+    
+    double x=floor(self.sizeOfCell.x);
+    double y=floor(self.sizeOfCell.y);
     for(int i=1;i<=self.columns;i++){
         for(int n=1;n<=self.rows;n++){
             CGRect frame;
@@ -87,34 +88,21 @@
 
 
 
--(UIColor*) randomColor{
+
+-(void) adjustView{
     
-    switch (arc4random()%5) {
-        case 0:
-            return [UIColor greenColor];
-            break;
-        case 1:
-            return [UIColor blueColor];
-            break;
-        case 2:
-            return [UIColor orangeColor];
-            break;
-        case 3:
-            return [UIColor redColor];
-            break;
-        case 4:
-            return [UIColor purpleColor];
-            break;
-            
-    }
-    
-    return [UIColor blackColor];
+    float width=floor(self.sizeOfCell.x)*self.columns;
+    float height=floor(self.sizeOfCell.y)*self.rows;
+    float offsetHeight=self.frame.size.height-height;
+    float offsetWidth=self.frame.size.width-width;
+    CGRect frame=self.frame;
+    self.frame=CGRectMake([[UIScreen mainScreen] bounds].origin.x+offsetWidth/2, ([[UIScreen mainScreen] bounds].size.height-frame.size.height)+offsetHeight, frame.size.width, frame.size.height);
+    //NSLog(@"height %f width %f",offsetHeight,offsetWidth);
     
 }
 
-
-
 -(void) drawDeckOfCellsWithQuantityOfCellsHorizotal:(int) rows QuantityOfCellsVertical:(int) columns{
+    
     NSArray *viewsToRemove = [self subviews];
     for (UIView *v in viewsToRemove) {
         [v removeFromSuperview];
@@ -125,6 +113,7 @@
     if(self){
         self.rows=rows;
         self.columns=columns;
+        [self adjustView];
         [self drawDeckOfCells];
     }
 }
@@ -136,11 +125,11 @@
             float height=self.frame.size.height/n;
             if(height>20 && width>20){
             if(height-width>0){
-                if((height-width)<0.6){
+                if((height-width)<0.8){
                     [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
                 }
             }else{
-                if((height-width)>-0.6){
+                if((height-width)>-0.8){
                     [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
                 }
             }}
