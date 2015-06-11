@@ -34,6 +34,7 @@
         _cellsSetterLabel=[[UILabel alloc] initWithFrame:frame];
         _cellsSetterLabel.font=[UIFont fontWithName:@"Futura" size:_cellsSetterLabel.frame.size.height*0.9];
         _cellsSetterLabel.textAlignment=NSTextAlignmentCenter;
+        _cellsSetterLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
         [self.options addSubview:_cellsSetterLabel];
         
     }
@@ -48,6 +49,7 @@
         _bombSetterLabel=[[UILabel alloc] initWithFrame:frame];
         _bombSetterLabel.font=[UIFont fontWithName:@"Futura" size:_bombSetterLabel.frame.size.height*0.9];
         _bombSetterLabel.textAlignment=NSTextAlignmentCenter;
+        _bombSetterLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
         [self.options addSubview:_bombSetterLabel];
         
     }
@@ -131,10 +133,10 @@
     if(!_submitButton){
         _submitButton=[[UIButton alloc] initWithFrame:[self getRectBoundsWithNumberInView:3.5]];
         [ _submitButton addTarget:self action:@selector(submitOptions) forControlEvents:UIControlEventTouchUpInside];
-        [ _submitButton setBackgroundColor:[UIColor blackColor]];
+        [ _submitButton setBackgroundColor:[MineSweeperPaletteFactory buttonColorWithIndex:0]];
         [_submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-        [_submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _submitButton.titleLabel.textColor=[UIColor whiteColor];
+        [_submitButton setTitleColor:[MineSweeperPaletteFactory buttonTextColorWithIndex:0] forState:UIControlStateNormal];
+        _submitButton.titleLabel.textColor=[MineSweeperPaletteFactory buttonTextColorWithIndex:0];
         _submitButton.layer.cornerRadius=5;
         _submitButton.titleLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.6];
             }

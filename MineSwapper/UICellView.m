@@ -7,11 +7,12 @@
 //
 
 #import "UICellView.h"
-
+#import "MineSweeperPaletteFactory.h"
+#import "PocketSVG+LayerMaker.h"
 @interface UICellView()
 @property (nonatomic,readwrite) Point position;
-@property (strong,nonatomic) UIImageView *Image;
-
+@property (strong,nonatomic) UIView *Image;
+@property (nonatomic) CAShapeLayer *imageLayer;
 
 @end
 @implementation UICellView
@@ -40,7 +41,7 @@
         
         if(self.isBomb){
             
-            self.backgroundColor=[UIColor redColor];
+            self.Image.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:0];
         }
         
         if(self.controllerDelegate){
@@ -57,46 +58,74 @@
     }
 }
 
-/*-(UIImageView*) ImageValue{
-    if(!_ImageValue){
-         _ImageValue=[[UIImageView alloc] initWithFrame:self.bounds];
-    }
-    return _ImageValue;
-}*/
 
-
-
-
--(UIImageView*) Image{
+-(UIView*) Image{
     if(!_Image){
         _Image=[[UIImageView alloc] initWithFrame:self.bounds];
-        _Image.image=[UIImage imageNamed:@"front"];
+        //_Image.image=[UIImage imageNamed:@"front"];
+       _Image.backgroundColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0];
         self.layer.borderColor=[UIColor whiteColor].CGColor;
         self.layer.borderWidth=self.frame.size.width*0.03;
     }
     return _Image;
 }
 
+-(void) setImageLayer:(CAShapeLayer *)imageLayer{
+    if(_imageLayer){
+        //[self.Image.layer removeFromSuperlayer];
+        self.Image.layer.sublayers=nil;
+        _imageLayer=imageLayer;
+         [self.Image.layer addSublayer: _imageLayer];
+    }else{
+        _imageLayer=imageLayer;
+        [self.Image.layer addSublayer: _imageLayer];
+    }
+    
+    
+}
 
 -(void) updateImage{
+    CGRect imageFrame=CGRectMake(self.frame.size.height*0.05, self.frame.size.height*0.05, self.frame.size.width*0.7, self.frame.size.height*0.7);
     if(self.isFlag){
-        _Image.image=[UIImage imageNamed:@"flag"];
-        self.layer.borderColor=[UIColor blackColor].CGColor;
+       // _Image.image=[UIImage imageNamed:@"flag"];
+        
+        self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"flag" andFrame:imageFrame];
+        
+        self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
     }else{
         if(self.isHidden){
             if(self.isBomb){
-                _Image.image=[UIImage imageNamed:@"bomb"];
+                //_Image.image=[UIImage imageNamed:@"bomb"];
+               self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"bomb" andFrame:imageFrame];
+                //[self.Image.layer addSublayer:ShapeLayer];
             }else{
-                _Image.image=[UIImage imageNamed:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
+               // _Image.image=[UIImage imageNamed:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
+                if(self.valueOfCell){
+                    self.imageLayer=[PocketSVG makeShapeLayerWithSVG:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell] andFrame:imageFrame];
+                }else{
+                    self.imageLayer=nil;
+                }
+                //[self.Image.layer addSublayer:ShapeLayer];
             }
-             self.layer.borderColor=[UIColor blackColor].CGColor;
+             self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
             //[self startCellDisappearAnimation];
             
             
         }else{
-            self.layer.borderColor=[UIColor whiteColor].CGColor;
-            _Image.image=[UIImage imageNamed:@"front"];
-                      
+            self.layer.borderColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0].CGColor;
+            //self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorWithIndex:0];
+          //  _Image.image=[UIImage imageNamed:@"front"];
+            //self.imageLayer.backgroundColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0].CGColor;
+           // self.Image.backgroundColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0];
+            //self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorWithIndex:0];
+           
+            CAShapeLayer *frontLayer=[CAShapeLayer layer];
+            frontLayer.path=CGPathCreateWithRect ( CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), nil );
+            frontLayer.strokeColor = [UIColor clearColor].CGColor;
+            frontLayer.lineWidth = 0.5;
+            frontLayer.fillColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+            self.imageLayer=frontLayer;
+            
         }
     }
 }
@@ -162,9 +191,7 @@
 
 
 -(void)updateUI{
-   
     [self updateImage];
-   
 }
 
 

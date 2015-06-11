@@ -55,10 +55,10 @@
     if(!_submitButton){
         _submitButton=[[UIButton alloc] initWithFrame:[self getRectBoundsWithNumberInView:3.5]];
         [ _submitButton addTarget:self action:@selector(submitOptions) forControlEvents:UIControlEventTouchUpInside];
-        [ _submitButton setBackgroundColor:[UIColor blackColor]];
+        [ _submitButton setBackgroundColor:[MineSweeperPaletteFactory buttonColorWithIndex:0]];
         [_submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-        [_submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _submitButton.titleLabel.textColor=[UIColor whiteColor];
+        [_submitButton setTitleColor:[MineSweeperPaletteFactory buttonTextColorWithIndex:0] forState:UIControlStateNormal];
+        _submitButton.titleLabel.textColor=[MineSweeperPaletteFactory buttonTextColorWithIndex:0];
         _submitButton.layer.cornerRadius=5;
         _submitButton.titleLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.6];
     }
@@ -74,6 +74,7 @@
         _resultLabel=[[UILabel alloc] initWithFrame:frame];
         _resultLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.6];
         _resultLabel.textAlignment=NSTextAlignmentCenter;
+        _resultLabel.textColor=[MineSweeperPaletteFactory fontHeaderColorWithIndex:0];
         _resultLabel.text=@"Nice";
     }
     
@@ -87,6 +88,7 @@
          _resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)self.score];
         _resultScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.8];
         _resultScoreLabel.textAlignment=NSTextAlignmentCenter;
+        _resultScoreLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
     }
     return  _resultScoreLabel;
 }
@@ -97,6 +99,7 @@
         _scoreLabel=[[UILabel alloc] initWithFrame:frame];
         _scoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.4];
         _scoreLabel.textAlignment=NSTextAlignmentCenter;
+        _scoreLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
         _scoreLabel.text=@"Your score";
     }
     
@@ -110,6 +113,8 @@
         _resultBestScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.35];
         _resultBestScoreLabel.textAlignment=NSTextAlignmentCenter;
         _resultBestScoreLabel.text=@"New Best!";
+       _resultBestScoreLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
+        _resultBestScoreLabel.adjustsFontSizeToFitWidth=YES;
     }
     
     return  _resultBestScoreLabel;

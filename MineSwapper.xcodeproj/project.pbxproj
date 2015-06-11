@@ -22,6 +22,26 @@
 		443684AF1AB6138C00FC910F /* UICellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443684AE1AB6138C00FC910F /* UICellView.m */; };
 		44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */; };
 		44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */; };
+		44B757901B230A1E000C6F81 /* MineSweeperPaletteDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B7578F1B230A1E000C6F81 /* MineSweeperPaletteDefault.m */; };
+		44B757931B231C05000C6F81 /* MineSweeperPaletteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757921B231C05000C6F81 /* MineSweeperPaletteFactory.m */; };
+		44B757961B23248A000C6F81 /* UIColor+NormalRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757951B23248A000C6F81 /* UIColor+NormalRGB.m */; };
+		44B7579C1B24C65D000C6F81 /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B7579B1B24C65D000C6F81 /* PocketSVG.m */; };
+		44B757A51B24DE46000C6F81 /* PocketSVG+LayerMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757A41B24DE46000C6F81 /* PocketSVG+LayerMaker.m */; };
+		44B757A91B24EDA2000C6F81 /* SVGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757A81B24EDA2000C6F81 /* SVGImageView.m */; };
+		44B75BAD1B276DEE000C6F81 /* 1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BAC1B276DEE000C6F81 /* 1.svg */; };
+		44B75BAF1B276DF4000C6F81 /* 2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BAE1B276DF4000C6F81 /* 2.svg */; };
+		44B75BB11B276DF9000C6F81 /* 3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BB01B276DF9000C6F81 /* 3.svg */; };
+		44B75BB31B276E01000C6F81 /* 4.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BB21B276E01000C6F81 /* 4.svg */; };
+		44B75BB51B276E05000C6F81 /* 5.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BB41B276E05000C6F81 /* 5.svg */; };
+		44B75BB71B276E09000C6F81 /* 6.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BB61B276E09000C6F81 /* 6.svg */; };
+		44B75BB91B276E0D000C6F81 /* 7.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BB81B276E0D000C6F81 /* 7.svg */; };
+		44B75BBB1B276E15000C6F81 /* 8.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BBA1B276E15000C6F81 /* 8.svg */; };
+		44B75BBD1B276E1B000C6F81 /* 9.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BBC1B276E1B000C6F81 /* 9.svg */; };
+		44B75BC11B276E25000C6F81 /* flag.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BC01B276E25000C6F81 /* flag.svg */; };
+		44B75BC31B276E2A000C6F81 /* options.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BC21B276E2A000C6F81 /* options.svg */; };
+		44B75BC51B276E2E000C6F81 /* refresh.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BC41B276E2E000C6F81 /* refresh.svg */; };
+		44B75BC71B276E33000C6F81 /* time.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BC61B276E33000C6F81 /* time.svg */; };
+		44B75BCB1B28B4DE000C6F81 /* bomb.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BCA1B28B4DE000C6F81 /* bomb.svg */; };
 		44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7101A1AD5C21A0095D186 /* UIOptionsView.m */; };
 		44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */; };
 		44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC91511B10B90F00F18A6E /* UIGameResultsView.m */; };
@@ -67,7 +87,34 @@
 		44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICounterImageView.m; sourceTree = "<group>"; };
 		44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILabelWithOffset.h; path = ../UILabelWithOffset.h; sourceTree = "<group>"; };
 		44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILabelWithOffset.m; path = ../UILabelWithOffset.m; sourceTree = "<group>"; };
-		44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperDelegate.h; sourceTree = "<group>"; };
+		44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSweeperDelegate.h; path = ../MineSweeperDelegate.h; sourceTree = "<group>"; };
+		44B7578D1B23042A000C6F81 /* MineSweeperPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSweeperPalette.h; path = ../MineSweeperPalette.h; sourceTree = "<group>"; };
+		44B7578E1B230A1E000C6F81 /* MineSweeperPaletteDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSweeperPaletteDefault.h; path = ../MineSweeperPaletteDefault.h; sourceTree = "<group>"; };
+		44B7578F1B230A1E000C6F81 /* MineSweeperPaletteDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineSweeperPaletteDefault.m; path = ../MineSweeperPaletteDefault.m; sourceTree = "<group>"; };
+		44B757911B231C05000C6F81 /* MineSweeperPaletteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSweeperPaletteFactory.h; path = ../MineSweeperPaletteFactory.h; sourceTree = "<group>"; };
+		44B757921B231C05000C6F81 /* MineSweeperPaletteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineSweeperPaletteFactory.m; path = ../MineSweeperPaletteFactory.m; sourceTree = "<group>"; };
+		44B757941B23248A000C6F81 /* UIColor+NormalRGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+NormalRGB.h"; path = "../UIColor+NormalRGB.h"; sourceTree = "<group>"; };
+		44B757951B23248A000C6F81 /* UIColor+NormalRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+NormalRGB.m"; path = "../UIColor+NormalRGB.m"; sourceTree = "<group>"; };
+		44B7579A1B24C65D000C6F81 /* PocketSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketSVG.h; path = ../PocketSVG.h; sourceTree = "<group>"; };
+		44B7579B1B24C65D000C6F81 /* PocketSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketSVG.m; path = ../PocketSVG.m; sourceTree = "<group>"; };
+		44B757A41B24DE46000C6F81 /* PocketSVG+LayerMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PocketSVG+LayerMaker.m"; path = "../PocketSVG+LayerMaker.m"; sourceTree = "<group>"; };
+		44B757A61B24E558000C6F81 /* PocketSVG+LayerMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PocketSVG+LayerMaker.h"; sourceTree = SOURCE_ROOT; };
+		44B757A71B24EDA2000C6F81 /* SVGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGImageView.h; sourceTree = "<group>"; };
+		44B757A81B24EDA2000C6F81 /* SVGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGImageView.m; sourceTree = "<group>"; };
+		44B75BAC1B276DEE000C6F81 /* 1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 1.svg; path = SVG/1.svg; sourceTree = SOURCE_ROOT; };
+		44B75BAE1B276DF4000C6F81 /* 2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 2.svg; path = SVG/2.svg; sourceTree = SOURCE_ROOT; };
+		44B75BB01B276DF9000C6F81 /* 3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 3.svg; path = SVG/3.svg; sourceTree = SOURCE_ROOT; };
+		44B75BB21B276E01000C6F81 /* 4.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 4.svg; path = SVG/4.svg; sourceTree = SOURCE_ROOT; };
+		44B75BB41B276E05000C6F81 /* 5.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 5.svg; path = SVG/5.svg; sourceTree = SOURCE_ROOT; };
+		44B75BB61B276E09000C6F81 /* 6.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 6.svg; path = SVG/6.svg; sourceTree = SOURCE_ROOT; };
+		44B75BB81B276E0D000C6F81 /* 7.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 7.svg; path = SVG/7.svg; sourceTree = SOURCE_ROOT; };
+		44B75BBA1B276E15000C6F81 /* 8.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 8.svg; path = SVG/8.svg; sourceTree = SOURCE_ROOT; };
+		44B75BBC1B276E1B000C6F81 /* 9.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 9.svg; path = SVG/9.svg; sourceTree = SOURCE_ROOT; };
+		44B75BC01B276E25000C6F81 /* flag.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = flag.svg; path = SVG/flag.svg; sourceTree = SOURCE_ROOT; };
+		44B75BC21B276E2A000C6F81 /* options.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = options.svg; path = SVG/options.svg; sourceTree = SOURCE_ROOT; };
+		44B75BC41B276E2E000C6F81 /* refresh.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = refresh.svg; path = SVG/refresh.svg; sourceTree = SOURCE_ROOT; };
+		44B75BC61B276E33000C6F81 /* time.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = time.svg; path = SVG/time.svg; sourceTree = SOURCE_ROOT; };
+		44B75BCA1B28B4DE000C6F81 /* bomb.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bomb.svg; path = SVG/bomb.svg; sourceTree = SOURCE_ROOT; };
 		44C710191AD5C21A0095D186 /* UIOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOptionsView.h; sourceTree = "<group>"; };
 		44C7101A1AD5C21A0095D186 /* UIOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOptionsView.m; sourceTree = "<group>"; };
 		44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAdditionalInformationView.h; path = ../UIAdditionalInformationView.h; sourceTree = "<group>"; };
@@ -99,7 +146,8 @@
 		4418AB931AAB896500971997 = {
 			isa = PBXGroup;
 			children = (
-				44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */,
+				44B757A71B24EDA2000C6F81 /* SVGImageView.h */,
+				44B757A81B24EDA2000C6F81 /* SVGImageView.m */,
 				4418AB9E1AAB896500971997 /* MineSwapper */,
 				4418ABBB1AAB896500971997 /* MineSwapperTests */,
 				4418AB9D1AAB896500971997 /* Products */,
@@ -118,23 +166,17 @@
 		4418AB9E1AAB896500971997 /* MineSwapper */ = {
 			isa = PBXGroup;
 			children = (
+				44B757B91B26184D000C6F81 /* Palettes */,
+				44B757A01B24CEB4000C6F81 /* SVG */,
+				44B7579D1B24C662000C6F81 /* PocketSVG */,
+				44B757971B2324CD000C6F81 /* Category */,
+				44B7578C1B230261000C6F81 /* Protocol */,
 				44C86B0E1B08F77D00DA328F /* Controller */,
 				44C86B0D1B08035500DA328F /* View */,
 				44C86B0C1B08029E00DA328F /* Model */,
-				44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */,
-				44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */,
-				44EC91501B10B90F00F18A6E /* UIGameResultsView.h */,
-				44EC91511B10B90F00F18A6E /* UIGameResultsView.m */,
-				44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */,
-				44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */,
-				44C710191AD5C21A0095D186 /* UIOptionsView.h */,
-				44C7101A1AD5C21A0095D186 /* UIOptionsView.m */,
-				44B0CEB41B1B4A35009F00B1 /* UICounterImageView.h */,
-				44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */,
+				44B75BCC1B28D151000C6F81 /* InterfaceViews */,
 				4418ABA31AAB896500971997 /* AppDelegate.h */,
 				4418ABA41AAB896500971997 /* AppDelegate.m */,
-				44EEB2301ADDBB440009FD31 /* UIMineSweeperSlider.h */,
-				44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */,
 				4418ABAF1AAB896500971997 /* Images.xcassets */,
 				4418ABAC1AAB896500971997 /* Main.storyboard */,
 				4418ABB11AAB896500971997 /* LaunchScreen.xib */,
@@ -168,6 +210,86 @@
 				4418ABBD1AAB896500971997 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		44B7578C1B230261000C6F81 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				44B7578D1B23042A000C6F81 /* MineSweeperPalette.h */,
+				44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		44B757971B2324CD000C6F81 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				44B757A61B24E558000C6F81 /* PocketSVG+LayerMaker.h */,
+				44B757A41B24DE46000C6F81 /* PocketSVG+LayerMaker.m */,
+				44B757941B23248A000C6F81 /* UIColor+NormalRGB.h */,
+				44B757951B23248A000C6F81 /* UIColor+NormalRGB.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		44B7579D1B24C662000C6F81 /* PocketSVG */ = {
+			isa = PBXGroup;
+			children = (
+				44B7579A1B24C65D000C6F81 /* PocketSVG.h */,
+				44B7579B1B24C65D000C6F81 /* PocketSVG.m */,
+			);
+			name = PocketSVG;
+			sourceTree = "<group>";
+		};
+		44B757A01B24CEB4000C6F81 /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				44B75BAC1B276DEE000C6F81 /* 1.svg */,
+				44B75BB41B276E05000C6F81 /* 5.svg */,
+				44B75BBC1B276E1B000C6F81 /* 9.svg */,
+				44B75BC41B276E2E000C6F81 /* refresh.svg */,
+				44B75BC21B276E2A000C6F81 /* options.svg */,
+				44B75BCA1B28B4DE000C6F81 /* bomb.svg */,
+				44B75BC01B276E25000C6F81 /* flag.svg */,
+				44B75BBA1B276E15000C6F81 /* 8.svg */,
+				44B75BC61B276E33000C6F81 /* time.svg */,
+				44B75BB81B276E0D000C6F81 /* 7.svg */,
+				44B75BB61B276E09000C6F81 /* 6.svg */,
+				44B75BB21B276E01000C6F81 /* 4.svg */,
+				44B75BB01B276DF9000C6F81 /* 3.svg */,
+				44B75BAE1B276DF4000C6F81 /* 2.svg */,
+			);
+			name = SVG;
+			sourceTree = "<group>";
+		};
+		44B757B91B26184D000C6F81 /* Palettes */ = {
+			isa = PBXGroup;
+			children = (
+				44B757911B231C05000C6F81 /* MineSweeperPaletteFactory.h */,
+				44B757921B231C05000C6F81 /* MineSweeperPaletteFactory.m */,
+				44B7578E1B230A1E000C6F81 /* MineSweeperPaletteDefault.h */,
+				44B7578F1B230A1E000C6F81 /* MineSweeperPaletteDefault.m */,
+			);
+			name = Palettes;
+			sourceTree = "<group>";
+		};
+		44B75BCC1B28D151000C6F81 /* InterfaceViews */ = {
+			isa = PBXGroup;
+			children = (
+				44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */,
+				44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */,
+				44EC91501B10B90F00F18A6E /* UIGameResultsView.h */,
+				44EC91511B10B90F00F18A6E /* UIGameResultsView.m */,
+				44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */,
+				44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */,
+				44C710191AD5C21A0095D186 /* UIOptionsView.h */,
+				44C7101A1AD5C21A0095D186 /* UIOptionsView.m */,
+				44B0CEB41B1B4A35009F00B1 /* UICounterImageView.h */,
+				44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */,
+				44EEB2301ADDBB440009FD31 /* UIMineSweeperSlider.h */,
+				44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */,
+			);
+			name = InterfaceViews;
 			sourceTree = "<group>";
 		};
 		44C86B0C1B08029E00DA328F /* Model */ = {
@@ -284,9 +406,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B75BBD1B276E1B000C6F81 /* 9.svg in Resources */,
+				44B75BBB1B276E15000C6F81 /* 8.svg in Resources */,
+				44B75BB71B276E09000C6F81 /* 6.svg in Resources */,
+				44B75BC11B276E25000C6F81 /* flag.svg in Resources */,
+				44B75BB51B276E05000C6F81 /* 5.svg in Resources */,
+				44B75BB11B276DF9000C6F81 /* 3.svg in Resources */,
+				44B75BAD1B276DEE000C6F81 /* 1.svg in Resources */,
+				44B75BC51B276E2E000C6F81 /* refresh.svg in Resources */,
+				44B75BB31B276E01000C6F81 /* 4.svg in Resources */,
+				44B75BAF1B276DF4000C6F81 /* 2.svg in Resources */,
+				44B75BCB1B28B4DE000C6F81 /* bomb.svg in Resources */,
+				44B75BB91B276E0D000C6F81 /* 7.svg in Resources */,
+				44B75BC71B276E33000C6F81 /* time.svg in Resources */,
 				4418ABAE1AAB896500971997 /* Main.storyboard in Resources */,
 				4418ABB31AAB896500971997 /* LaunchScreen.xib in Resources */,
 				4418ABB01AAB896500971997 /* Images.xcassets in Resources */,
+				44B75BC31B276E2A000C6F81 /* options.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,14 +447,20 @@
 				4418ABA81AAB896500971997 /* MineSwapper.xcdatamodeld in Sources */,
 				4418ABA51AAB896500971997 /* AppDelegate.m in Sources */,
 				44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */,
+				44B757931B231C05000C6F81 /* MineSweeperPaletteFactory.m in Sources */,
 				441F520F1ABA289800756115 /* UICellDeckView.m in Sources */,
 				44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */,
 				44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */,
 				4418ABAB1AAB896500971997 /* ViewController.m in Sources */,
+				44B757A91B24EDA2000C6F81 /* SVGImageView.m in Sources */,
+				44B757961B23248A000C6F81 /* UIColor+NormalRGB.m in Sources */,
 				44EEB2321ADDBB440009FD31 /* UIMineSweeperSlider.m in Sources */,
 				443684AF1AB6138C00FC910F /* UICellView.m in Sources */,
+				44B7579C1B24C65D000C6F81 /* PocketSVG.m in Sources */,
 				4418ABCD1AAB8BA000971997 /* CellsDeck.m in Sources */,
+				44B757901B230A1E000C6F81 /* MineSweeperPaletteDefault.m in Sources */,
 				4418ABA21AAB896500971997 /* main.m in Sources */,
+				44B757A51B24DE46000C6F81 /* PocketSVG+LayerMaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +587,11 @@
 				INFOPLIST_FILE = MineSwapper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64",
+					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/armv7",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,6 +607,11 @@
 				INFOPLIST_FILE = MineSwapper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64",
+					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/armv7",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

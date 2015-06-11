@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MineSweeperPaletteFactory.h"
 
 @interface UIAdditionalInformationView : UIView
 @property (strong,nonatomic) UIView *options;
--(void) showViewWithAnimation:(BOOL)hidden;
 -(void) initilizeViewUI;
 -(CGRect) getRectBoundsWithNumberInView:(float)number;
+-(void) showViewWithAnimation:(BOOL)hidden;
+
 @end

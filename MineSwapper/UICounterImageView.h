@@ -10,5 +10,5 @@
 
 @interface UICounterImageView : UIView
 @property (strong,nonatomic) UILabelWithOffset *label;
--(instancetype) initWithFrame:(CGRect)frame andImage:(UIImage*)image;
+-(instancetype) initWithFrame:(CGRect)frame andImage:(NSString*)image;
 @end

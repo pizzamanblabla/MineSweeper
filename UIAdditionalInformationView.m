@@ -7,7 +7,6 @@
 //
 
 #import "UIAdditionalInformationView.h"
-
 @interface UIAdditionalInformationView()
 
 @property (nonatomic) float vertical;
@@ -122,6 +121,7 @@
         _options=[[UIView alloc] initWithFrame:options];
         _options.backgroundColor=[UIColor whiteColor];
         _options.layer.cornerRadius=10;
+        _options.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
     }
     
     return _options;

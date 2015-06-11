@@ -7,6 +7,7 @@
 //
 #import "UICellView.h"
 #import "UICellDeckView.h"
+#import "MineSweeperPaletteFactory.h"
 @interface UICellDeckView()
 @property (nonatomic) CGPoint sizeOfCell;
 @property (nonatomic) int rows;
@@ -97,7 +98,7 @@
     float offsetWidth=self.frame.size.width-width;
     CGRect frame=self.frame;
     self.frame=CGRectMake([[UIScreen mainScreen] bounds].origin.x+offsetWidth/2, ([[UIScreen mainScreen] bounds].size.height-frame.size.height)+offsetHeight, frame.size.width, frame.size.height);
-    //NSLog(@"height %f width %f",offsetHeight,offsetWidth);
+    
     
 }
 
