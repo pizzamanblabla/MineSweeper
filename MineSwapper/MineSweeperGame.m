@@ -126,10 +126,14 @@
         }
         else{
             for (MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
-                
-                cell.isShown=YES;
-                cell.isFlag=NO;
-                
+                if(!cell.isBomb && cell.isFlag){
+                    //if(![self checkIsLose]){
+                        cell.isShown=YES;
+                    //}
+                }else{
+                    cell.isShown=YES;
+                    cell.isFlag=NO;
+                }
             }
         }
     }
@@ -138,7 +142,7 @@
 -(instancetype) initWithRows:(int)rows Columns:(int) columns Bombs:(int) bombs{
     self=[super init];
     if(self){
-        self.gameValue=(100000*rows*columns)/bombs;
+        self.gameValue=(rows*columns*rows*columns)*bombs;
         self.cellsDeck=[[CellsDeck alloc] initWithQuantityOfCellsHorizotal:rows QuantityOfCellsVertical:columns quantityOfMines:bombs];
         
     }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol MineSweeperDelegate <NSObject>
+@property (strong,nonatomic) NSCache *SVGCache;
 -(void) touchedCell:(Point) position;
 -(void) flagedCell:(Point) position;
 @end

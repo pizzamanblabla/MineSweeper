@@ -10,6 +10,8 @@
 #import "MineSweeperPaletteFactory.h"
 @implementation PocketSVG (LayerMaker)
 +(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame{
+    
+    
     CGPathRef myPath = [PocketSVG pathFromSVGFileNamed:image];
     
     CAShapeLayer *myShapeLayer = [CAShapeLayer layer];
@@ -29,5 +31,19 @@
     //myShapeLayer.position=CGPointMake(frame.origin.x, frame.origin.y);
     
        return myShapeLayer;
+}
+
+
++(CAShapeLayer*) configureShapeLayer:(CAShapeLayer*) layer withFrame:(CGRect)frame{
+    
+    CAShapeLayer *myShapeLayer=[[CAShapeLayer alloc] init];
+    myShapeLayer.path=layer.path;
+    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.lineWidth = 0.5;
+    myShapeLayer.fillColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    float height=frame.size.height/CGPathGetPathBoundingBox(layer.path).size.height;
+    myShapeLayer.transform = CATransform3DMakeScale(height, height, 1);
+    
+    return myShapeLayer;
 }
 @end

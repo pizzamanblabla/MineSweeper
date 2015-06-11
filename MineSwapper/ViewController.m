@@ -32,11 +32,18 @@
 @property (strong,nonatomic) UIButton *optionsButton;
 @property (strong,nonatomic) UIButton *refreshButton;
 @property (nonatomic) float offset;
+
 @end
 
 @implementation ViewController
 const float STANDART_OFFSET=0.05;
 #pragma mark Properties
+-(NSCache*) SVGCache{
+    if(!_SVGCache){
+        _SVGCache=[[NSCache alloc] init];
+    }
+    return _SVGCache;
+}
 -(float) offset{
     
     if(!_offset){
@@ -164,14 +171,24 @@ const float STANDART_OFFSET=0.05;
             cell.controllerDelegate=self;
         }
         if(modelCell){
-        cell.isFlag=modelCell.isFlag;
-        cell.valueOfCell=modelCell.cellValue;
-        cell.isBomb=modelCell.isBomb;
-        cell.isHidden=modelCell.isShown;
+            if(cell.isFlag!=modelCell.isFlag){
+                cell.isFlag=modelCell.isFlag;
+            }
+            if(cell.isHidden!=modelCell.isShown){
+                cell.isHidden=modelCell.isShown;
+            }
+            if(cell.valueOfCell!=modelCell.cellValue){
+                 cell.valueOfCell=modelCell.cellValue;
+            }
+            if(cell.isBomb!=modelCell.isBomb){
+                cell.isBomb=modelCell.isBomb;
+            }
+        
+        
         }else{
             cell.isHidden=NO;
         }
-        [cell updateUI];
+       // [cell updateUI];
     }
 }
 

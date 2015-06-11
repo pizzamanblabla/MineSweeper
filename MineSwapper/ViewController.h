@@ -11,6 +11,7 @@
 #import "MineSweeperDelegate.h"
 @interface ViewController : UIViewController <MineSweeperDelegate>
 @property (strong, nonatomic) UICellDeckView *cells;
+@property (strong,nonatomic) NSCache *SVGCache;
 -(void) setStartGameOptions;
 -(void) touchedCell:(Point) position;
 -(void) flagedCell:(Point) position;
