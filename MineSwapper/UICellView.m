@@ -9,13 +9,41 @@
 #import "UICellView.h"
 #import "MineSweeperPaletteFactory.h"
 #import "PocketSVG+LayerMaker.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface UICellView()
 @property (nonatomic,readwrite) Point position;
 @property (strong,nonatomic) UIView *Image;
 @property (nonatomic) CAShapeLayer *imageLayer;
+@property (nonatomic) SystemSoundID tapSound;
+@property (nonatomic) SystemSoundID flagSound;
+
 
 @end
 @implementation UICellView
+
+-(SystemSoundID) tapSound{
+    
+    if(!_tapSound){
+        NSURL *toneURLRef = [[NSBundle mainBundle] URLForResource:@"tapSound"
+                                                    withExtension:@"wav"];
+         AudioServicesCreateSystemSoundID((__bridge CFURLRef)(toneURLRef), &_tapSound);
+    }
+    
+    
+    return _tapSound;
+}
+
+-(SystemSoundID) flagSound{
+    
+    if(!_flagSound){
+        NSURL *toneURLRef = [[NSBundle mainBundle] URLForResource:@"flagSound"
+                                                    withExtension:@"wav"];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)(toneURLRef), &_flagSound);
+    }
+    
+    
+    return _flagSound;
+}
 
 
 
@@ -34,17 +62,35 @@
     }
     return self;
 }
+-(BOOL) checkSound{
+    NSNumber *sound=[[NSUserDefaults standardUserDefaults] objectForKey:@"sound"];
+    
+    
+    if(!sound){
+        [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
+        sound=[[NSUserDefaults standardUserDefaults] objectForKey:@"sound"];
 
+    }
+    
+    return [sound intValue];
+}
 -(void) handleTapGesture:(UITapGestureRecognizer *)sender{
     
     if(!self.isHidden && !self.isFlag){
         
         if(self.isBomb){
-            
+            if([self checkSound]){
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            }
             self.Image.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:0];
+        }else{
+            if([self checkSound]){
+                AudioServicesPlaySystemSound(self.tapSound);
+            }
         }
         
         if(self.controllerDelegate){
+            
             [self.controllerDelegate touchedCell:self.position];
         }
     }
@@ -53,6 +99,9 @@
 -(void) handlePressGesture:(UILongPressGestureRecognizer *)sender{
     if(sender.state==UIGestureRecognizerStateBegan){
         if(self.controllerDelegate){
+             if([self checkSound]){
+                 AudioServicesPlaySystemSound(self.flagSound);
+             }
             [self.controllerDelegate flagedCell:self.position];
         }
     }
@@ -62,13 +111,13 @@
 -(UIView*) Image{
     if(!_Image){
         _Image=[[UIImageView alloc] initWithFrame:self.bounds];
-        //_Image.image=[UIImage imageNamed:@"front"];
        _Image.backgroundColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0];
         self.layer.borderColor=[UIColor whiteColor].CGColor;
         self.layer.borderWidth=self.frame.size.width*0.03;
     }
     return _Image;
 }
+
 
 -(void) setImageLayer:(CAShapeLayer *)imageLayer{
     if(_imageLayer){
@@ -83,16 +132,28 @@
     
 }
 
--(void) updateImage{
+-(CAShapeLayer*) getImageLayerWithName:(NSString*)name{
     CGRect imageFrame=CGRectMake(self.frame.size.height*0.05, self.frame.size.height*0.05, self.frame.size.width*0.7, self.frame.size.height*0.7);
+    CAShapeLayer *subLayer=[[self.controllerDelegate SVGCache] objectForKey:name];
+    CAShapeLayer *newImageLayer=[[CAShapeLayer alloc] init];
+    if(!subLayer){
+         newImageLayer=[PocketSVG makeShapeLayerWithSVG:name andFrame:imageFrame];
+        [[self.controllerDelegate SVGCache] setObject:newImageLayer forKey:name];
+    }else{
+       newImageLayer=[PocketSVG configureShapeLayer:subLayer withFrame:imageFrame];
+    }
+    
+    
+    return newImageLayer;
+    
+    
+}
+
+-(void) updateImage{
+  
     if(self.isFlag){
-        CAShapeLayer *subLayer=[[self.controllerDelegate SVGCache] objectForKey:@"flag"];
-        if(!subLayer){
-         self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"flag" andFrame:imageFrame];
-        [[self.controllerDelegate SVGCache] setObject:self.imageLayer forKey:@"flag"];
-        }else{
-            self.imageLayer=[PocketSVG configureShapeLayer:subLayer withFrame:imageFrame];
-        }
+        self.imageLayer=[self getImageLayerWithName:@"flag"];
+        
         self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
         
         if(self.isHidden && !self.isBomb){
@@ -102,26 +163,10 @@
     }else{
         if(self.isHidden){
             if(self.isBomb){
-                CAShapeLayer *subLayer=[[self.controllerDelegate SVGCache] objectForKey:@"bomb"];
-                if(!subLayer){
-                    CAShapeLayer *layer=[PocketSVG makeShapeLayerWithSVG:@"bomb" andFrame:imageFrame];
-                    self.imageLayer=layer;
-                    
-                    [[self.controllerDelegate SVGCache] setObject:layer forKey:@"bomb"];
-                }else{
-                    self.imageLayer=[PocketSVG configureShapeLayer:subLayer withFrame:imageFrame];
-                }
+             self.imageLayer=[self getImageLayerWithName:@"bomb"];
             }else{
                 if(self.valueOfCell){
-                    CAShapeLayer *subLayer=[[self.controllerDelegate SVGCache] objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
-                    if(!subLayer){
-
-                        CAShapeLayer *layer=[PocketSVG makeShapeLayerWithSVG:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell] andFrame:imageFrame];
-                        self.imageLayer=layer;
-                        [[self.controllerDelegate SVGCache] setObject:layer forKey:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
-                    }else{
-                        self.imageLayer=[PocketSVG configureShapeLayer:subLayer withFrame:imageFrame];
-                    }
+                    self.imageLayer=[self getImageLayerWithName:[NSString stringWithFormat:@"%lu",(unsigned long)self.valueOfCell]];
                 }else{
                     self.imageLayer=nil;
                 }
@@ -198,6 +243,7 @@
 
 -(void) setIsFlag:(BOOL)isFlag{
     _isFlag=isFlag;
+    
     [self updateImage];
     
 }

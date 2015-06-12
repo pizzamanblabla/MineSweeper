@@ -42,6 +42,11 @@
 		44B75BC51B276E2E000C6F81 /* refresh.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BC41B276E2E000C6F81 /* refresh.svg */; };
 		44B75BC71B276E33000C6F81 /* time.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BC61B276E33000C6F81 /* time.svg */; };
 		44B75BCB1B28B4DE000C6F81 /* bomb.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BCA1B28B4DE000C6F81 /* bomb.svg */; };
+		44B75BCE1B2AE8D5000C6F81 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B75BCD1B2AE8D5000C6F81 /* AudioToolbox.framework */; };
+		44B75BD11B2AF1DD000C6F81 /* tapSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD01B2AF1DD000C6F81 /* tapSound.wav */; };
+		44B75BD31B2B08BF000C6F81 /* flagSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD21B2B08BF000C6F81 /* flagSound.wav */; };
+		44B75BD51B2B1AD7000C6F81 /* volume.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD41B2B1AD7000C6F81 /* volume.svg */; };
+		44B75BD91B2B351C000C6F81 /* novolume.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD81B2B351C000C6F81 /* novolume.svg */; };
 		44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7101A1AD5C21A0095D186 /* UIOptionsView.m */; };
 		44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */; };
 		44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC91511B10B90F00F18A6E /* UIGameResultsView.m */; };
@@ -115,6 +120,11 @@
 		44B75BC41B276E2E000C6F81 /* refresh.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = refresh.svg; path = SVG/refresh.svg; sourceTree = SOURCE_ROOT; };
 		44B75BC61B276E33000C6F81 /* time.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = time.svg; path = SVG/time.svg; sourceTree = SOURCE_ROOT; };
 		44B75BCA1B28B4DE000C6F81 /* bomb.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bomb.svg; path = SVG/bomb.svg; sourceTree = SOURCE_ROOT; };
+		44B75BCD1B2AE8D5000C6F81 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		44B75BD01B2AF1DD000C6F81 /* tapSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tapSound.wav; path = Audio/tapSound.wav; sourceTree = SOURCE_ROOT; };
+		44B75BD21B2B08BF000C6F81 /* flagSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flagSound.wav; path = Audio/flagSound.wav; sourceTree = SOURCE_ROOT; };
+		44B75BD41B2B1AD7000C6F81 /* volume.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = volume.svg; path = SVG/volume.svg; sourceTree = SOURCE_ROOT; };
+		44B75BD81B2B351C000C6F81 /* novolume.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = novolume.svg; path = SVG/novolume.svg; sourceTree = SOURCE_ROOT; };
 		44C710191AD5C21A0095D186 /* UIOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOptionsView.h; sourceTree = "<group>"; };
 		44C7101A1AD5C21A0095D186 /* UIOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOptionsView.m; sourceTree = "<group>"; };
 		44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAdditionalInformationView.h; path = ../UIAdditionalInformationView.h; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B75BCE1B2AE8D5000C6F81 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +157,7 @@
 		4418AB931AAB896500971997 = {
 			isa = PBXGroup;
 			children = (
+				44B75BCD1B2AE8D5000C6F81 /* AudioToolbox.framework */,
 				44B757A71B24EDA2000C6F81 /* SVGImageView.h */,
 				44B757A81B24EDA2000C6F81 /* SVGImageView.m */,
 				4418AB9E1AAB896500971997 /* MineSwapper */,
@@ -166,6 +178,7 @@
 		4418AB9E1AAB896500971997 /* MineSwapper */ = {
 			isa = PBXGroup;
 			children = (
+				44B75BCF1B2AF1D3000C6F81 /* Audio */,
 				44B757B91B26184D000C6F81 /* Palettes */,
 				44B757A01B24CEB4000C6F81 /* SVG */,
 				44B7579D1B24C662000C6F81 /* PocketSVG */,
@@ -248,8 +261,10 @@
 				44B75BB41B276E05000C6F81 /* 5.svg */,
 				44B75BBC1B276E1B000C6F81 /* 9.svg */,
 				44B75BC41B276E2E000C6F81 /* refresh.svg */,
+				44B75BD81B2B351C000C6F81 /* novolume.svg */,
 				44B75BC21B276E2A000C6F81 /* options.svg */,
 				44B75BCA1B28B4DE000C6F81 /* bomb.svg */,
+				44B75BD41B2B1AD7000C6F81 /* volume.svg */,
 				44B75BC01B276E25000C6F81 /* flag.svg */,
 				44B75BBA1B276E15000C6F81 /* 8.svg */,
 				44B75BC61B276E33000C6F81 /* time.svg */,
@@ -290,6 +305,15 @@
 				44EEB2311ADDBB440009FD31 /* UIMineSweeperSlider.m */,
 			);
 			name = InterfaceViews;
+			sourceTree = "<group>";
+		};
+		44B75BCF1B2AF1D3000C6F81 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				44B75BD21B2B08BF000C6F81 /* flagSound.wav */,
+				44B75BD01B2AF1DD000C6F81 /* tapSound.wav */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		44C86B0C1B08029E00DA328F /* Model */ = {
@@ -410,14 +434,18 @@
 				44B75BBB1B276E15000C6F81 /* 8.svg in Resources */,
 				44B75BB71B276E09000C6F81 /* 6.svg in Resources */,
 				44B75BC11B276E25000C6F81 /* flag.svg in Resources */,
+				44B75BD51B2B1AD7000C6F81 /* volume.svg in Resources */,
 				44B75BB51B276E05000C6F81 /* 5.svg in Resources */,
 				44B75BB11B276DF9000C6F81 /* 3.svg in Resources */,
+				44B75BD31B2B08BF000C6F81 /* flagSound.wav in Resources */,
 				44B75BAD1B276DEE000C6F81 /* 1.svg in Resources */,
 				44B75BC51B276E2E000C6F81 /* refresh.svg in Resources */,
 				44B75BB31B276E01000C6F81 /* 4.svg in Resources */,
 				44B75BAF1B276DF4000C6F81 /* 2.svg in Resources */,
+				44B75BD91B2B351C000C6F81 /* novolume.svg in Resources */,
 				44B75BCB1B28B4DE000C6F81 /* bomb.svg in Resources */,
 				44B75BB91B276E0D000C6F81 /* 7.svg in Resources */,
+				44B75BD11B2AF1DD000C6F81 /* tapSound.wav in Resources */,
 				44B75BC71B276E33000C6F81 /* time.svg in Resources */,
 				4418ABAE1AAB896500971997 /* Main.storyboard in Resources */,
 				4418ABB31AAB896500971997 /* LaunchScreen.xib in Resources */,

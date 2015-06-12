@@ -11,4 +11,5 @@
 @interface PocketSVG (LayerMaker)
 +(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame;
 +(CAShapeLayer*) configureShapeLayer:(CAShapeLayer*) layer withFrame:(CGRect)frame;
++(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame andColor:(UIColor*) color;
 @end

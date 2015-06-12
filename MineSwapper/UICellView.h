@@ -17,6 +17,4 @@
 @property (nonatomic) BOOL isFlag;
 @property (weak,nonatomic) id<MineSweeperDelegate> controllerDelegate;
 -(instancetype)initWithFrame:(CGRect)frame andPosition:(Point)position;
-//-(void) drawValueOfCell;
--(void)updateUI;
 @end

@@ -7,6 +7,7 @@
 //
 #import "UIMineSweeperSlider.h"
 #import "UIOptionsView.h"
+#import "PocketSVG+LayerMaker.h"
 @interface UIOptionsView()
 @property (strong,nonatomic) UISlider *bombSetter;
 @property (strong,nonatomic) UISlider *quantityOfCells;
@@ -14,6 +15,8 @@
 @property (strong,nonatomic) UIButton *submitButton;
 @property (strong,nonatomic) UILabel *cellsSetterLabel;
 @property (strong,nonatomic) UILabel *bombSetterLabel;
+@property (strong,nonatomic) UIView *soundButton;
+@property (nonatomic) CAShapeLayer *imageLayer;
 
 @end
 @implementation UIOptionsView
@@ -23,10 +26,75 @@
     
     [self.options addSubview:self.bombSetter];
     [self.options addSubview:self.submitButton];
+    [self addSubview:self.soundButton];
+    [self initSoundLayer];
+    
+    
+}
+-(void) setImageLayer:(CAShapeLayer *)imageLayer{
+    if(_imageLayer){
+        self.soundButton.layer.sublayers=nil;
+        _imageLayer=imageLayer;
+        [self.soundButton.layer addSublayer: _imageLayer];
+    }else{
+        _imageLayer=imageLayer;
+        [self.soundButton.layer addSublayer: _imageLayer];
+    }
+    
+    
+}
+
+-(void) initSoundLayer{
+    NSNumber *sound=[[NSUserDefaults standardUserDefaults] objectForKey:@"sound"];
+    
+    
+    if(!sound){
+        [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
+    }else{
+        if([sound intValue]){
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+        }else{
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"novolume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+        }
+    }
 
     
     
 }
+
+
+-(void) OnOffSound{
+    NSNumber *sound=[[NSUserDefaults standardUserDefaults] objectForKey:@"sound"];
+    NSLog(@"on");
+    
+    if(!sound){
+        [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
+    }else{
+        if([sound intValue]){
+            [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"sound"];
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"novolume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+        }else{
+            [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+        }
+    }
+    
+}
+
+-(UIView*) soundButton{
+    
+    if(!_soundButton){
+        float height=self.frame.size.height*0.1;
+        float offset=self.frame.size.height*0.05;
+        CGRect frame=CGRectMake(self.frame.size.width-height-offset, self.frame.size.height-height-offset, height, height);
+        _soundButton=[[UIView alloc] initWithFrame:frame];
+        _soundButton.backgroundColor=[UIColor clearColor];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(OnOffSound)];
+        [_soundButton addGestureRecognizer:tapGesture];
+    }
+    return _soundButton;
+}
+
 -(UILabel*) cellsSetterLabel{
     
     if(!_cellsSetterLabel){

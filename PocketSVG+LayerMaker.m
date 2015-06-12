@@ -33,6 +33,23 @@
        return myShapeLayer;
 }
 
++(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame andColor:(UIColor*) color{
+    
+    
+    CGPathRef myPath = [PocketSVG pathFromSVGFileNamed:image];
+    
+    CAShapeLayer *myShapeLayer = [CAShapeLayer layer];
+    myShapeLayer.path = myPath;
+    
+    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.lineWidth = 0.5;
+    myShapeLayer.fillColor = color.CGColor;
+    float height=frame.size.height/CGPathGetPathBoundingBox(myPath).size.height;
+    myShapeLayer.transform = CATransform3DMakeScale(height, height, 1);
+    
+    return myShapeLayer;
+}
+
 
 +(CAShapeLayer*) configureShapeLayer:(CAShapeLayer*) layer withFrame:(CGRect)frame{
     
