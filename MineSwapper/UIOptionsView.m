@@ -50,6 +50,7 @@
     
     if(!sound){
         [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
+        self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
     }else{
         if([sound intValue]){
             self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
@@ -65,8 +66,6 @@
 
 -(void) OnOffSound{
     NSNumber *sound=[[NSUserDefaults standardUserDefaults] objectForKey:@"sound"];
-    NSLog(@"on");
-    
     if(!sound){
         [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
     }else{

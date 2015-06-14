@@ -65,6 +65,11 @@ const float STANDART_OFFSET=0.05;
     
     return _cells;
 }
+-(void) touchedButton{
+    NSLog(@"cool");
+    //self.refreshButton.=[MineSweeperPaletteFactory halfOpacityBackground:0].CGColor;
+    
+}
 
 -(UIButton*) refreshButton{
     if(!_refreshButton){
@@ -73,11 +78,9 @@ const float STANDART_OFFSET=0.05;
         float y=(self.headerView.frame.size.height-heigth)/2;
         CGRect frame=CGRectMake(self.headerView.frame.size.width-self.headerView.frame.size.width*self.offset-width, y, width, heigth);
         frame=CGRectIntegral(frame);
-       // UIImage *backgroundImage=[UIImage imageNamed:@"refresh"];
         _refreshButton=[[UIButton alloc] initWithFrame:frame];
-      //  [_refreshButton setBackgroundImage:backgroundImage forState:UIControlStateNormal];
         [_refreshButton addTarget:self.options action:@selector(submitOptions) forControlEvents:UIControlEventTouchUpInside];
-
+         [_refreshButton addTarget:self action:@selector(touchedButton) forControlEvents:UIControlEventTouchDown];
         CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"refresh" andFrame:frame];
         [_refreshButton.layer addSublayer:myShapeLayer];
     }
@@ -183,12 +186,11 @@ const float STANDART_OFFSET=0.05;
             if(cell.isBomb!=modelCell.isBomb){
                 cell.isBomb=modelCell.isBomb;
             }
-        
+            
         
         }else{
             cell.isHidden=NO;
         }
-       // [cell updateUI];
     }
 }
 
@@ -198,24 +200,29 @@ const float STANDART_OFFSET=0.05;
      if(!self.isGameOver){
          if(!self.gameTimer){
              self.gameTimer=[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timer) userInfo:nil repeats:YES];
-
          }
+         
          [self.game openCellsAroundWithPosition:position];
-         [self updateUIModel];
+         
          self.isGameOver=[self.game ckeckIsGameOver];
          if([self.game checkIsLose]){
              [self.gameTimer invalidate];
+             for (MineSwapperCell *cell in self.game.cellsDeck.arrayOfCells) {
+                 cell.isShown=YES;
+             }
              
          }else{
-         if(self.isGameOver){
-             [self.gameTimer invalidate];
-             NSUInteger score=[self.game calculateScore:[self.timerLabel.label.text intValue]];
-             self.results.score=score;
-             [self.results showViewWithAnimation:NO];
-            self.gameTimer=nil;
-             self.refreshButton.hidden=NO;
+             
+             if(self.isGameOver){
+                 [self.gameTimer invalidate];
+                 NSUInteger score=[self.game calculateScore:[self.timerLabel.label.text intValue]];
+                 self.results.score=score;
+                 [self.results showViewWithAnimation:NO];
+                 self.gameTimer=nil;
+                 self.refreshButton.hidden=NO;
+             }
          }
-         }
+         [self updateUIModel];
      }
 }
 
@@ -284,7 +291,6 @@ const float STANDART_OFFSET=0.05;
 
 -(void) initializeUI{
     [self.view addSubview:self.cells];
-   // self.topConstrait.constant=[[UIScreen mainScreen] bounds].size.height*0.1;
     [self.cells calculateProbableSizesOfCell];
     self.results=[[UIGameResultsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.results.hidden=YES;

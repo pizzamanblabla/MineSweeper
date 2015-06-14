@@ -60,5 +60,9 @@
     
 }
 
++(UIColor*) halfOpacityBackground:(int) index{
+    
+    return [MineSweeperPaletteDefault backgroundColor];
+}
 
 @end

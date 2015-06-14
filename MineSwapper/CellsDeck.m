@@ -106,7 +106,7 @@
 -(MineSwapperCell*)getCellByPosition:(Point) position{
     for( MineSwapperCell *cell in self.arrayOfCells){
         if(position.h==cell.positionInDeck.h && position.v==cell.positionInDeck.v){
-                       return cell;
+            return cell;
         }
     }
     return nil;

@@ -64,76 +64,79 @@
     MineSwapperCell *mainCell=[self.cellsDeck getCellByPosition:position];
     if(mainCell){
         if(!mainCell.isBomb){
-    mainCell.isShown=YES;
-        if(mainCell.cellValue==0){
-    int x=0,y=0;
-    for(int i=0;i<8;i++){
-        switch (i) {
-            case 0:
-                x=-1;
-                y=-1;
-                break;
-            case 1:
-                x=0;
-                y=-1;
-                break;
-            case 2:
-                x=-1;
-                y=0;
-                break;
-            case 3:
-                x=1;
-                y=1;
-                break;
-            case 4:
-                x=1;
-                y=-1;
-                break;
-            case 5:
-                x=-1;
-                y=1;
-                break;
-            case 6:
-                x=0;
-                y=1;
-                break;
-            case 7:
-                x=1;
-                y=0;
-                break;
-                
-            default:
-                break;
-        }
-        
-        Point point={position.v+x,position.h+y};
-        MineSwapperCell *cell=[self.cellsDeck getCellByPosition:point];
-        
-        
-        if(cell.cellValue==0 && cell.isShown==NO){
-                
-            if(!(cell.positionInDeck.v==0 && cell.positionInDeck.h==0)){
-                [self openCellsAroundWithPosition:cell.positionInDeck];}
-                    }
-        else{
-            if(cell.isFlag==NO){
-                cell.isShown=YES;
+            if (!mainCell.isFlag) {
+                mainCell.isShown=YES;
             }
-        }
-    }
+            
+            if(mainCell.cellValue==0){
+                int x=0,y=0;
+                for(int i=0;i<8;i++){
+                    switch (i) {
+                        case 0:
+                            x=-1;
+                            y=-1;
+                            break;
+                        case 1:
+                            x=0;
+                            y=-1;
+                            break;
+                        case 2:
+                            x=-1;
+                            y=0;
+                            break;
+                        case 3:
+                            x=1;
+                            y=1;
+                            break;
+                        case 4:
+                            x=1;
+                            y=-1;
+                            break;
+                        case 5:
+                            x=-1;
+                            y=1;
+                            break;
+                        case 6:
+                            x=0;
+                            y=1;
+                            break;
+                        case 7:
+                            x=1;
+                            y=0;
+                            break;
+                
+                        default:
+                            break;
+                    }
         
-    }
-        }
-        else{
-            for (MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
-                if(!cell.isBomb && cell.isFlag){
-                    //if(![self checkIsLose]){
-                        cell.isShown=YES;
-                    //}
-                }else{
-                    cell.isShown=YES;
-                    cell.isFlag=NO;
+                    Point point={position.v+x,position.h+y};
+                    MineSwapperCell *cell=[self.cellsDeck getCellByPosition:point];
+        
+        
+                    if(cell.cellValue==0 && !cell.isShown){
+                
+                        if(!(cell.positionInDeck.v==0 && cell.positionInDeck.h==0)){
+                            [self openCellsAroundWithPosition:cell.positionInDeck];
+                        }
+                        }else{
+                            if(!cell.isFlag){
+                                cell.isShown=YES;
+                            }
+                        }
+                    }
                 }
+            }else{
+            for (MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
+                if( cell.isFlag){
+                    if([self checkIsLose]){
+                       
+                        cell.isShown=YES;
+                    }
+                    
+                }else{
+                   
+                    cell.isShown=YES;
+                                   }
             }
         }
     }

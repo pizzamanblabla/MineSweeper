@@ -15,6 +15,7 @@
 @property (nonatomic) BOOL isBomb;
 @property (nonatomic) BOOL isHidden;
 @property (nonatomic) BOOL isFlag;
+
 @property (weak,nonatomic) id<MineSweeperDelegate> controllerDelegate;
 -(instancetype)initWithFrame:(CGRect)frame andPosition:(Point)position;
 @end

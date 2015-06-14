@@ -62,9 +62,9 @@
     }
     return self;
 }
+
 -(BOOL) checkSound{
     NSNumber *sound=[[NSUserDefaults standardUserDefaults] objectForKey:@"sound"];
-    
     
     if(!sound){
         [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
@@ -74,6 +74,7 @@
     
     return [sound intValue];
 }
+
 -(void) handleTapGesture:(UITapGestureRecognizer *)sender{
     
     if(!self.isHidden && !self.isFlag){
@@ -149,6 +150,7 @@
     
 }
 
+
 -(void) updateImage{
   
     if(self.isFlag){
@@ -156,9 +158,7 @@
         
         self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
         
-        if(self.isHidden && !self.isBomb){
-            self.Image.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:0];
-        }
+      
         
     }else{
         if(self.isHidden){
@@ -238,6 +238,15 @@
 
 -(void) setIsHidden:(BOOL)isHidden{
     _isHidden=isHidden;
+    if(isHidden){
+        
+        if(!self.isBomb && self.isFlag){
+            self.Image.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:0];
+        }
+        
+        
+    }
+
     [self updateImage];
 }
 

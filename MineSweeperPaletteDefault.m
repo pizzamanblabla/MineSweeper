@@ -79,5 +79,13 @@
     return color;
 }
 
++(UIColor*) halfOpacityBackground{
+    
+    UIColor * color=[UIColor colorWithR:252 G:255 B:245 A:0.5];
+    
+    
+    return color;
+}
+
 
 @end

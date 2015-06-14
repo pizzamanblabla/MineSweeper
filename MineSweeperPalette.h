@@ -20,4 +20,5 @@
 +(UIColor*) borderCellFrontColor;
 +(UIColor*) borderCellBackgroundColor;
 +(UIColor*) backgroundCellColorOfBombExploded;
++(UIColor*) halfOpacityBackground;
 @end
