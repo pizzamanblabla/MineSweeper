@@ -181,7 +181,7 @@
             frontLayer.path=CGPathCreateWithRect ( CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), nil );
             frontLayer.strokeColor = [UIColor clearColor].CGColor;
             frontLayer.lineWidth = 0.5;
-            frontLayer.fillColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+            frontLayer.fillColor=[MineSweeperPaletteFactory frontCellColorWithIndex:0].CGColor;
             self.imageLayer=frontLayer;
             
         }

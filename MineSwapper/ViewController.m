@@ -31,6 +31,8 @@
 @property (strong,nonatomic) UIView *headerView;
 @property (strong,nonatomic) UIButton *optionsButton;
 @property (strong,nonatomic) UIButton *refreshButton;
+@property (strong,nonatomic) CAShapeLayer *refreshButtonLayer;
+@property (strong,nonatomic) CAShapeLayer *optionsButtonLayer;
 @property (nonatomic) float offset;
 
 @end
@@ -65,9 +67,16 @@ const float STANDART_OFFSET=0.05;
     
     return _cells;
 }
+
+
 -(void) touchedButton{
-    NSLog(@"cool");
-    //self.refreshButton.=[MineSweeperPaletteFactory halfOpacityBackground:0].CGColor;
+   // NSLog(@"cool");
+    /* CAShapeLayer *frontLayer=[CAShapeLayer layer];
+    frontLayer.path=CGPathCreateWithRect ( CGRectMake(0, 0, self.refreshButton.frame.size.width, self.refreshButton.frame.size.height), nil );
+    frontLayer.strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1].CGColor;
+    frontLayer.lineWidth = 10;
+    frontLayer.fillColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:1].CGColor;*/
+   // self.refreshButtonLayer.mask=frontLayer;
     
 }
 
@@ -81,8 +90,9 @@ const float STANDART_OFFSET=0.05;
         _refreshButton=[[UIButton alloc] initWithFrame:frame];
         [_refreshButton addTarget:self.options action:@selector(submitOptions) forControlEvents:UIControlEventTouchUpInside];
          [_refreshButton addTarget:self action:@selector(touchedButton) forControlEvents:UIControlEventTouchDown];
-        CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"refresh" andFrame:frame];
-        [_refreshButton.layer addSublayer:myShapeLayer];
+        self.refreshButtonLayer=[PocketSVG makeShapeLayerWithSVG:@"refresh" andFrame:frame];
+        
+        [_refreshButton.layer addSublayer:self.refreshButtonLayer];
     }
     return _refreshButton;
 }
@@ -94,12 +104,10 @@ const float STANDART_OFFSET=0.05;
         CGRect frame=CGRectMake(self.headerView.frame.size.width*self.offset, y, width, heigth);
         frame=CGRectIntegral(frame);
         
-        
-        //UIImage *backgroundImage=[UIImage imageNamed:@"options"];
          _optionsButton=[[UIButton alloc] initWithFrame:frame];
-      //  [_optionsButton setBackgroundImage:backgroundImage forState:UIControlStateNormal];
         [_optionsButton addTarget:self action:@selector(showOptions) forControlEvents:UIControlEventTouchUpInside];
      CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"options" andFrame:frame];
+        
         [_optionsButton.layer addSublayer:myShapeLayer];
     }
     return _optionsButton;
@@ -122,7 +130,7 @@ const float STANDART_OFFSET=0.05;
         float heigth=self.headerView.frame.size.height*0.8;
         float width=(self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
         float y=(self.headerView.frame.size.height-heigth)/2;
-        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width, y, width, heigth);
+        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width*17/16, y, width, heigth);
         frame=CGRectIntegral(frame);
         _timerLabel=[[UICounterImageView alloc] initWithFrame:frame andImage:@"time"];
         _timerLabel.label.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
@@ -135,7 +143,7 @@ const float STANDART_OFFSET=0.05;
         float heigth=self.headerView.frame.size.height*0.8;
         float width=(self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
         float y=(self.headerView.frame.size.height-heigth)/2;
-        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5, y, width, heigth);
+        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width*1/16, y, width, heigth);
         _bombCounter=[[UICounterImageView alloc] initWithFrame:frame andImage:nil];
         _bombCounter.label.textAlignment=NSTextAlignmentLeft;
        
@@ -271,7 +279,6 @@ const float STANDART_OFFSET=0.05;
 -(void) setStartGameOptions{
     
     self.timerLabel.backgroundColor=[UIColor whiteColor];
-    //self.refreshButton.hidden=YES;
     self.timerLabel.label.text=@"0";
     [self.gameTimer invalidate];
     self.gameTimer=nil;

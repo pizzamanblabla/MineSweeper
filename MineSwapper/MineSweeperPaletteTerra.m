@@ -1,73 +1,71 @@
 //
-//  MineSweeperPaletteDefault.m
+//  MineSweeperPaletteTerra.m
 //  MineSwapper
 //
-//  Created by Eugene on 6/6/15.
+//  Created by Eugene on 6/15/15.
 //  Copyright (c) 2015 Eugene. All rights reserved.
 //
 
-#import "MineSweeperPaletteDefault.h"
+#import "MineSweeperPaletteTerra.h"
 
-@implementation MineSweeperPaletteDefault
-
+@implementation MineSweeperPaletteTerra
 +(UIColor*) backgroundColor{
     
-    UIColor * color=[UIColor colorWithR:252 G:255 B:245 A:1];
+    UIColor * color=[UIColor colorWithR:232 G:221 B:203 A:1];
     
     return color;
 }
 
 +(UIColor*) fontHeaderColor{
     
-    UIColor * color=[UIColor colorWithR:25 G:52 B:65 A:1];
+    UIColor * color=[UIColor colorWithR:3 G:101 B:100 A:1];
     
     return color;
 }
 
 +(UIColor*) fontTextColor{
     
-    UIColor * color=[UIColor colorWithR:25 G:52 B:65 A:1];
-
+    UIColor * color=[UIColor colorWithR:3 G:101 B:100 A:1];
+    
     
     return color;
 }
 
 +(UIColor*) backgroundCellColor{
-    UIColor * color=[UIColor colorWithR:252 G:255 B:245 A:1];
+    UIColor * color=[UIColor colorWithR:232 G:221 B:203  A:1];
     
     return color;
 }
 
 +(UIColor*) buttonTextColor{
     
-       UIColor * color=[UIColor colorWithR:252 G:255 B:245 A:1];
+    UIColor * color=[UIColor colorWithR:232 G:221 B:203  A:1];
     
     return color;
 }
 
 +(UIColor*) frontCellColor{
     
-      UIColor * color=[UIColor colorWithR:25 G:52 B:65 A:1];
+    UIColor * color=[UIColor colorWithR:3 G:101 B:100 A:1];
     return color;
 }
 
 +(UIColor*) buttonColor{
     
-    UIColor * color=[UIColor colorWithR:82 G:65 B:71 A:1];
-
+    UIColor * color=[UIColor colorWithR:3 G:101 B:100 A:1];
+    
     
     return color;
 }
 +(UIColor*) borderCellFrontColor{
     
-      UIColor * color=[UIColor colorWithR:252 G:255 B:245 A:1];
-    
+    UIColor * color=[UIColor colorWithR:232 G:221 B:203 A:1];
     return color;
 }
 +(UIColor*) borderCellBackgroundColor{
     
-    UIColor * color=[UIColor colorWithR:25 G:52 B:65 A:1];
-
+    UIColor * color=[UIColor colorWithR:3 G:54 B:73 A:1];
+    
     
     return color;
 }
@@ -82,7 +80,7 @@
 
 +(UIColor*) halfOpacityBackground{
     
-    UIColor * color=[UIColor colorWithR:252 G:255 B:245 A:0.5];
+    UIColor * color=[UIColor colorWithR:232 G:221 B:203  A:0.5];
     
     
     return color;

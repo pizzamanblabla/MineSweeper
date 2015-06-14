@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MineSweeperPalette.h"
+#import "MineSweeperPaletteTrance.h"
 @interface MineSweeperPaletteDefault : NSObject<MineSweeperPalette>
 
 @end

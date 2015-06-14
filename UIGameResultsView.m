@@ -72,7 +72,7 @@
     if(!_resultLabel){
         CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.05, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
         _resultLabel=[[UILabel alloc] initWithFrame:frame];
-        _resultLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.6];
+        _resultLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.7];
         _resultLabel.textAlignment=NSTextAlignmentCenter;
         _resultLabel.textColor=[MineSweeperPaletteFactory fontHeaderColorWithIndex:0];
         _resultLabel.text=@"Nice";
@@ -83,7 +83,7 @@
 
 -(UILabel*) resultScoreLabel{
     if(!_resultScoreLabel){
-        CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.25, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
+        CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.3, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
         _resultScoreLabel=[[UILabel alloc] initWithFrame:frame];
          _resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)self.score];
         _resultScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.8];
@@ -95,7 +95,7 @@
 
 -(UILabel*) scoreLabel{
     if(!_scoreLabel){
-        CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.1, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
+        CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.15, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
         _scoreLabel=[[UILabel alloc] initWithFrame:frame];
         _scoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.4];
         _scoreLabel.textAlignment=NSTextAlignmentCenter;
@@ -108,7 +108,7 @@
 
 -(UILabel*) resultBestScoreLabel{
     if(!_resultBestScoreLabel){
-        CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.4, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
+        CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.45, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
         _resultBestScoreLabel=[[UILabel alloc] initWithFrame:frame];
         _resultBestScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.35];
         _resultBestScoreLabel.textAlignment=NSTextAlignmentCenter;
@@ -121,15 +121,15 @@
 }
 
 -(void) checkResultsWithScore:(NSUInteger) score{
-    if(score>100000){
+    if(score<=10000 && score>5000){
         self.resultLabel.text=[self.arrayOfResults objectAtIndex:0];
-    }else if(score>50000){
+    }else if(score<=5000 && score>3000){
         self.resultLabel.text=[self.arrayOfResults objectAtIndex:1];
-    }else if (score>30000){
+    }else if (score<=3000 && score>2000){
         self.resultLabel.text=[self.arrayOfResults objectAtIndex:2];
-    }else if (score>20000){
+    }else if (score<=2000 && score>100){
         self.resultLabel.text=[self.arrayOfResults objectAtIndex:3];
-    }else if (score>10000){
+    }else if (score<100){
         self.resultLabel.text=[self.arrayOfResults objectAtIndex:4];
     }
 
@@ -138,13 +138,14 @@
 
 -(void) writeRusult:(NSUInteger) score{
     
-     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    if(!standardUserDefaults){
+     NSString *highScore=[ [NSUserDefaults standardUserDefaults] objectForKey:@"highScore"];
+    
+    if(!highScore){
         [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%lu",(unsigned long)score] forKey:@"highScore"];
     }else{
-        NSString *highScore=[standardUserDefaults objectForKey:@"highScore"];
         if(score>[highScore intValue]){
             [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%lu",(unsigned long)score] forKey:@"highScore"];
+            self.resultBestScoreLabel.text=@"New Best!";
         }else{
             self.resultBestScoreLabel.text=[NSString stringWithFormat:@"Your best %@",highScore];
         }

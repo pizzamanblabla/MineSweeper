@@ -20,6 +20,8 @@
 		441F520F1ABA289800756115 /* UICellDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 441F520E1ABA289800756115 /* UICellDeckView.m */; };
 		44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 44217E571AC201EE00BE4457 /* MineSweeperGame.m */; };
 		443684AF1AB6138C00FC910F /* UICellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443684AE1AB6138C00FC910F /* UICellView.m */; };
+		448688F01B2E1663007F78FB /* MineSweeperPaletteTrance.m in Sources */ = {isa = PBXBuildFile; fileRef = 448688EF1B2E1663007F78FB /* MineSweeperPaletteTrance.m */; };
+		448688F31B2E41F4007F78FB /* MineSweeperPaletteTerra.m in Sources */ = {isa = PBXBuildFile; fileRef = 448688F21B2E41F4007F78FB /* MineSweeperPaletteTerra.m */; };
 		44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */; };
 		44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */; };
 		44B757901B230A1E000C6F81 /* MineSweeperPaletteDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B7578F1B230A1E000C6F81 /* MineSweeperPaletteDefault.m */; };
@@ -88,6 +90,10 @@
 		44217E571AC201EE00BE4457 /* MineSweeperGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperGame.m; sourceTree = "<group>"; };
 		443684AD1AB6138C00FC910F /* UICellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICellView.h; sourceTree = "<group>"; };
 		443684AE1AB6138C00FC910F /* UICellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICellView.m; sourceTree = "<group>"; };
+		448688EE1B2E1663007F78FB /* MineSweeperPaletteTrance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperPaletteTrance.h; sourceTree = "<group>"; };
+		448688EF1B2E1663007F78FB /* MineSweeperPaletteTrance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperPaletteTrance.m; sourceTree = "<group>"; };
+		448688F11B2E41F4007F78FB /* MineSweeperPaletteTerra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperPaletteTerra.h; sourceTree = "<group>"; };
+		448688F21B2E41F4007F78FB /* MineSweeperPaletteTerra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperPaletteTerra.m; sourceTree = "<group>"; };
 		44B0CEB41B1B4A35009F00B1 /* UICounterImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICounterImageView.h; sourceTree = "<group>"; };
 		44B0CEB51B1B4A35009F00B1 /* UICounterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICounterImageView.m; sourceTree = "<group>"; };
 		44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILabelWithOffset.h; path = ../UILabelWithOffset.h; sourceTree = "<group>"; };
@@ -284,6 +290,10 @@
 				44B757921B231C05000C6F81 /* MineSweeperPaletteFactory.m */,
 				44B7578E1B230A1E000C6F81 /* MineSweeperPaletteDefault.h */,
 				44B7578F1B230A1E000C6F81 /* MineSweeperPaletteDefault.m */,
+				448688EE1B2E1663007F78FB /* MineSweeperPaletteTrance.h */,
+				448688EF1B2E1663007F78FB /* MineSweeperPaletteTrance.m */,
+				448688F11B2E41F4007F78FB /* MineSweeperPaletteTerra.h */,
+				448688F21B2E41F4007F78FB /* MineSweeperPaletteTerra.m */,
 			);
 			name = Palettes;
 			sourceTree = "<group>";
@@ -481,10 +491,12 @@
 				44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */,
 				4418ABAB1AAB896500971997 /* ViewController.m in Sources */,
 				44B757A91B24EDA2000C6F81 /* SVGImageView.m in Sources */,
+				448688F01B2E1663007F78FB /* MineSweeperPaletteTrance.m in Sources */,
 				44B757961B23248A000C6F81 /* UIColor+NormalRGB.m in Sources */,
 				44EEB2321ADDBB440009FD31 /* UIMineSweeperSlider.m in Sources */,
 				443684AF1AB6138C00FC910F /* UICellView.m in Sources */,
 				44B7579C1B24C65D000C6F81 /* PocketSVG.m in Sources */,
+				448688F31B2E41F4007F78FB /* MineSweeperPaletteTerra.m in Sources */,
 				4418ABCD1AAB8BA000971997 /* CellsDeck.m in Sources */,
 				44B757901B230A1E000C6F81 /* MineSweeperPaletteDefault.m in Sources */,
 				4418ABA21AAB896500971997 /* main.m in Sources */,
