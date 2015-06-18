@@ -40,12 +40,14 @@
 @implementation ViewController
 const float STANDART_OFFSET=0.05;
 #pragma mark Properties
+
 -(NSCache*) SVGCache{
     if(!_SVGCache){
         _SVGCache=[[NSCache alloc] init];
     }
     return _SVGCache;
 }
+
 -(float) offset{
     
     if(!_offset){
@@ -60,7 +62,16 @@ const float STANDART_OFFSET=0.05;
 -(UICellDeckView*) cells{
     
     if(!_cells){
-        CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height*0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height*0.85);
+        float size=0.85;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+             size=0.9;
+        }
+        else
+        {
+            size=0.85;
+        }
+        CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height*0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height*size);
         _cells=[[UICellDeckView alloc] initWithFrame:frame];
         _cells.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
     }
@@ -69,15 +80,53 @@ const float STANDART_OFFSET=0.05;
 }
 
 
--(void) touchedButton{
-   // NSLog(@"cool");
-    /* CAShapeLayer *frontLayer=[CAShapeLayer layer];
-    frontLayer.path=CGPathCreateWithRect ( CGRectMake(0, 0, self.refreshButton.frame.size.width, self.refreshButton.frame.size.height), nil );
-    frontLayer.strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1].CGColor;
-    frontLayer.lineWidth = 10;
-    frontLayer.fillColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:1].CGColor;*/
-   // self.refreshButtonLayer.mask=frontLayer;
+
+-(CABasicAnimation*) buttonTouchedAnimationFrom:(float) from to:(float) to{
+    CABasicAnimation *pulseAnimation=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:from];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:to];
     
+    
+    [pulseAnimation setFillMode:kCAFillModeForwards];
+    [pulseAnimation setRemovedOnCompletion:NO];
+    
+    pulseAnimation.duration = 0.2;
+    
+    
+    
+    return pulseAnimation;
+}
+
+
+- (CABasicAnimation*) runSpinAnimationWithDuration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
+{
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * rotations * duration ];
+    rotationAnimation.duration = duration;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = repeat;
+    [rotationAnimation setRemovedOnCompletion:NO];
+   // [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+    return rotationAnimation;
+}
+
+-(void) touchedButton{
+
+    [[self.refreshButton layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
+    
+}
+
+-(void) touchedButtonOptions{
+    
+    [[self.optionsButton layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
+    
+}
+
+-(void) touchedUpInside{
+    
+    [[self.refreshButton layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
+    [self.options submitOptions];
 }
 
 -(UIButton*) refreshButton{
@@ -88,7 +137,7 @@ const float STANDART_OFFSET=0.05;
         CGRect frame=CGRectMake(self.headerView.frame.size.width-self.headerView.frame.size.width*self.offset-width, y, width, heigth);
         frame=CGRectIntegral(frame);
         _refreshButton=[[UIButton alloc] initWithFrame:frame];
-        [_refreshButton addTarget:self.options action:@selector(submitOptions) forControlEvents:UIControlEventTouchUpInside];
+        [_refreshButton addTarget:self action:@selector(touchedUpInside) forControlEvents:UIControlEventTouchUpInside];
          [_refreshButton addTarget:self action:@selector(touchedButton) forControlEvents:UIControlEventTouchDown];
         self.refreshButtonLayer=[PocketSVG makeShapeLayerWithSVG:@"refresh" andFrame:frame];
         
@@ -96,6 +145,7 @@ const float STANDART_OFFSET=0.05;
     }
     return _refreshButton;
 }
+
 -(UIButton*) optionsButton{
     if(!_optionsButton){
         float heigth=self.headerView.frame.size.height*0.7;
@@ -106,18 +156,21 @@ const float STANDART_OFFSET=0.05;
         
          _optionsButton=[[UIButton alloc] initWithFrame:frame];
         [_optionsButton addTarget:self action:@selector(showOptions) forControlEvents:UIControlEventTouchUpInside];
+         [_optionsButton addTarget:self action:@selector(touchedButtonOptions) forControlEvents:UIControlEventTouchDown];
      CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"options" andFrame:frame];
         
         [_optionsButton.layer addSublayer:myShapeLayer];
     }
     return _optionsButton;
 }
+
 -(UIView*) headerView{
     
     if(!_headerView){
     
         CGRect frame=CGRectMake(0, self.view.frame.size.height*self.offset, self.view.frame.size.width, self.view.frame.size.height-self.cells.frame.size.height-self.view.frame.size.height*self.offset);
         _headerView=[[UIView alloc] initWithFrame:frame];
+        
       // _headerView.backgroundColor=[UIColor blackColor];
     }
     
@@ -260,6 +313,8 @@ const float STANDART_OFFSET=0.05;
 
 
 -(void) showOptions{
+    [[self.optionsButton layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
+
     BOOL isHidden=!self.options.hidden;
     [self.options showViewWithAnimation:isHidden];
     [self.options updateViewWithModel:NO];
@@ -303,9 +358,9 @@ const float STANDART_OFFSET=0.05;
     self.results.hidden=YES;
     [self.view addSubview:self.headerView];
     [self.headerView addSubview:self.bombCounter];
+    [self.headerView addSubview:self.timerLabel];
     [self.headerView addSubview:self.optionsButton];
     [self.headerView addSubview:self.refreshButton];
-    [self.headerView addSubview:self.timerLabel];
     [self.view addSubview:self.results];
     [self.view addSubview:self.options];
     [self.options updateViewWithModel:NO];

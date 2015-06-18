@@ -29,7 +29,6 @@
 		44B757961B23248A000C6F81 /* UIColor+NormalRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757951B23248A000C6F81 /* UIColor+NormalRGB.m */; };
 		44B7579C1B24C65D000C6F81 /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B7579B1B24C65D000C6F81 /* PocketSVG.m */; };
 		44B757A51B24DE46000C6F81 /* PocketSVG+LayerMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757A41B24DE46000C6F81 /* PocketSVG+LayerMaker.m */; };
-		44B757A91B24EDA2000C6F81 /* SVGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B757A81B24EDA2000C6F81 /* SVGImageView.m */; };
 		44B75BAD1B276DEE000C6F81 /* 1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BAC1B276DEE000C6F81 /* 1.svg */; };
 		44B75BAF1B276DF4000C6F81 /* 2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BAE1B276DF4000C6F81 /* 2.svg */; };
 		44B75BB11B276DF9000C6F81 /* 3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BB01B276DF9000C6F81 /* 3.svg */; };
@@ -110,8 +109,6 @@
 		44B7579B1B24C65D000C6F81 /* PocketSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketSVG.m; path = ../PocketSVG.m; sourceTree = "<group>"; };
 		44B757A41B24DE46000C6F81 /* PocketSVG+LayerMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PocketSVG+LayerMaker.m"; path = "../PocketSVG+LayerMaker.m"; sourceTree = "<group>"; };
 		44B757A61B24E558000C6F81 /* PocketSVG+LayerMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PocketSVG+LayerMaker.h"; sourceTree = SOURCE_ROOT; };
-		44B757A71B24EDA2000C6F81 /* SVGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGImageView.h; sourceTree = "<group>"; };
-		44B757A81B24EDA2000C6F81 /* SVGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGImageView.m; sourceTree = "<group>"; };
 		44B75BAC1B276DEE000C6F81 /* 1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 1.svg; path = SVG/1.svg; sourceTree = SOURCE_ROOT; };
 		44B75BAE1B276DF4000C6F81 /* 2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 2.svg; path = SVG/2.svg; sourceTree = SOURCE_ROOT; };
 		44B75BB01B276DF9000C6F81 /* 3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 3.svg; path = SVG/3.svg; sourceTree = SOURCE_ROOT; };
@@ -164,8 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				44B75BCD1B2AE8D5000C6F81 /* AudioToolbox.framework */,
-				44B757A71B24EDA2000C6F81 /* SVGImageView.h */,
-				44B757A81B24EDA2000C6F81 /* SVGImageView.m */,
 				4418AB9E1AAB896500971997 /* MineSwapper */,
 				4418ABBB1AAB896500971997 /* MineSwapperTests */,
 				4418AB9D1AAB896500971997 /* Products */,
@@ -490,7 +485,6 @@
 				44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */,
 				44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */,
 				4418ABAB1AAB896500971997 /* ViewController.m in Sources */,
-				44B757A91B24EDA2000C6F81 /* SVGImageView.m in Sources */,
 				448688F01B2E1663007F78FB /* MineSweeperPaletteTrance.m in Sources */,
 				44B757961B23248A000C6F81 /* UIColor+NormalRGB.m in Sources */,
 				44EEB2321ADDBB440009FD31 /* UIMineSweeperSlider.m in Sources */,
@@ -625,7 +619,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSwapper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -645,7 +639,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSwapper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

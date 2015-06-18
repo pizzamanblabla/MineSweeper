@@ -71,6 +71,13 @@
     
     double x=floor(self.sizeOfCell.x);
     double y=floor(self.sizeOfCell.y);
+    if(x!=y){
+        if(x>y){
+            x=y;
+        }else{
+            y=x;
+        }
+    }
     for(int i=1;i<=self.columns;i++){
         for(int n=1;n<=self.rows;n++){
             CGRect frame;
@@ -120,12 +127,12 @@
 }
 
 -(void) calculateProbableSizesOfCell{
-    for(int i=1;i<=20;i++){
-        for(int n=1;n<=20;n++){
+    for(int i=6;i<=25;i++){
+        for(int n=6;n<=25;n++){
             float width=self.frame.size.width/i;
             float height=self.frame.size.height/n;
-            if(height>20 && width>20){
-            if(height-width>0){
+            if(height>30 && width>30){
+                           if(height-width>0){
                 if((height-width)<0.8){
                     [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
                 }

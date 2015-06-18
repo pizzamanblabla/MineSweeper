@@ -45,6 +45,24 @@
     return _flagSound;
 }
 
+-(CABasicAnimation*) buttonTouchedAnimationFrom:(float) from to:(float) to{
+    CABasicAnimation *pulseAnimation=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:from];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:to];
+    
+    
+    [pulseAnimation setFillMode:kCAFillModeForwards];
+    [pulseAnimation setRemovedOnCompletion:NO];
+    
+    pulseAnimation.duration = 0.2;
+    
+    
+    
+    return pulseAnimation;
+}
+
+
+
 
 
 -(instancetype)initWithFrame:(CGRect)frame andPosition:(Point)position{
@@ -55,8 +73,8 @@
         self.isHidden=NO;
         self.isFlag=NO;
         [self addSubview:self.Image];
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-        [self addGestureRecognizer:tapGesture];
+       UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+      [self addGestureRecognizer:tapGesture];
         UILongPressGestureRecognizer *pressGesture=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePressGesture:)];
         [self addGestureRecognizer:pressGesture];
     }
@@ -76,7 +94,12 @@
 }
 
 -(void) handleTapGesture:(UITapGestureRecognizer *)sender{
-    
+    if(sender.state==UIGestureRecognizerStateBegan){
+        [[self layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
+        
+    }
+    if(sender.state==UIGestureRecognizerStateEnded){
+    [[self layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
     if(!self.isHidden && !self.isFlag){
         
         if(self.isBomb){
@@ -94,18 +117,21 @@
             
             [self.controllerDelegate touchedCell:self.position];
         }
-    }
+    }}
 }
 
 -(void) handlePressGesture:(UILongPressGestureRecognizer *)sender{
-    if(sender.state==UIGestureRecognizerStateBegan){
+  
+    
+   if(sender.state==UIGestureRecognizerStateBegan){
+       [[self layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
         if(self.controllerDelegate){
              if([self checkSound]){
                  AudioServicesPlaySystemSound(self.flagSound);
              }
             [self.controllerDelegate flagedCell:self.position];
         }
-    }
+    }//}
 }
 
 
@@ -172,7 +198,7 @@
                 }
             }
              self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
-            //[self startCellDisappearAnimation];
+           
             
             
         }else{
@@ -188,53 +214,7 @@
     }
 }
 
--(void) startCellDisappearAnimation{
-    //Начальное и конечное значения радиуса маски
-    CGFloat initialRadius = 1.0f;
-    CGFloat finalRadius = self.Image.bounds.size.width;
-    
-    //Создаём слой, который будет содержать маску
-    CAShapeLayer *revealShape = [CAShapeLayer layer];
-    revealShape.bounds = self.Image.bounds;
-    //Закрашиваем черным — подойдет любой цвет, кроме прозрачного
-    revealShape.fillColor = [UIColor blackColor].CGColor;
-    CGColorRef pixelColor = [[UIColor blackColor] CGColor];
-   // revealShape.backgroundColor=(__bridge CGColorRef)((__bridge id)pixelColor);
-       //Собственно фигура, которая будем служить маской: начальная и конечная
-    UIBezierPath *startPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(CGRectGetMidX(self.Image.bounds) - initialRadius,
-                                                                                 CGRectGetMidY(self.Image.bounds) - initialRadius, initialRadius * 2, initialRadius * 2)
-                                                         cornerRadius:initialRadius];
-    UIBezierPath *endPath = [UIBezierPath bezierPathWithRoundedRect:self.Image.bounds
-                                                       cornerRadius:finalRadius];
-   // revealShape.path = startPath.CGPath;
-    revealShape.position = CGPointMake(CGRectGetMidX(self.Image.bounds) - initialRadius,
-                                       CGRectGetMidY(self.Image.bounds) - initialRadius);
-     revealShape.backgroundColor=(__bridge CGColorRef)([UIColor blackColor]);
-    //Итак, теперь на изображение наложена маска, и видна будет лишь та его часть, которая совпадает с маской
-    self.Image.layer.mask = revealShape;
-    //self.ImageValue.layer.mask.opacity=0;
-    
-    //Теперь анимация. Мы анимируем свойство path — это граф, описывающий фигуру, в нашем случае окружность. Анимация осуществит плавный переход от маленькой окружности до большой
-    CABasicAnimation *revealAnimationPath = [CABasicAnimation animationWithKeyPath:@"path"];
-    revealAnimationPath.fromValue = (__bridge id)(startPath.CGPath);
-    revealAnimationPath.toValue = (__bridge id)(endPath.CGPath);
-    revealAnimationPath.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    revealAnimationPath.duration = 0.5f;
-    revealAnimationPath.repeatCount = 1.0f;
-    //Для этой анимации мы также установим начальное время, так как она должна начаться лишь когда половина обрамляющей окружности уже прорисована
-    revealAnimationPath.delegate = self;
-    //Так как анимация стартует с задержкой, нужно удостовериться, что свойство hidden у картинки изменится только когда маска уже применена, т.е. когда начнётся анимация маски
-    dispatch_time_t timeToShow = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC));
-    dispatch_after(timeToShow, dispatch_get_main_queue(), ^{
-       // self.ImageValue.hidden = NO;
-        self.Image.layer.mask.backgroundColor= pixelColor;
-    });
-    
-    revealShape.path = endPath.CGPath;
-   
-    [revealShape addAnimation:revealAnimationPath forKey:@"revealAnimation"];
-    
-}
+
 
 -(void) setIsHidden:(BOOL)isHidden{
     _isHidden=isHidden;

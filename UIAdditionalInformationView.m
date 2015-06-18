@@ -65,6 +65,11 @@
     if(!_horizontal){
         
         _horizontal=0.6;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            _horizontal=0.45;
+        }
+
     }
     
     return _horizontal;
