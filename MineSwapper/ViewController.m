@@ -179,11 +179,16 @@ const float STANDART_OFFSET=0.05;
 -(UICounterImageView*) timerLabel{
     
     if(!_timerLabel){
-        
+       
         float heigth=self.headerView.frame.size.height*0.8;
         float width=(self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
+        
         float y=(self.headerView.frame.size.height-heigth)/2;
-        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width*17/16, y, width, heigth);
+        float positionCorector=width*1/16;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            positionCorector=width*1/32;
+        }
+        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width-positionCorector, y, width, heigth);
         frame=CGRectIntegral(frame);
         _timerLabel=[[UICounterImageView alloc] initWithFrame:frame andImage:@"time"];
         _timerLabel.label.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
@@ -196,7 +201,11 @@ const float STANDART_OFFSET=0.05;
         float heigth=self.headerView.frame.size.height*0.8;
         float width=(self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
         float y=(self.headerView.frame.size.height-heigth)/2;
-        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width*1/16, y, width, heigth);
+        float positionCorector=width*1/16;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            positionCorector=width*1/32;
+        }
+        CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-positionCorector, y, width, heigth);
         _bombCounter=[[UICounterImageView alloc] initWithFrame:frame andImage:nil];
         _bombCounter.label.textAlignment=NSTextAlignmentLeft;
        
