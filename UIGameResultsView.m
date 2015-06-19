@@ -7,10 +7,11 @@
 //
 
 #import "UIGameResultsView.h"
+#import "UIScoreLabel.h"
 @interface UIGameResultsView()
 @property (strong,nonatomic) UILabel *resultLabel;
 @property (strong,nonatomic) UILabel *resultBestScoreLabel;
-@property (strong,nonatomic) UILabel *resultScoreLabel;
+@property (strong,nonatomic) UIScoreLabel *resultScoreLabel;
 @property (strong,nonatomic) UILabel *scoreLabel;
 @property (strong,nonatomic) UIButton *submitButton;
 @property (strong,nonatomic) NSArray *arrayOfResults;
@@ -27,14 +28,19 @@
     [self.options addSubview:self.resultLabel];
     [self.options addSubview:self.scoreLabel];
     [self.options addSubview:self.resultBestScoreLabel];
-    [self.options addSubview:self.resultScoreLabel];
+    
+    
+ 
    
 }
+
+
 -(void) setScore:(NSUInteger)score{
     
     _score=score;
-    
-    self.resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)score];
+    [self.options addSubview:self.resultScoreLabel];
+    //self.resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)score];
+    [self.resultScoreLabel animateFrom:@0 toNumber:[NSNumber numberWithLong:score]];
     [self checkResultsWithScore:score];
     [self writeRusult:score];
 }
@@ -84,8 +90,8 @@
 -(UILabel*) resultScoreLabel{
     if(!_resultScoreLabel){
         CGRect frame=CGRectMake(self.options.frame.size.width*0.1, self.options.frame.size.width*0.1+self.options.frame.size.height*0.3, self.options.frame.size.width*0.8, self.options.frame.size.height*0.2);
-        _resultScoreLabel=[[UILabel alloc] initWithFrame:frame];
-         _resultScoreLabel.text=[NSString stringWithFormat:@"%lu",(unsigned long)self.score];
+        _resultScoreLabel=[[UIScoreLabel alloc] initWithFrame:frame];
+         _resultScoreLabel.text=@"0";
         _resultScoreLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.8];
         _resultScoreLabel.textAlignment=NSTextAlignmentCenter;
         _resultScoreLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];

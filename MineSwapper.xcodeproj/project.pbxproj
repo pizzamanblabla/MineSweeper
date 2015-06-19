@@ -48,6 +48,7 @@
 		44B75BD31B2B08BF000C6F81 /* flagSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD21B2B08BF000C6F81 /* flagSound.wav */; };
 		44B75BD51B2B1AD7000C6F81 /* volume.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD41B2B1AD7000C6F81 /* volume.svg */; };
 		44B75BD91B2B351C000C6F81 /* novolume.svg in Resources */ = {isa = PBXBuildFile; fileRef = 44B75BD81B2B351C000C6F81 /* novolume.svg */; };
+		44BFCDFF1B34D7B400E924A8 /* UIScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BFCDFE1B34D7B400E924A8 /* UIScoreLabel.m */; };
 		44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7101A1AD5C21A0095D186 /* UIOptionsView.m */; };
 		44EC914F1B0FCD6B00F18A6E /* UIAdditionalInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC914E1B0FCD6B00F18A6E /* UIAdditionalInformationView.m */; };
 		44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EC91511B10B90F00F18A6E /* UIGameResultsView.m */; };
@@ -128,6 +129,8 @@
 		44B75BD21B2B08BF000C6F81 /* flagSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flagSound.wav; path = Audio/flagSound.wav; sourceTree = SOURCE_ROOT; };
 		44B75BD41B2B1AD7000C6F81 /* volume.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = volume.svg; path = SVG/volume.svg; sourceTree = SOURCE_ROOT; };
 		44B75BD81B2B351C000C6F81 /* novolume.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = novolume.svg; path = SVG/novolume.svg; sourceTree = SOURCE_ROOT; };
+		44BFCDFD1B34D7B400E924A8 /* UIScoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScoreLabel.h; path = ../UIScoreLabel.h; sourceTree = "<group>"; };
+		44BFCDFE1B34D7B400E924A8 /* UIScoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScoreLabel.m; path = ../UIScoreLabel.m; sourceTree = "<group>"; };
 		44C710191AD5C21A0095D186 /* UIOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOptionsView.h; sourceTree = "<group>"; };
 		44C7101A1AD5C21A0095D186 /* UIOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOptionsView.m; sourceTree = "<group>"; };
 		44EC914D1B0FCD6B00F18A6E /* UIAdditionalInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAdditionalInformationView.h; path = ../UIAdditionalInformationView.h; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 		44B75BCC1B28D151000C6F81 /* InterfaceViews */ = {
 			isa = PBXGroup;
 			children = (
+				44BFCDFD1B34D7B400E924A8 /* UIScoreLabel.h */,
+				44BFCDFE1B34D7B400E924A8 /* UIScoreLabel.m */,
 				44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */,
 				44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */,
 				44EC91501B10B90F00F18A6E /* UIGameResultsView.h */,
@@ -492,6 +497,7 @@
 				44B7579C1B24C65D000C6F81 /* PocketSVG.m in Sources */,
 				448688F31B2E41F4007F78FB /* MineSweeperPaletteTerra.m in Sources */,
 				4418ABCD1AAB8BA000971997 /* CellsDeck.m in Sources */,
+				44BFCDFF1B34D7B400E924A8 /* UIScoreLabel.m in Sources */,
 				44B757901B230A1E000C6F81 /* MineSweeperPaletteDefault.m in Sources */,
 				4418ABA21AAB896500971997 /* main.m in Sources */,
 				44B757A51B24DE46000C6F81 /* PocketSVG+LayerMaker.m in Sources */,
