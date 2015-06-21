@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6i8-bR-sBG"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Xy-ve-IFa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKy-IF-23N" customClass="UICellDeckView">
+                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UKy-IF-23N" secondAttribute="trailing" id="MO8-St-YF2"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Sp4-kT-3U9"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="top" secondItem="6i8-bR-sBG" secondAttribute="bottom" constant="60" id="d70-aZ-oXc"/>
+                            <constraint firstItem="UKy-IF-23N" firstAttribute="bottom" secondItem="3Xy-ve-IFa" secondAttribute="top" id="kFO-cj-OwF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="UKy-IF-23N"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MO8-St-YF2"/>
+                                <exclude reference="Sp4-kT-3U9"/>
+                                <exclude reference="d70-aZ-oXc"/>
+                                <exclude reference="kFO-cj-OwF"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="292"/>
+        </scene>
+    </scenes>
+</document>
