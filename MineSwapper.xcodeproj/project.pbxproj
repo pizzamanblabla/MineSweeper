@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		4418ABA21AAB896500971997 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABA11AAB896500971997 /* main.m */; };
 		4418ABA51AAB896500971997 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABA41AAB896500971997 /* AppDelegate.m */; };
-		4418ABA81AAB896500971997 /* MineSwapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABA61AAB896500971997 /* MineSwapper.xcdatamodeld */; };
 		4418ABAB1AAB896500971997 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABAA1AAB896500971997 /* ViewController.m */; };
 		4418ABAE1AAB896500971997 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4418ABAC1AAB896500971997 /* Main.storyboard */; };
 		4418ABB01AAB896500971997 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4418ABAF1AAB896500971997 /* Images.xcassets */; };
 		4418ABB31AAB896500971997 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4418ABB11AAB896500971997 /* LaunchScreen.xib */; };
 		4418ABBF1AAB896500971997 /* MineSwapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABBE1AAB896500971997 /* MineSwapperTests.m */; };
-		4418ABCA1AAB8A0100971997 /* MineSwapperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABC91AAB8A0100971997 /* MineSwapperCell.m */; };
+		4418ABCA1AAB8A0100971997 /* MineSweeperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABC91AAB8A0100971997 /* MineSweeperCell.m */; };
 		4418ABCD1AAB8BA000971997 /* CellsDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4418ABCC1AAB8BA000971997 /* CellsDeck.m */; };
 		441F520F1ABA289800756115 /* UICellDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 441F520E1ABA289800756115 /* UICellDeckView.m */; };
 		44217E581AC201EE00BE4457 /* MineSweeperGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 44217E571AC201EE00BE4457 /* MineSweeperGame.m */; };
@@ -71,7 +70,6 @@
 		4418ABA11AAB896500971997 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4418ABA31AAB896500971997 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4418ABA41AAB896500971997 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4418ABA71AAB896500971997 /* MineSwapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MineSwapper.xcdatamodel; sourceTree = "<group>"; };
 		4418ABA91AAB896500971997 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4418ABAA1AAB896500971997 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4418ABAD1AAB896500971997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,8 +78,8 @@
 		4418ABB81AAB896500971997 /* MineSwapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineSwapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4418ABBD1AAB896500971997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4418ABBE1AAB896500971997 /* MineSwapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSwapperTests.m; sourceTree = "<group>"; };
-		4418ABC81AAB8A0100971997 /* MineSwapperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSwapperCell.h; sourceTree = "<group>"; };
-		4418ABC91AAB8A0100971997 /* MineSwapperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSwapperCell.m; sourceTree = "<group>"; };
+		4418ABC81AAB8A0100971997 /* MineSweeperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperCell.h; sourceTree = "<group>"; };
+		4418ABC91AAB8A0100971997 /* MineSweeperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperCell.m; sourceTree = "<group>"; };
 		4418ABCB1AAB8BA000971997 /* CellsDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellsDeck.h; sourceTree = "<group>"; };
 		4418ABCC1AAB8BA000971997 /* CellsDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellsDeck.m; sourceTree = "<group>"; };
 		441F520D1ABA289800756115 /* UICellDeckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICellDeckView.h; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				4418ABAF1AAB896500971997 /* Images.xcassets */,
 				4418ABAC1AAB896500971997 /* Main.storyboard */,
 				4418ABB11AAB896500971997 /* LaunchScreen.xib */,
-				4418ABA61AAB896500971997 /* MineSwapper.xcdatamodeld */,
 				4418AB9F1AAB896500971997 /* Supporting Files */,
 			);
 			path = MineSwapper;
@@ -333,8 +330,8 @@
 				4418ABCC1AAB8BA000971997 /* CellsDeck.m */,
 				44217E561AC201EE00BE4457 /* MineSweeperGame.h */,
 				44217E571AC201EE00BE4457 /* MineSweeperGame.m */,
-				4418ABC81AAB8A0100971997 /* MineSwapperCell.h */,
-				4418ABC91AAB8A0100971997 /* MineSwapperCell.m */,
+				4418ABC81AAB8A0100971997 /* MineSweeperCell.h */,
+				4418ABC91AAB8A0100971997 /* MineSweeperCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -479,10 +476,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44B0CEB61B1B4A35009F00B1 /* UICounterImageView.m in Sources */,
-				4418ABCA1AAB8A0100971997 /* MineSwapperCell.m in Sources */,
+				4418ABCA1AAB8A0100971997 /* MineSweeperCell.m in Sources */,
 				44C7101B1AD5C21A0095D186 /* UIOptionsView.m in Sources */,
 				44EC91521B10B90F00F18A6E /* UIGameResultsView.m in Sources */,
-				4418ABA81AAB896500971997 /* MineSwapper.xcdatamodeld in Sources */,
 				4418ABA51AAB896500971997 /* AppDelegate.m in Sources */,
 				44B0CEBC1B1B8AD7009F00B1 /* UILabelWithOffset.m in Sources */,
 				44B757931B231C05000C6F81 /* MineSweeperPaletteFactory.m in Sources */,
@@ -622,16 +618,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSwapper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64",
 					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/armv7",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -642,16 +640,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSwapper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/arm64",
-					"/Users/Eugene/SVGKit/Source/Vendor/CocoaLumberjack/Framework/Mobile/build/Lumberjack.build/Debug-iphoneos/CocoaLumberjack.build/Objects-normal/armv7",
-				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -723,19 +718,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4418ABA61AAB896500971997 /* MineSwapper.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4418ABA71AAB896500971997 /* MineSwapper.xcdatamodel */,
-			);
-			currentVersion = 4418ABA71AAB896500971997 /* MineSwapper.xcdatamodel */;
-			path = MineSwapper.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4418AB941AAB896500971997 /* Project object */;
 }

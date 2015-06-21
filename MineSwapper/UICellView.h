@@ -13,7 +13,7 @@
 @property (nonatomic,readonly) Point position;
 @property (nonatomic) NSUInteger valueOfCell;
 @property (nonatomic) BOOL isBomb;
-@property (nonatomic) BOOL isHidden;
+@property (nonatomic) BOOL isShown;
 @property (nonatomic) BOOL isFlag;
 
 @property (weak,nonatomic) id<MineSweeperDelegate> controllerDelegate;

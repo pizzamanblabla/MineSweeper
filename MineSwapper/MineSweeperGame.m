@@ -7,7 +7,7 @@
 //
 
 #import "MineSweeperGame.h"
-#import "MineSwapperCell.h"
+
 
 @interface MineSweeperGame()
 @property (readwrite,nonatomic) NSUInteger score;
@@ -15,10 +15,29 @@
 @end
 @implementation MineSweeperGame
 
+#pragma mark - init
+-(instancetype) initWithRows:(int)rows Columns:(int) columns Bombs:(int) bombs{
+    self=[super init];
+    if(self){
+        self.gameValue=(rows*columns*rows*columns)*bombs;
+        self.cellsDeck=[[CellsDeck alloc] initWithQuantityOfCellsHorizotal:rows QuantityOfCellsVertical:columns quantityOfMines:bombs];
+        
+    }
+    return self;
+}
+
+#pragma mark - updating model
+
+-(NSUInteger) calculateScore:(int) time{
+    
+    self.score=self.gameValue/time;
+    return self.score;
+    
+}
 
 
 -(void) flagCellWithPosition:(Point)position{
-    MineSwapperCell *cell=[self.cellsDeck getCellByPosition:position];
+    MineSweeperCell *cell=[self.cellsDeck getCellByPosition:position];
     if(!cell.isShown){
         cell.isFlag=!cell.isFlag;
         if(cell.isFlag){
@@ -29,7 +48,7 @@
     }
 }
 -(BOOL) checkIsLose{
-    for( MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
+    for( MineSweeperCell *cell in self.cellsDeck.arrayOfCells){
         if(cell.isBomb && !cell.isFlag && cell.isShown){
             return YES;
         }
@@ -40,7 +59,7 @@
 
 -(BOOL) ckeckIsGameOver{
     
-    for( MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
+    for( MineSweeperCell *cell in self.cellsDeck.arrayOfCells){
         if(!cell.isShown && !cell.isFlag ){
             return NO;
         }
@@ -52,16 +71,10 @@
     }
 }
 
--(NSUInteger) calculateScore:(int) time{
-    
-    self.score=self.gameValue/time;
-    return self.score;
-    
-}
 
 -(void) openCellsAroundWithPosition:(Point)position{
     
-    MineSwapperCell *mainCell=[self.cellsDeck getCellByPosition:position];
+    MineSweeperCell *mainCell=[self.cellsDeck getCellByPosition:position];
     if(mainCell){
         if(!mainCell.isBomb){
             if (!mainCell.isFlag) {
@@ -110,7 +123,7 @@
                     }
         
                     Point point={position.v+x,position.h+y};
-                    MineSwapperCell *cell=[self.cellsDeck getCellByPosition:point];
+                    MineSweeperCell *cell=[self.cellsDeck getCellByPosition:point];
         
         
                     if(cell.cellValue==0 && !cell.isShown){
@@ -126,7 +139,7 @@
                     }
                 }
             }else{
-            for (MineSwapperCell *cell in self.cellsDeck.arrayOfCells){
+            for (MineSweeperCell *cell in self.cellsDeck.arrayOfCells){
                 if( cell.isFlag){
                     if([self checkIsLose]){
                        
@@ -142,15 +155,7 @@
     }
 }
 
--(instancetype) initWithRows:(int)rows Columns:(int) columns Bombs:(int) bombs{
-    self=[super init];
-    if(self){
-        self.gameValue=(rows*columns*rows*columns)*bombs;
-        self.cellsDeck=[[CellsDeck alloc] initWithQuantityOfCellsHorizotal:rows QuantityOfCellsVertical:columns quantityOfMines:bombs];
-        
-    }
-    return self;
-}
+
 
 
 @end

@@ -28,9 +28,6 @@
     [self.options addSubview:self.resultLabel];
     [self.options addSubview:self.scoreLabel];
     [self.options addSubview:self.resultBestScoreLabel];
-    
-    
- 
    
 }
 

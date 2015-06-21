@@ -10,7 +10,6 @@
 #import "UICellDeckView.h"
 #import "UICellView.h"
 #import "MineSweeperGame.h"
-#import "MineSwapperCell.h"
 #import "UIOptionsView.h"
 #import "UIGameResultsView.h"
 #import "UITimerView.h"
@@ -39,95 +38,51 @@
 
 @implementation ViewController
 const float STANDART_OFFSET=0.05;
+
+#pragma mark - initializing 
+
+-(void) initializeUI{
+    [self.view addSubview:self.cells];
+    [self.cells calculateProbableSizesOfCell];
+    self.results=[[UIGameResultsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.results.hidden=YES;
+    [self.view addSubview:self.headerView];
+    [self.headerView addSubview:self.bombCounter];
+    [self.headerView addSubview:self.timerLabel];
+    [self.headerView addSubview:self.optionsButton];
+    [self.headerView addSubview:self.refreshButton];
+    [self.view addSubview:self.results];
+    [self.view addSubview:self.options];
+    [self.options updateViewWithModel:NO];
+    
+}
+
+
+
+
 #pragma mark Properties
 
--(NSCache*) SVGCache{
-    if(!_SVGCache){
-        _SVGCache=[[NSCache alloc] init];
-    }
-    return _SVGCache;
-}
-
--(float) offset{
+-(UIView*) headerView{
     
-    if(!_offset){
+    if(!_headerView){
         
-        _offset=[[UIScreen mainScreen] bounds].size.height/[[UIScreen mainScreen] bounds].size.width*0.02;
+        CGRect frame=CGRectMake(0, self.view.frame.size.height*self.offset, self.view.frame.size.width, self.view.frame.size.height-self.cells.frame.size.height-self.view.frame.size.height*self.offset);
+        _headerView=[[UIView alloc] initWithFrame:frame];
         
     }
-
-    return _offset;
+    
+    return _headerView;
 }
 
--(UICellDeckView*) cells{
-    
-    if(!_cells){
-        float size=0.85;
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-             size=0.9;
-        }
-        else
-        {
-            size=0.85;
-        }
-        CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height*0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height*size);
-        _cells=[[UICellDeckView alloc] initWithFrame:frame];
-        _cells.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+-(UIOptionsView*) options{
+    if(!_options){
+        _options=[[UIOptionsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        _options.controllerDelegate=self;
     }
     
-    return _cells;
+    return _options;
 }
 
-
-
--(CABasicAnimation*) buttonTouchedAnimationFrom:(float) from to:(float) to{
-    CABasicAnimation *pulseAnimation=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    pulseAnimation.fromValue = [NSNumber numberWithFloat:from];
-    pulseAnimation.toValue = [NSNumber numberWithFloat:to];
-    
-    
-    [pulseAnimation setFillMode:kCAFillModeForwards];
-    [pulseAnimation setRemovedOnCompletion:NO];
-    
-    pulseAnimation.duration = 0.2;
-    
-    
-    
-    return pulseAnimation;
-}
-
-
-- (CABasicAnimation*) runSpinAnimationWithDuration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
-{
-    CABasicAnimation* rotationAnimation;
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * rotations * duration ];
-    rotationAnimation.duration = duration;
-    rotationAnimation.cumulative = YES;
-    rotationAnimation.repeatCount = repeat;
-    [rotationAnimation setRemovedOnCompletion:NO];
-   // [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-    return rotationAnimation;
-}
-
--(void) touchedButton{
-
-    [[self.refreshButton layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
-    
-}
-
--(void) touchedButtonOptions{
-    
-    [[self.optionsButton layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
-    
-}
-
--(void) touchedUpInside{
-    
-    [[self.refreshButton layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
-    [self.options submitOptions];
-}
 
 -(UIButton*) refreshButton{
     if(!_refreshButton){
@@ -138,7 +93,7 @@ const float STANDART_OFFSET=0.05;
         frame=CGRectIntegral(frame);
         _refreshButton=[[UIButton alloc] initWithFrame:frame];
         [_refreshButton addTarget:self action:@selector(touchedUpInside) forControlEvents:UIControlEventTouchUpInside];
-         [_refreshButton addTarget:self action:@selector(touchedButton) forControlEvents:UIControlEventTouchDown];
+        [_refreshButton addTarget:self action:@selector(touchedButton) forControlEvents:UIControlEventTouchDown];
         self.refreshButtonLayer=[PocketSVG makeShapeLayerWithSVG:@"refresh" andFrame:frame];
         
         [_refreshButton.layer addSublayer:self.refreshButtonLayer];
@@ -154,32 +109,21 @@ const float STANDART_OFFSET=0.05;
         CGRect frame=CGRectMake(self.headerView.frame.size.width*self.offset, y, width, heigth);
         frame=CGRectIntegral(frame);
         
-         _optionsButton=[[UIButton alloc] initWithFrame:frame];
+        _optionsButton=[[UIButton alloc] initWithFrame:frame];
         [_optionsButton addTarget:self action:@selector(showOptions) forControlEvents:UIControlEventTouchUpInside];
-         [_optionsButton addTarget:self action:@selector(touchedButtonOptions) forControlEvents:UIControlEventTouchDown];
-     CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"options" andFrame:frame];
+        [_optionsButton addTarget:self action:@selector(touchedButtonOptions) forControlEvents:UIControlEventTouchDown];
+        CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"options" andFrame:frame];
         
         [_optionsButton.layer addSublayer:myShapeLayer];
     }
     return _optionsButton;
 }
 
--(UIView*) headerView{
-    
-    if(!_headerView){
-    
-        CGRect frame=CGRectMake(0, self.view.frame.size.height*self.offset, self.view.frame.size.width, self.view.frame.size.height-self.cells.frame.size.height-self.view.frame.size.height*self.offset);
-        _headerView=[[UIView alloc] initWithFrame:frame];
-        
-      // _headerView.backgroundColor=[UIColor blackColor];
-    }
-    
-    return _headerView;
-}
+
 -(UICounterImageView*) timerLabel{
     
     if(!_timerLabel){
-       
+        
         float heigth=self.headerView.frame.size.height*0.8;
         float width=(self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
         
@@ -208,11 +152,164 @@ const float STANDART_OFFSET=0.05;
         CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-positionCorector, y, width, heigth);
         _bombCounter=[[UICounterImageView alloc] initWithFrame:frame andImage:nil];
         _bombCounter.label.textAlignment=NSTextAlignmentLeft;
-       
+        
+        
+    }
+    
+    return _bombCounter;
+}
 
+
+
+
+-(UICellDeckView*) cells{
+    
+    if(!_cells){
+        float size=0.85;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            size=0.9;
+        }
+        else
+        {
+            size=0.85;
+        }
+        CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height*0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height*size);
+        _cells=[[UICellDeckView alloc] initWithFrame:frame];
+        _cells.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+    }
+    
+    return _cells;
+}
+
+
+-(NSCache*) SVGCache{
+    if(!_SVGCache){
+        _SVGCache=[[NSCache alloc] init];
+    }
+    return _SVGCache;
+}
+
+
+-(float) offset{
+    
+    if(!_offset){
+        
+        _offset=[[UIScreen mainScreen] bounds].size.height/[[UIScreen mainScreen] bounds].size.width*0.02;
+        
     }
 
-    return _bombCounter;
+    return _offset;
+}
+
+
+#pragma mark - animation
+
+-(CABasicAnimation*) buttonTouchedAnimationFrom:(float) from to:(float) to{
+    CABasicAnimation *pulseAnimation=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:from];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:to];
+    
+    
+    [pulseAnimation setFillMode:kCAFillModeForwards];
+    [pulseAnimation setRemovedOnCompletion:NO];
+    
+    pulseAnimation.duration = 0.2;
+    
+    
+    
+    return pulseAnimation;
+}
+
+
+- (CABasicAnimation*) runSpinAnimationWithDuration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
+{
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0  * rotations * duration ];
+    rotationAnimation.duration = duration;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = repeat;
+    [rotationAnimation setRemovedOnCompletion:NO];
+   // [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+    return rotationAnimation;
+}
+
+
+#pragma mark - handling events
+
+-(void) touchedButton{
+
+    [[self.refreshButton layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
+    
+}
+
+-(void) touchedButtonOptions{
+    
+    [[self.optionsButton layer] addAnimation:[self buttonTouchedAnimationFrom:1.0 to:0.8] forKey:@"transform.scale"];
+    
+}
+
+-(void) touchedUpInside{
+    
+    [[self.refreshButton layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
+    [self.options submitOptions];
+}
+
+
+#pragma mark - MineSweeperDelegate methods
+
+-(void) touchedCell:(Point) position{
+    if(!self.isGameOver){
+        if(!self.gameTimer){
+            self.gameTimer=[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timer) userInfo:nil repeats:YES];
+        }
+        
+        [self.game openCellsAroundWithPosition:position];
+        
+        self.isGameOver=[self.game ckeckIsGameOver];
+        if([self.game checkIsLose]){
+            [self.gameTimer invalidate];
+            for (MineSweeperCell *cell in self.game.cellsDeck.arrayOfCells) {
+                cell.isShown=YES;
+            }
+            
+        }else{
+            
+            if(self.isGameOver){
+                [self.gameTimer invalidate];
+                NSUInteger score=[self.game calculateScore:[self.timerLabel.label.text intValue]];
+                self.results.score=score;
+                [self.results showViewWithAnimation:NO];
+                self.gameTimer=nil;
+                self.refreshButton.hidden=NO;
+            }
+        }
+        [self updateUIModel];
+    }
+}
+
+
+
+
+-(void) flagedCell:(Point) position{
+    if(!self.isGameOver){
+        [self.game flagCellWithPosition:position];
+        [self updateUIModel];
+        self.isGameOver=[self.game ckeckIsGameOver];
+        if(self.isGameOver){
+            
+            [self.gameTimer invalidate];
+            self.gameTimer=nil;
+            NSUInteger score=[self.game calculateScore:[self.timerLabel.label.text intValue]];
+            self.results.score=score;
+            [self.results showViewWithAnimation:NO];
+            
+            self.results.hidden=NO;
+            self.refreshButton.hidden=NO;
+            
+        }
+    }
 }
 
 
@@ -239,7 +336,7 @@ const float STANDART_OFFSET=0.05;
     self.bombCounter.label.text=[NSString stringWithFormat:@"%d",self.game.cellsDeck.bombs];
     for( UICellView* cell in self.cells.arrayOfCells){
         
-        MineSwapperCell* modelCell=[self.game.cellsDeck getCellByPosition:cell.position];
+        MineSweeperCell* modelCell=[self.game.cellsDeck getCellByPosition:cell.position];
         if(!cell.controllerDelegate){
             cell.controllerDelegate=self;
         }
@@ -248,7 +345,7 @@ const float STANDART_OFFSET=0.05;
                 cell.isFlag=modelCell.isFlag;
             }
             if(cell.isHidden!=modelCell.isShown){
-                cell.isHidden=modelCell.isShown;
+                cell.isShown=modelCell.isShown;
             }
             if(cell.valueOfCell!=modelCell.cellValue){
                  cell.valueOfCell=modelCell.cellValue;
@@ -259,66 +356,10 @@ const float STANDART_OFFSET=0.05;
             
         
         }else{
-            cell.isHidden=NO;
+            cell.isShown=NO;
         }
     }
 }
-
-
-
--(void) touchedCell:(Point) position{
-     if(!self.isGameOver){
-         if(!self.gameTimer){
-             self.gameTimer=[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timer) userInfo:nil repeats:YES];
-         }
-         
-         [self.game openCellsAroundWithPosition:position];
-         
-         self.isGameOver=[self.game ckeckIsGameOver];
-         if([self.game checkIsLose]){
-             [self.gameTimer invalidate];
-             for (MineSwapperCell *cell in self.game.cellsDeck.arrayOfCells) {
-                 cell.isShown=YES;
-             }
-             
-         }else{
-             
-             if(self.isGameOver){
-                 [self.gameTimer invalidate];
-                 NSUInteger score=[self.game calculateScore:[self.timerLabel.label.text intValue]];
-                 self.results.score=score;
-                 [self.results showViewWithAnimation:NO];
-                 self.gameTimer=nil;
-                 self.refreshButton.hidden=NO;
-             }
-         }
-         [self updateUIModel];
-     }
-}
-
-
-
-
--(void) flagedCell:(Point) position{
-    if(!self.isGameOver){
-        [self.game flagCellWithPosition:position];
-        [self updateUIModel];
-        self.isGameOver=[self.game ckeckIsGameOver];
-        if(self.isGameOver){
-            
-            [self.gameTimer invalidate];
-            self.gameTimer=nil;
-           NSUInteger score=[self.game calculateScore:[self.timerLabel.label.text intValue]];
-             self.results.score=score;
-            [self.results showViewWithAnimation:NO];
-
-            self.results.hidden=NO;
-            self.refreshButton.hidden=NO;
-
-        }
-    }
-}
-
 
 
 -(void) showOptions{
@@ -350,31 +391,7 @@ const float STANDART_OFFSET=0.05;
 }
 
 
--(UIOptionsView*) options{
-    if(!_options){
-        _options=[[UIOptionsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        _options.controllerDelegate=self;
-    }
-    
-    return _options;
-}
 
-
--(void) initializeUI{
-    [self.view addSubview:self.cells];
-    [self.cells calculateProbableSizesOfCell];
-    self.results=[[UIGameResultsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.results.hidden=YES;
-    [self.view addSubview:self.headerView];
-    [self.headerView addSubview:self.bombCounter];
-    [self.headerView addSubview:self.timerLabel];
-    [self.headerView addSubview:self.optionsButton];
-    [self.headerView addSubview:self.refreshButton];
-    [self.view addSubview:self.results];
-    [self.view addSubview:self.options];
-    [self.options updateViewWithModel:NO];
-    
-}
 
 
 - (void)viewDidLoad {

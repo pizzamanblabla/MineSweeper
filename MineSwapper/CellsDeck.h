@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MineSwapperCell.h"
+#import "MineSweeperCell.h"
 
 
 @interface CellsDeck : NSObject
 @property (strong,nonatomic) NSMutableArray *arrayOfCells;
 @property (nonatomic) signed int bombs;
--(MineSwapperCell*)getCellByPosition:(Point) position;
+-(MineSweeperCell*)getCellByPosition:(Point) position;
 -(instancetype)initWithQuantityOfCellsHorizotal:(NSUInteger) quantityOfCellsHorizontal QuantityOfCellsVertical:(NSUInteger) quantityOfCellsVertical quantityOfMines:(NSUInteger) quantityOfMines;
 @end

@@ -14,6 +14,8 @@
 @end
 @implementation CellsDeck
 
+#pragma mark - init
+
 -(instancetype)initWithQuantityOfCellsHorizotal:(NSUInteger) quantityOfCellsHorizontal QuantityOfCellsVertical:(NSUInteger) quantityOfCellsVertical quantityOfMines:(NSUInteger) quantityOfMines{
     self=[super init];
     if(self){
@@ -26,6 +28,24 @@
     return self;
 }
 
+#pragma mark - create cells
+
+-(void)createCellsWithQuantityOfCellsHorizontal:(NSUInteger)quantityOfCellsHorizontal Vertical:(NSUInteger)quantityOfCellsVertical{
+    for(int i=1;i<=quantityOfCellsHorizontal;i++){
+        for(int n=1;n<=quantityOfCellsVertical;n++){
+            Point positionInDeck={i,n};
+            MineSweeperCell *cell=[[MineSweeperCell alloc] initWithPositionInDeck:positionInDeck];
+            if(!self.arrayOfCells){
+                self.arrayOfCells=[[NSMutableArray alloc] init];
+            }
+            
+            [self.arrayOfCells addObject:cell];
+        }
+    }
+}
+
+
+
 -(void)placeQuantityOfMines:(NSUInteger) quantityOfMines{
     if(self.arrayOfCells){
         for(int i=0;i<quantityOfMines;i++){
@@ -35,6 +55,9 @@
         }
     }
 }
+
+
+
 
 -(NSUInteger) getIndexOfRandomCell{
      NSUInteger countOfCells=[self.arrayOfCells count];
@@ -47,7 +70,7 @@
 }
 
 
--(void)updateDeckWithCell:(MineSwapperCell*) cell{
+-(void)updateDeckWithCell:(MineSweeperCell*) cell{
     int x=0,y=0;
     for(int i=0;i<8;i++){
         switch (i) {
@@ -90,7 +113,7 @@
         Point cellAroundBomb=cell.positionInDeck;
         cellAroundBomb.h+=y;
         cellAroundBomb.v+=x;
-        MineSwapperCell* cell=[self getCellByPosition:cellAroundBomb];
+        MineSweeperCell* cell=[self getCellByPosition:cellAroundBomb];
         if(cell){
             if(!cell.isBomb){
             if(!cell.cellValue){
@@ -103,8 +126,8 @@
     }
 }
 
--(MineSwapperCell*)getCellByPosition:(Point) position{
-    for( MineSwapperCell *cell in self.arrayOfCells){
+-(MineSweeperCell*)getCellByPosition:(Point) position{
+    for( MineSweeperCell *cell in self.arrayOfCells){
         if(position.h==cell.positionInDeck.h && position.v==cell.positionInDeck.v){
             return cell;
         }
@@ -115,7 +138,7 @@
 
 
 -(void) increaseCellValue:(Point) cellPoint{
-    for( MineSwapperCell *cell in self.arrayOfCells){
+    for( MineSweeperCell *cell in self.arrayOfCells){
         if(cellPoint.h==cell.positionInDeck.h && cellPoint.v==cell.positionInDeck.v){
             if(!cell.cellValue){
                 cell.cellValue=0;
@@ -126,17 +149,4 @@
 }
 
 
--(void)createCellsWithQuantityOfCellsHorizontal:(NSUInteger)quantityOfCellsHorizontal Vertical:(NSUInteger)quantityOfCellsVertical{
-    for(int i=1;i<=quantityOfCellsHorizontal;i++){
-        for(int n=1;n<=quantityOfCellsVertical;n++){
-            Point positionInDeck={i,n};
-            MineSwapperCell *cell=[[MineSwapperCell alloc] initWithPositionInDeck:positionInDeck];
-            if(!self.arrayOfCells){
-                self.arrayOfCells=[[NSMutableArray alloc] init];
-            }
-            
-            [self.arrayOfCells addObject:cell];
-        }
-    }
-}
 @end

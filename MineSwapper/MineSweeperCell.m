@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 Eugene. All rights reserved.
 //
 
-#import "MineSwapperCell.h"
-@interface MineSwapperCell()
+#import "MineSweeperCell.h"
+@interface MineSweeperCell()
 @property (nonatomic,readwrite) Point positionInDeck;
 @end
-@implementation MineSwapperCell
+@implementation MineSweeperCell
+
 -(instancetype) initWithPositionInDeck:(Point) position{
     self=[super init];
     if(position.h>=0 && position.v>=0){

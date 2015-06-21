@@ -15,10 +15,11 @@
 
 @end
 @implementation UICellDeckView
+
+#pragma mark - init methods
+
 -(instancetype)initWithQuantityOfCellsHorizotal:(int) rows QuantityOfCellsVertical:(int) columns{
-    if(self){
-        
-    }
+ 
     self=[super init];
     
     if(self){
@@ -31,6 +32,8 @@
     
     return self;
 }
+
+
 -(NSMutableArray*) arrayOfSuggestionsSizesOfCells{
     if(!_arrayOfSuggestionsSizesOfCells){
         _arrayOfSuggestionsSizesOfCells=[[NSMutableArray alloc] init];
@@ -40,13 +43,14 @@
     
 }
 
+#pragma mark - properties methods
+
 -(NSMutableArray*) arrayOfCells{
     
     if(!_arrayOfCells){
         
         _arrayOfCells=[[NSMutableArray alloc] init];
     }
-    
     
     return _arrayOfCells;
 }
@@ -58,26 +62,17 @@
         _sizeOfCell.y=self.bounds.size.height/self.rows;
     }
     
-    
     return _sizeOfCell;
 }
--(void)drawCell{
-    
-    
-    
-    
-}
+
+#pragma mark - drawing cells methods
+
 -(void) drawDeckOfCells{
     
     double x=floor(self.sizeOfCell.x);
     double y=floor(self.sizeOfCell.y);
-    if(x!=y){
-        if(x>y){
-            x=y;
-        }else{
-            y=x;
-        }
-    }
+ 
+     NSLog(@"height %f width %f",y,x);
     for(int i=1;i<=self.columns;i++){
         for(int n=1;n<=self.rows;n++){
             CGRect frame;
@@ -88,7 +83,7 @@
             Point position={i,n};
             UICellView *cellView=[[UICellView alloc] initWithFrame:CGRectIntegral(frame) andPosition:position];
             cellView.backgroundColor=[UIColor whiteColor];
-           [self addSubview:cellView];
+            [self addSubview:cellView];
             [self.arrayOfCells addObject:cellView];
         }
     }
@@ -105,8 +100,6 @@
     float offsetWidth=self.frame.size.width-width;
     CGRect frame=self.frame;
     self.frame=CGRectMake([[UIScreen mainScreen] bounds].origin.x+offsetWidth/2, ([[UIScreen mainScreen] bounds].size.height-frame.size.height)+offsetHeight, frame.size.width, frame.size.height);
-    
-    
 }
 
 -(void) drawDeckOfCellsWithQuantityOfCellsHorizotal:(int) rows QuantityOfCellsVertical:(int) columns{
@@ -131,16 +124,17 @@
         for(int n=6;n<=25;n++){
             float width=self.frame.size.width/i;
             float height=self.frame.size.height/n;
-            if(height>30 && width>30){
-                           if(height-width>0){
-                if((height-width)<0.8){
-                    [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
+            if(height>27 && width>27){
+                if(height-width>0){
+                    if((height-width)<0.8){
+                        [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
+                    }
+                }else{
+                    if((height-width)>-0.8){
+                        [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
+                    }
                 }
-            }else{
-                if((height-width)>-0.8){
-                    [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];
-                }
-            }}
+            }
         }
     }
 }

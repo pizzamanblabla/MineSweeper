@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MineSwapperCell : NSObject
+@interface MineSweeperCell : NSObject
 @property (nonatomic) BOOL isShown;
 @property (nonatomic) BOOL isBomb;
 @property (nonatomic) BOOL isFlag;
