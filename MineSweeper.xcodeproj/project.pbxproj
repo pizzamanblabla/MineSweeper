@@ -89,7 +89,7 @@
 		4439C7181B375B0200F6CF08 /* UICellDeckView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UICellDeckView.m; path = MineSweeper/UICellDeckView.m; sourceTree = SOURCE_ROOT; };
 		4439C7191B375B0200F6CF08 /* UICellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UICellView.h; path = MineSweeper/UICellView.h; sourceTree = SOURCE_ROOT; };
 		4439C71A1B375B0200F6CF08 /* UICellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UICellView.m; path = MineSweeper/UICellView.m; sourceTree = SOURCE_ROOT; };
-		4439C71B1B375B0200F6CF08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = MineSweeper/ViewController.m; sourceTree = SOURCE_ROOT; };
+		4439C71B1B375B0200F6CF08 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = MineSweeper/ViewController.h; sourceTree = SOURCE_ROOT; };
 		4439C71C1B375B0300F6CF08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = MineSweeper/ViewController.m; sourceTree = SOURCE_ROOT; };
 		4439C7301B375BF600F6CF08 /* UICounterImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UICounterImageView.h; path = MineSweeper/UICounterImageView.h; sourceTree = SOURCE_ROOT; };
 		4439C7311B375BF600F6CF08 /* UICounterImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UICounterImageView.m; path = MineSweeper/UICounterImageView.m; sourceTree = SOURCE_ROOT; };
@@ -360,7 +360,7 @@
 		44C86B0E1B08F77D00DA328F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4439C71B1B375B0200F6CF08 /* ViewController.m */,
+				4439C71B1B375B0200F6CF08 /* ViewController.h */,
 				4439C71C1B375B0300F6CF08 /* ViewController.m */,
 			);
 			name = Controller;
