@@ -71,8 +71,6 @@
     
     double x=floor(self.sizeOfCell.x);
     double y=floor(self.sizeOfCell.y);
- 
-     NSLog(@"height %f width %f",y,x);
     for(int i=1;i<=self.columns;i++){
         for(int n=1;n<=self.rows;n++){
             CGRect frame;
