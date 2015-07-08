@@ -40,7 +40,7 @@
         _label=[[UILabelWithOffset alloc] initWithFrame:frame];
         _label.text=@"0";
         _label.font=[UIFont fontWithName:@"Futura" size:self.frame.size.height*0.8];
-        _label.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
+        _label.textColor=[MineSweeperPaletteFactory fontHeaderColorWithIndex:PALETTE];
         _label.textAlignment=NSTextAlignmentRight;
         _label.adjustsFontSizeToFitWidth = YES;
         
@@ -53,7 +53,7 @@
     if(!_imageView){
         CGRect frame=CGRectMake((self.frame.size.width-self.frame.size.height), 0, self.frame.size.height, self.frame.size.height);
         _imageView=[[UIView alloc] initWithFrame:frame];
-        _imageView.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+        _imageView.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:PALETTE];
         if(self.image){
             CAShapeLayer *ShapeLayer=[PocketSVG makeShapeLayerWithSVG:self.image andFrame:frame];
             [_imageView.layer addSublayer:ShapeLayer];

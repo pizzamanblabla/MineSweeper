@@ -17,9 +17,9 @@
     CAShapeLayer *myShapeLayer = [CAShapeLayer layer];
     myShapeLayer.path = myPath;
     
-    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontHeaderColorWithIndex:PALETTE].CGColor;
     myShapeLayer.lineWidth = 0.5;
-    myShapeLayer.fillColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.fillColor = [MineSweeperPaletteFactory fontTextColorWithIndex:PALETTE].CGColor;
    // myShapeLayer.shadowColor=[UIColor blackColor].CGColor;
     //myShapeLayer.shadowOpacity=0.8;
    // myShapeLayer.shadowRadius=5.0;
@@ -41,7 +41,7 @@
     CAShapeLayer *myShapeLayer = [CAShapeLayer layer];
     myShapeLayer.path = myPath;
     
-    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontHeaderColorWithIndex:PALETTE].CGColor;
     myShapeLayer.lineWidth = 0.5;
     myShapeLayer.fillColor = color.CGColor;
     float height=frame.size.height/CGPathGetPathBoundingBox(myPath).size.height;
@@ -55,9 +55,9 @@
     
     CAShapeLayer *myShapeLayer=[[CAShapeLayer alloc] init];
     myShapeLayer.path=layer.path;
-    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontTextColorWithIndex:PALETTE].CGColor;
     myShapeLayer.lineWidth = 0.5;
-    myShapeLayer.fillColor = [MineSweeperPaletteFactory fontTextColorWithIndex:0].CGColor;
+    myShapeLayer.fillColor = [MineSweeperPaletteFactory fontTextColorWithIndex:PALETTE].CGColor;
     float height=frame.size.height/CGPathGetPathBoundingBox(layer.path).size.height;
     myShapeLayer.transform = CATransform3DMakeScale(height, height, 1);
     

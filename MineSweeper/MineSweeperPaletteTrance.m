@@ -11,60 +11,60 @@
 @implementation MineSweeperPaletteTrance
 +(UIColor*) backgroundColor{
     
-    UIColor * color=[UIColor colorWithR:226 G:247 B:206 A:1];
+    UIColor * color=[UIColor colorWithR:245 G:245 B:235 A:1];
     
     return color;
 }
 
 +(UIColor*) fontHeaderColor{
     
-    UIColor * color=[UIColor colorWithR:69 G:38 B:50 A:1];
+    UIColor * color=[UIColor colorWithR:34 G:51 B:68 A:1];
     
     return color;
 }
 
 +(UIColor*) fontTextColor{
     
-    UIColor * color=[UIColor colorWithR:69 G:38 B:50 A:1];
+    UIColor * color=[UIColor colorWithR:51 G:68 B:85 A:1];
     
     
     return color;
 }
 
 +(UIColor*) backgroundCellColor{
-    UIColor * color=[UIColor colorWithR:226 G:247 B:206  A:1];
+    UIColor * color=[UIColor colorWithR:245 G:245 B:235  A:1];
     
     return color;
 }
 
 +(UIColor*) buttonTextColor{
     
-    UIColor * color=[UIColor colorWithR:226 G:247 B:206  A:1];
+    UIColor * color=[UIColor colorWithR:245 G:245 B:235 A:1];
     
     return color;
 }
 
 +(UIColor*) frontCellColor{
     
-    UIColor * color=[UIColor colorWithR:142 G:32 B:77 A:1];
+    UIColor * color=[UIColor colorWithR:51 G:68 B:85 A:1];
     return color;
 }
 
 +(UIColor*) buttonColor{
     
-    UIColor * color=[UIColor colorWithR:228 G:132 B:74 A:1];
+    UIColor * color=[UIColor colorWithR:82 G:65 B:71 A:1];
     
     
     return color;
 }
 +(UIColor*) borderCellFrontColor{
     
-    UIColor * color=[UIColor colorWithR:226 G:247 B:206 A:1];
+    UIColor * color=[UIColor colorWithR:245 G:245 B:235 A:1];
     return color;
 }
 +(UIColor*) borderCellBackgroundColor{
     
-    UIColor * color=[UIColor colorWithR:69 G:38 B:50 A:1];
+    UIColor * color=[UIColor colorWithR:51 G:68 B:85 A:1];
     
     
     return color;
@@ -80,7 +80,7 @@
 
 +(UIColor*) halfOpacityBackground{
     
-    UIColor * color=[UIColor colorWithR:226 G:247 B:206  A:0.5];
+    UIColor * color=[UIColor colorWithR:245 G:245 B:235 A:1];
     
     
     return color;

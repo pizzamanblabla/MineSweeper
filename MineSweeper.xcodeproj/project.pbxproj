@@ -101,6 +101,7 @@
 		4439C73E1B375E8200F6CF08 /* MineSweeperPaletteTrance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSweeperPaletteTrance.h; path = MineSweeper/MineSweeperPaletteTrance.h; sourceTree = SOURCE_ROOT; };
 		4439C73F1B375E8200F6CF08 /* MineSweeperPaletteTrance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineSweeperPaletteTrance.m; path = MineSweeper/MineSweeperPaletteTrance.m; sourceTree = SOURCE_ROOT; };
 		4439C7431B388E9400F6CF08 /* MineSwapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MineSwapper.xcdatamodel; sourceTree = "<group>"; };
+		44A1AE751B4BBC8100592DBD /* PaletteConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PaletteConstant.h; path = /Users/Eugene/Documents/Development/MineSweeper/PaletteConstant.h; sourceTree = "<absolute>"; };
 		44B0CEBA1B1B8AD7009F00B1 /* UILabelWithOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelWithOffset.h; sourceTree = SOURCE_ROOT; };
 		44B0CEBB1B1B8AD7009F00B1 /* UILabelWithOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelWithOffset.m; sourceTree = SOURCE_ROOT; };
 		44B0CEBD1B1FA517009F00B1 /* MineSweeperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -289,6 +290,7 @@
 		44B757B91B26184D000C6F81 /* Palettes */ = {
 			isa = PBXGroup;
 			children = (
+				44A1AE751B4BBC8100592DBD /* PaletteConstant.h */,
 				44B757911B231C05000C6F81 /* MineSweeperPaletteFactory.h */,
 				44B757921B231C05000C6F81 /* MineSweeperPaletteFactory.m */,
 				44B7578E1B230A1E000C6F81 /* MineSweeperPaletteDefault.h */,

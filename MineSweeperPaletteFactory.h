@@ -7,7 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-
+#import "PaletteConstant.h"
 @interface MineSweeperPaletteFactory : NSObject
 +(UIColor*) backgroundColorWithIndex:(int) index;
 +(UIColor*) fontHeaderColorWithIndex:(int) index;

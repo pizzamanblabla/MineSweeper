@@ -30,7 +30,10 @@
         self.position=position;
         self.isShown=NO;
         self.isFlag=NO;
-        [self addSubview:self.Image];
+        //self.opaque=NO;
+        //[self addSubview:self.Image];
+        self.layer.borderColor=[UIColor whiteColor].CGColor;
+        self.layer.borderWidth=self.frame.size.width*0.03;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         [self addGestureRecognizer:tapGesture];
         UILongPressGestureRecognizer *pressGesture=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePressGesture:)];
@@ -47,9 +50,16 @@
 -(void) setIsShown:(BOOL)isShown{
     _isShown=isShown;
     if(isShown){
-        
         if(!self.isBomb && self.isFlag){
-            self.Image.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:0];
+            self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:PALETTE];
+        }else{
+            if(![self.backgroundColor isEqual:[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:PALETTE]]){
+                self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE];
+            }
+        }
+    }else{
+        if(self.isFlag){
+            self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE];
         }
     }
     
@@ -66,13 +76,12 @@
 
 -(void) setImageLayer:(CAShapeLayer *)imageLayer{
     if(_imageLayer){
-        self.Image.layer.sublayers=nil;
-        _imageLayer=imageLayer;
-        [self.Image.layer addSublayer: _imageLayer];
-    }else{
-        _imageLayer=imageLayer;
-        [self.Image.layer addSublayer: _imageLayer];
+        self.layer.sublayers=nil;
     }
+        _imageLayer=imageLayer;
+        [self.layer addSublayer: _imageLayer];
+       
+    
     
     
 }
@@ -103,7 +112,7 @@
 -(UIView*) Image{
     if(!_Image){
         _Image=[[UIImageView alloc] initWithFrame:self.bounds];
-        _Image.backgroundColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0];
+        _Image.backgroundColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:PALETTE];
         self.layer.borderColor=[UIColor whiteColor].CGColor;
         self.layer.borderWidth=self.frame.size.width*0.03;
     }
@@ -157,7 +166,7 @@
                 if([self checkSound]){
                     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
                 }
-                self.Image.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:0];
+                self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorOfBombExploded:PALETTE];
             }else{
                 if([self checkSound]){
                     AudioServicesPlaySystemSound(self.tapSound);
@@ -182,6 +191,7 @@
                if([self checkSound]){
                    AudioServicesPlaySystemSound(self.flagSound);
                }
+                self.backgroundColor=[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE];
                [self.controllerDelegate flagedCell:self.position];
            }
        }
@@ -213,12 +223,13 @@
     if(self.isFlag){
         self.imageLayer=[self getImageLayerWithName:@"flag"];
         
-        self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
+        self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:PALETTE].CGColor;
         
-      
+     
         
     }else{
         if(self.isShown){
+            
             if(self.isBomb){
              self.imageLayer=[self getImageLayerWithName:@"bomb"];
             }else{
@@ -228,19 +239,20 @@
                     self.imageLayer=nil;
                 }
             }
-             self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:0].CGColor;
+             self.layer.borderColor=[MineSweeperPaletteFactory borderCellBackgroundColorWithIndex:PALETTE].CGColor;
            
             
             
         }else{
-            self.layer.borderColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:0].CGColor;
+            self.layer.borderColor=[MineSweeperPaletteFactory borderCellFrontColorWithIndex:PALETTE].CGColor;
             CAShapeLayer *frontLayer=[CAShapeLayer layer];
-            frontLayer.path=CGPathCreateWithRect ( CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), nil );
+            CGPathRef path=CGPathCreateWithRect ( CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), nil );
+            frontLayer.path=path;
             frontLayer.strokeColor = [UIColor clearColor].CGColor;
             frontLayer.lineWidth = 0.5;
-            frontLayer.fillColor=[MineSweeperPaletteFactory frontCellColorWithIndex:0].CGColor;
+            frontLayer.fillColor=[MineSweeperPaletteFactory frontCellColorWithIndex:PALETTE].CGColor;
             self.imageLayer=frontLayer;
-            
+            CFRelease(path);
         }
     }
 }

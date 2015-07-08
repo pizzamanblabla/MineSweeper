@@ -50,12 +50,12 @@
     
     if(!sound){
         [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
-        self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+        self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE]];
     }else{
         if([sound intValue]){
-            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE]];
         }else{
-            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"novolume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"novolume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE]];
         }
     }
 
@@ -71,10 +71,10 @@
     }else{
         if([sound intValue]){
             [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"sound"];
-            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"novolume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"novolume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE]];
         }else{
             [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"sound"];
-            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:0]];
+            self.imageLayer=[PocketSVG makeShapeLayerWithSVG:@"volume" andFrame:self.soundButton.frame andColor:[MineSweeperPaletteFactory backgroundCellColorWithIndex:PALETTE]];
         }
     }
     
@@ -101,7 +101,7 @@
         _cellsSetterLabel=[[UILabel alloc] initWithFrame:frame];
         _cellsSetterLabel.font=[UIFont fontWithName:@"Futura" size:_cellsSetterLabel.frame.size.height*0.9];
         _cellsSetterLabel.textAlignment=NSTextAlignmentCenter;
-        _cellsSetterLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
+        _cellsSetterLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:PALETTE];
         [self.options addSubview:_cellsSetterLabel];
         
     }
@@ -116,7 +116,7 @@
         _bombSetterLabel=[[UILabel alloc] initWithFrame:frame];
         _bombSetterLabel.font=[UIFont fontWithName:@"Futura" size:_bombSetterLabel.frame.size.height*0.9];
         _bombSetterLabel.textAlignment=NSTextAlignmentCenter;
-        _bombSetterLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:0];
+        _bombSetterLabel.textColor=[MineSweeperPaletteFactory fontTextColorWithIndex:PALETTE];
         [self.options addSubview:_bombSetterLabel];
         
     }
@@ -129,7 +129,6 @@
     if(!_controllerDelegate){
         _controllerDelegate=controllerDelegate;
          [self.options addSubview:self.quantityOfCells];
-       // [self updateViewWithModel:NO];
     }else{
         _controllerDelegate=controllerDelegate;
        
@@ -200,10 +199,10 @@
     if(!_submitButton){
         _submitButton=[[UIButton alloc] initWithFrame:[self getRectBoundsWithNumberInView:3.5]];
         [ _submitButton addTarget:self action:@selector(submitOptions) forControlEvents:UIControlEventTouchUpInside];
-        [ _submitButton setBackgroundColor:[MineSweeperPaletteFactory buttonColorWithIndex:0]];
+        [ _submitButton setBackgroundColor:[MineSweeperPaletteFactory buttonColorWithIndex:PALETTE]];
         [_submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-        [_submitButton setTitleColor:[MineSweeperPaletteFactory buttonTextColorWithIndex:0] forState:UIControlStateNormal];
-        _submitButton.titleLabel.textColor=[MineSweeperPaletteFactory buttonTextColorWithIndex:0];
+        [_submitButton setTitleColor:[MineSweeperPaletteFactory buttonTextColorWithIndex:PALETTE] forState:UIControlStateNormal];
+        _submitButton.titleLabel.textColor=[MineSweeperPaletteFactory buttonTextColorWithIndex:PALETTE];
         _submitButton.layer.cornerRadius=5;
         _submitButton.titleLabel.font=[UIFont fontWithName:@"Futura" size:_submitButton.frame.size.height*0.6];
             }

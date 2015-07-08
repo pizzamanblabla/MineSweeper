@@ -126,7 +126,7 @@
         _options=[[UIView alloc] initWithFrame:options];
         _options.backgroundColor=[UIColor whiteColor];
         _options.layer.cornerRadius=10;
-        _options.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+        _options.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:PALETTE];
     }
     
     return _options;

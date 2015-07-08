@@ -102,10 +102,10 @@
 
 -(void) drawDeckOfCellsWithQuantityOfCellsHorizotal:(int) rows QuantityOfCellsVertical:(int) columns{
     
-    NSArray *viewsToRemove = [self subviews];
+   NSArray *viewsToRemove = [self subviews];
     for (UIView *v in viewsToRemove) {
         [v removeFromSuperview];
-    }
+   }
     self.arrayOfCells=nil;
     _sizeOfCell.x=0;
     _sizeOfCell.y=0;
@@ -122,7 +122,7 @@
         for(int n=6;n<=25;n++){
             float width=self.frame.size.width/i;
             float height=self.frame.size.height/n;
-            if(height>27 && width>27){
+            if(height>30 && width>30){
                 if(height-width>0){
                     if((height-width)<0.8){
                         [self.arrayOfSuggestionsSizesOfCells addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:i],[NSNumber numberWithInt:n], nil]];

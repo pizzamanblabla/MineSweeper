@@ -135,7 +135,7 @@ const float STANDART_OFFSET=0.05;
         CGRect frame=CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width-positionCorector, y, width, heigth);
         frame=CGRectIntegral(frame);
         _timerLabel=[[UICounterImageView alloc] initWithFrame:frame andImage:@"time"];
-        _timerLabel.label.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+        _timerLabel.label.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:PALETTE];
     }
     return _timerLabel;
 }
@@ -176,7 +176,7 @@ const float STANDART_OFFSET=0.05;
         }
         CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height*0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height*size);
         _cells=[[UICellDeckView alloc] initWithFrame:frame];
-        _cells.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+        _cells.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:PALETTE];
     }
     
     return _cells;
@@ -401,7 +401,7 @@ const float STANDART_OFFSET=0.05;
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    self.view.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:0];
+    self.view.backgroundColor=[MineSweeperPaletteFactory backgroundColorWithIndex:PALETTE];
        [self initializeUI];
     
 

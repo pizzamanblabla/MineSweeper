@@ -47,7 +47,7 @@
 
 +(UIColor*) frontCellColor{
     
-      UIColor * color=[UIColor colorWithR:25 G:52 B:65 A:1];
+      UIColor * color=[UIColor colorWithR:51 G:68 B:85 A:1];
     return color;
 }
 
