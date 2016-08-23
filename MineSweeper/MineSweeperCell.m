@@ -12,34 +12,34 @@
 @end
 @implementation MineSweeperCell
 
--(instancetype) initWithPositionInDeck:(Point) position{
-    self=[super init];
-    if(position.h>=0 && position.v>=0){
-        if(self){
-            _positionInDeck.h=position.h;
-            _positionInDeck.v=position.v;
-               
+-(instancetype) initWithPositionInDeck:(Point) position {
+    self = [super init];
+    
+    if (position.h >= 0 && position.v >= 0){
+        if (self) {
+            _positionInDeck.h = position.h;
+            _positionInDeck.v = position.v;
         }
+        
         return self;
-    }else{
+    } else {
         return nil;
     }
 }
 
 -(NSUInteger) cellValue{
-    
-    
-    if(!_cellValue){
+    if (!_cellValue) {
         _cellValue=0;
     }
+    
     return _cellValue;
 }
 
 -(BOOL) isShown{
-    if(!_isShown){
-        _isShown=NO;
+    if (!_isShown) {
+        _isShown = NO;
     }
+    
     return _isShown;
 }
-
 @end

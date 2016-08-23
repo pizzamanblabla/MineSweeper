@@ -9,44 +9,30 @@
 #import "PocketSVG+LayerMaker.h"
 #import "MineSweeperPaletteFactory.h"
 @implementation PocketSVG (LayerMaker)
-+(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame{
-    
-    
++(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect) frame {
     CGPathRef myPath = [PocketSVG pathFromSVGFileNamed:image];
-    
     CAShapeLayer *myShapeLayer = [CAShapeLayer layer];
     myShapeLayer.path = myPath;
-    
     myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontHeaderColorWithIndex:PALETTE].CGColor;
     myShapeLayer.lineWidth = 0.5;
     myShapeLayer.fillColor = [MineSweeperPaletteFactory fontTextColorWithIndex:PALETTE].CGColor;
-   // myShapeLayer.shadowColor=[UIColor blackColor].CGColor;
-    //myShapeLayer.shadowOpacity=0.8;
-   // myShapeLayer.shadowRadius=5.0;
-    float height=frame.size.height/CGPathGetPathBoundingBox(myPath).size.height;
-   // float width=frame.size.width/CGPathGetPathBoundingBox(myPath).size.width;
-   
-    
+
+    float height = frame.size.height/CGPathGetPathBoundingBox(myPath).size.height;
     myShapeLayer.transform = CATransform3DMakeScale(height, height, 1);
-    //myShapeLayer.position=CGPointMake(frame.origin.x, frame.origin.y);
     
        return myShapeLayer;
 }
 
-+(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame andColor:(UIColor*) color{
-    
-    
++(CAShapeLayer*) makeShapeLayerWithSVG:(NSString*) image andFrame:(CGRect)frame andColor:(UIColor*) color {
     CGPathRef myPath = [PocketSVG pathFromSVGFileNamed:image];
-    
     CAShapeLayer *myShapeLayer = [CAShapeLayer layer];
     myShapeLayer.path = myPath;
-    
     myShapeLayer.strokeColor = [MineSweeperPaletteFactory fontHeaderColorWithIndex:PALETTE].CGColor;
     myShapeLayer.lineWidth = 0.5;
     myShapeLayer.fillColor = color.CGColor;
     float height=frame.size.height/CGPathGetPathBoundingBox(myPath).size.height;
     myShapeLayer.transform = CATransform3DMakeScale(height, height, 1);
-    
+
     return myShapeLayer;
 }
 
