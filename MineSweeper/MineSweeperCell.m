@@ -42,4 +42,5 @@
     
     return _isShown;
 }
+
 @end

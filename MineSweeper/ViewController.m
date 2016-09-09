@@ -59,9 +59,9 @@ const float STANDART_OFFSET=0.05;
 
 #pragma mark Properties
 
--(UIView*) headerView{
+-(UIView*) headerView {
     
-    if(!_headerView) {
+    if (!_headerView) {
         CGRect frame=CGRectMake(0, self.view.frame.size.height*self.offset, self.view.frame.size.width, self.view.frame.size.height-self.cells.frame.size.height-self.view.frame.size.height*self.offset);
         _headerView=[[UIView alloc] initWithFrame:frame];
         
@@ -70,8 +70,8 @@ const float STANDART_OFFSET=0.05;
     return _headerView;
 }
 
--(UIOptionsView*) options{
-    if(!_options){
+-(UIOptionsView*) options {
+    if (!_options){
         _options=[[UIOptionsView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         _options.controllerDelegate=self;
     }
@@ -80,12 +80,12 @@ const float STANDART_OFFSET=0.05;
 }
 
 
--(UIButton*) refreshButton{
-    if(!_refreshButton){
+-(UIButton*) refreshButton {
+    if (!_refreshButton) {
         float heigth = self.headerView.frame.size.height * 0.8;
         float width = heigth;
-        float y = (self.headerView.frame.size.height-heigth) / 2;
-        CGRect frame = CGRectMake(self.headerView.frame.size.width-self.headerView.frame.size.width*self.offset-width, y, width, heigth);
+        float y = (self.headerView.frame.size.height - heigth) / 2;
+        CGRect frame = CGRectMake(self.headerView.frame.size.width - self.headerView.frame.size.width * self.offset - width, y, width, heigth);
         frame = CGRectIntegral(frame);
         _refreshButton = [[UIButton alloc] initWithFrame:frame];
         [_refreshButton addTarget: self action: @selector(touchedUpInside) forControlEvents: UIControlEventTouchUpInside];
@@ -96,8 +96,8 @@ const float STANDART_OFFSET=0.05;
     return _refreshButton;
 }
 
--(UIButton*) optionsButton{
-    if(!_optionsButton){
+-(UIButton*) optionsButton {
+    if (!_optionsButton) {
         float heigth = self.headerView.frame.size.height * 0.7;
         float width = heigth;
         float y = (self.headerView.frame.size.height-heigth)/2;
@@ -107,7 +107,7 @@ const float STANDART_OFFSET=0.05;
         _optionsButton = [[UIButton alloc] initWithFrame:frame];
         [_optionsButton addTarget:self action:@selector(showOptions) forControlEvents:UIControlEventTouchUpInside];
         [_optionsButton addTarget:self action:@selector(touchedButtonOptions) forControlEvents:UIControlEventTouchDown];
-        CAShapeLayer *myShapeLayer=[PocketSVG makeShapeLayerWithSVG:@"options" andFrame:frame];
+        CAShapeLayer *myShapeLayer = [PocketSVG makeShapeLayerWithSVG:@"options" andFrame:frame];
         [_optionsButton.layer addSublayer:myShapeLayer];
     }
     
@@ -123,7 +123,7 @@ const float STANDART_OFFSET=0.05;
         float positionCorector = width * 1/16;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            positionCorector = width * 1/32;
+            positionCorector = width * 1 / 32;
         }
         
         CGRect frame = CGRectMake(self.headerView.frame.size.width*0.5+self.headerView.frame.size.height*0.5-width-positionCorector, y, width, heigth);
@@ -137,8 +137,8 @@ const float STANDART_OFFSET=0.05;
 
 -(UICounterImageView*) bombCounter {
     if (!_bombCounter) {
-        float heigth = self.headerView.frame.size.height*0.8;
-        float width = (self.headerView.frame.size.width-self.optionsButton.frame.size.width-self.refreshButton.frame.size.width)*0.5;
+        float heigth = self.headerView.frame.size.height * 0.8;
+        float width = (self.headerView.frame.size.width - self.optionsButton.frame.size.width - self.refreshButton.frame.size.width) * 0.5;
         float y = (self.headerView.frame.size.height - heigth) / 2;
         float positionCorector = width * 1/16;
         
@@ -165,7 +165,7 @@ const float STANDART_OFFSET=0.05;
             size = 0.85;
         }
         
-        CGRect frame=CGRectMake(0, [[UIScreen mainScreen] bounds].size.height * 0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height * size);
+        CGRect frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height * 0.15, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height * size);
         _cells = [[UICellDeckView alloc] initWithFrame: frame];
         _cells.backgroundColor = [MineSweeperPaletteFactory backgroundColorWithIndex: PALETTE];
     }
@@ -174,8 +174,8 @@ const float STANDART_OFFSET=0.05;
 }
 
 
--(NSCache*) SVGCache{
-    if(!_SVGCache){
+-(NSCache*) SVGCache {
+    if (!_SVGCache) {
         _SVGCache = [[NSCache alloc] init];
     }
     
@@ -285,21 +285,21 @@ const float STANDART_OFFSET=0.05;
 
 #pragma mark Controller
 
--(void) updateViewWithRows:(int) rows andColumns:(int) columns Bombs:(int)bombs updateModel:(BOOL) update{
-    
-    self.game=nil;
-    self.isGameOver=NO;
+-(void) updateViewWithRows:(int) rows andColumns:(int) columns Bombs:(int)bombs updateModel:(BOOL) update {
+    self.game = nil;
+    self.isGameOver = NO;
     [self.cells drawDeckOfCellsWithQuantityOfCellsHorizotal:columns QuantityOfCellsVertical:rows];
-    if(update){
-         self.game=[[MineSweeperGame alloc ] initWithRows:rows Columns:columns Bombs:bombs];
+    
+    if (update) {
+         self.game = [[MineSweeperGame alloc ] initWithRows:rows Columns:columns Bombs:bombs];
         [self updateUIModel];
     }
 }
 
--(void)updateUIModel{
+-(void)updateUIModel {
     self.bombCounter.label.text=[NSString stringWithFormat:@"%d",self.game.cellsDeck.bombs];
     
-    for ( UICellView* cell in self.cells.arrayOfCells) {
+    for (UICellView* cell in self.cells.arrayOfCells) {
         MineSweeperCell* modelCell=[self.game.cellsDeck getCellByPosition:cell.position];
         
         if (!cell.controllerDelegate) {
@@ -331,7 +331,7 @@ const float STANDART_OFFSET=0.05;
 -(void) showOptions{
     [[self.optionsButton layer] addAnimation:[self buttonTouchedAnimationFrom:0.8 to:1.0] forKey:@"transform.scale"];
 
-    BOOL isHidden=!self.options.hidden;
+    BOOL isHidden = !self.options.hidden;
     [self.options showViewWithAnimation:isHidden];
     [self.options updateViewWithModel:NO];
 }
@@ -342,8 +342,8 @@ const float STANDART_OFFSET=0.05;
     self.timerLabel.label.text = [NSString stringWithFormat: @"%d",labelValue];
 }
 
--(void) setStartGameOptions{
-    self.timerLabel.backgroundColor=[UIColor whiteColor];
+-(void) setStartGameOptions {
+    self.timerLabel.backgroundColor = [UIColor whiteColor];
     self.timerLabel.label.text = @"0";
     [self.gameTimer invalidate];
     self.gameTimer = nil;

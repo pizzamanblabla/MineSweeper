@@ -16,7 +16,7 @@
 
 #pragma mark - init
 
--(instancetype) initWithRows: (int)rows Columns: (int) columns Bombs: (int) bombs{
+-(instancetype) initWithRows:(int) rows Columns:(int) columns Bombs:(int) bombs {
     self = [super init];
     
     if (self) {
@@ -30,12 +30,12 @@
 #pragma mark - updating model
 
 -(NSUInteger) calculateScore: (int) time {
-    self.score=self.gameValue/time;
+    self.score = self.gameValue / time;
     return self.score;
     
 }
 
--(void) flagCellWithPosition: (Point) position{
+-(void) flagCellWithPosition: (Point) position {
     MineSweeperCell *cell = [self.cellsDeck getCellByPosition:position];
     
     if (!cell.isShown) {
@@ -49,9 +49,13 @@
     }
 }
 
--(BOOL) checkIsLose{
+-(BOOL) checkIsLose {
     for (MineSweeperCell *cell in self.cellsDeck.arrayOfCells) {
-        if (cell.isBomb && !cell.isFlag && cell.isShown) {
+        if (
+            cell.isBomb &&
+            !cell.isFlag &&
+            cell.isShown
+        ) {
             return YES;
         }
     }

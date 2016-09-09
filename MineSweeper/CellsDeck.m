@@ -32,8 +32,8 @@
 #pragma mark - create cells
 
 -(void) createCellsWithQuantityOfCellsHorizontal: (NSUInteger) quantityOfCellsHorizontal Vertical: (NSUInteger) quantityOfCellsVertical {
-    for(int i = 1;i <= quantityOfCellsHorizontal;i++) {
-        for(int n = 1;n <= quantityOfCellsVertical;n++) {
+    for (int i = 1;i <= quantityOfCellsHorizontal;i++) {
+        for (int n = 1;n <= quantityOfCellsVertical;n++) {
             Point positionInDeck = {i,n};
             MineSweeperCell *cell = [[MineSweeperCell alloc] initWithPositionInDeck:positionInDeck];
             
@@ -48,7 +48,7 @@
 
 -(void)placeQuantityOfMines: (NSUInteger) quantityOfMines {
     if (self.arrayOfCells) {
-        for(int i = 0;i < quantityOfMines;i++) {
+        for (int i = 0;i < quantityOfMines;i++) {
             NSUInteger indexOfMine = [self getIndexOfRandomCell];
             [self.arrayOfCells[indexOfMine] setIsBomb: YES];
             [self updateDeckWithCell: self.arrayOfCells[indexOfMine]];
@@ -57,7 +57,7 @@
 }
 
 -(NSUInteger) getIndexOfRandomCell {
-     NSUInteger countOfCells=[self.arrayOfCells count];
+     NSUInteger countOfCells = [self.arrayOfCells count];
      NSUInteger indexOfMine = arc4random()%countOfCells;
     
     if ([self.arrayOfCells[indexOfMine] isBomb]) {
@@ -131,10 +131,11 @@
 
 -(MineSweeperCell*) getCellByPosition: (Point) position {
     for (MineSweeperCell *cell in self.arrayOfCells) {
-        if ([self comparePositionWithPoint:position AndPoint: cell.positionInDeck]) {
+        if ([self comparePositionWithPoint: position AndPoint: cell.positionInDeck]) {
             return cell;
         }
     }
+    
     return nil;
 }
 
@@ -155,6 +156,5 @@
 -(BOOL) comparePositionWithPoint: (Point) point AndPoint: (Point) comparablePoint {
     return point.h == comparablePoint.h && point.v == comparablePoint.v;
 }
-
 
 @end
